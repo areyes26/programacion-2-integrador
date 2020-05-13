@@ -1,0 +1,19 @@
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main .generos_container li a {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 2rem;
+  margin-left: 5%;
+}
+
+main .generos_container li a:hover {
+  color: rgba(56, 240, 148, .85);
+  text-decoration: none;
+}
+
+/* .family img {
+  height: 19em;
+} */

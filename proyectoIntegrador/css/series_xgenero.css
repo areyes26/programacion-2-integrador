@@ -1,0 +1,38 @@
+.contenedor_generos {
+  width: 100%;
+}
+
+.ul_generos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+}
+
+.ul_generos li {
+  width: 19%;
+  margin-left: 0px;
+  justify-content: space-around;
+  margin-bottom: 1%;
+}
+
+.ul_generos li a img {
+  width: 100%;
+}
+
+/* MEDIA QUERY */
+/* MEDIA QUERY TABLET */
+@media (min-width: 451px) and (max-width: 768px) {
+  main .contenedor_generos .ul_generos li {
+    width: 30%;
+    <<<<<<< HEAD=======>>>>>>>master
+  }
+}
+
+/* MEDIA QUERY CELULAR */
+@media (max-width: 450px) {
+  main .contenedor_generos .ul_generos li {
+    width: 50%;
+  }
+}

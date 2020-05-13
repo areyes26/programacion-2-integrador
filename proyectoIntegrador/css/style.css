@@ -1,0 +1,621 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
+
+/* importo el tipo de fuente */
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* me aseguro que las medidas de los elementos, son las que defino */
+body {
+  font-family: sans-serif;
+  background-color: #222;
+  color: white;
+  font-size: 1rem;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+}
+
+/*---------- HEADER -----------*/
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+
+/* estilo de navegacion */
+header {
+  background: rgba(56, 240, 148, 0.85);
+  position: fixed;
+  z-index: 999;
+  /* para que este arriba de todo */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Izquierda */
+header .izquierda_header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 55%;
+  flex-wrap: wrap;
+}
+
+header .a_logo {
+  width: 20%;
+  margin: 2%;
+}
+
+header .a_logo .logo {
+  opacity: 1;
+  width: 100%;
+}
+
+header .izquierda_header nav ul li:hover a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#nav-toggle {
+  display: none;
+}
+
+.izquierda_header ul {
+  display: flex;
+}
+
+.izquierda_header ul li {
+  margin-left: 1em;
+}
+
+.izquierda_header ul li a {
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+/* Derecha */
+header .derecha_header {
+  display: flex;
+  justify-content: flex-end;
+  width: 45%;
+  align-items: center;
+}
+
+/* << BARRA DE BUSQUEDA >> */
+header .uk-navbar-container {
+  border-radius: 17px;
+  width: 50%;
+  margin-bottom: 4%;
+}
+
+header .uk-search-input {
+  width: 71%;
+  ;
+}
+
+.derecha_header nav .conenedor_buscador form {
+  width: 200px;
+  /* achico el width de 400 a 200 porque interferia con el hover de Avanzada */
+}
+
+.derecha_header nav .conenedor_buscador form input {
+  border-radius: 17px;
+  font-size: 1.4rem;
+}
+
+/* modal BUSQUEDA*/
+#avanzada {
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin: 3%;
+}
+
+header .derecha_header #avanzada:hover {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#modal_avanzada {
+  background-color: #333;
+  border-radius: 20px;
+}
+
+#modal_avanzada form {
+  display: flex;
+  flex-direction: column;
+}
+
+#modal_avanzada form label {
+  font-size: 1.2rem;
+}
+
+#modal_avanzada h2 {
+  color: white;
+  text-align: center;
+}
+
+/* ESTILO BUSCADOR AVANZADO */
+#modal_avanzada form select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#modal_avanzada form select:hover {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-color: blue;
+  box-sizing: border-box;
+}
+
+#modal_avanzada form input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#modal_avanzada form input:hover {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-color: blue;
+  box-sizing: border-box;
+}
+
+#modal_avanzada form button[type=cancel] {
+  color: white;
+  margin: 8px 0;
+  background-color: darkred;
+  border: 0px;
+  font-weight: bold;
+}
+
+#modal_avanzada form button[type=cancel]:hover {
+  background-color: #b30505;
+}
+
+#modal_avanzada form button[type=Search] {
+  color: white;
+  margin: 8px 0;
+  background-color: darkgreen;
+  border: 0px;
+  font-weight: bold;
+}
+
+#modal_avanzada form button[type=Search]:hover {
+  background-color: green;
+}
+
+/* TERMINA ESTILO BUSCADOR AVANZADO */
+/* MODAL USUARIO */
+header #corazón {
+  width: 7%;
+  z-index: 9999;
+}
+
+header #corazón img {
+  width: 100%;
+}
+
+header #a_usuario {
+  display: block;
+  width: 9%;
+  margin: 4% 2%;
+}
+
+header #a_usuario img {
+  width: 100%;
+}
+
+#modal_usuario {
+  background-color: #222;
+  border-radius: 20px;
+}
+
+#modal_usuario form {
+  display: flex;
+  flex-direction: column;
+}
+
+#modal_usuario h2 {
+  color: white;
+  text-align: center;
+}
+
+#modal_usuario form label {
+  font-size: 1.2rem;
+}
+
+#modal_usuario form input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#modal_usuario form input:hover {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-color: blue;
+  box-sizing: border-box;
+}
+
+#modal_usuario form p button[type=Cancel] {
+  color: white;
+  margin: 8px 0;
+  background-color: darkred;
+  border: 0px;
+  font-weight: bold;
+}
+
+#modal_usuario form p button[type=Cancel]:hover {
+  background-color: #b30505;
+}
+
+#modal_usuario form p button[type=submit] {
+  color: white;
+  margin: 8px 0;
+  background-color: darkgreen;
+  border: 0px;
+  font-weight: bold;
+}
+
+#modal_usuario form p button[type=submit]:hover {
+  background-color: green;
+}
+.logedIn{
+  display: none;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
+}
+.logedIn p{
+  margin: 0;
+  margin-top: 20%;
+}
+#logOut{
+  font-size: 0.7rem;
+  margin: 0 auto;
+  margin-bottom: 35%;
+  display: none;
+  background-color: red;
+  border-radius: 12px;
+  padding: 8%;
+  border: solid 1px black;
+  color: white;
+
+}
+.nav-toggle-label {
+  display: none;
+}
+
+nav {
+  margin-right: 2%;
+  margin-top: 5%;
+  z-index: 34;
+}
+
+/* ---------- Main ---------- */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+main #titulos {
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 2%;
+}
+
+.primero {
+  padding-top: 10%;
+}
+
+main div ul li:hover img {
+  border: solid 1px rgba(56, 240, 148, 0.85);
+  border-radius: 20px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  width: 100%;
+  background: gray;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+footer .DB {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  font-size: 0.8rem;
+  margin: 2%;
+}
+
+footer #logo {
+  width: 40%;
+  margin-top: 5%;
+}
+
+footer .redes {
+  margin: 2%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+footer div a {
+  color: rgba(100, 100, 100, 0.8);
+  font-size: 1.1rem;
+}
+
+footer .contacto p {
+  color: rgba(100, 100, 100, 0.8);
+  font-size: 1.1rem;
+}
+
+/* hover */
+footer a:hover {
+  color: red;
+  text-decoration: none;
+}
+
+footer .contacto {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  width: 20%;
+}
+
+footer .contacto p {
+  color: rgba(100, 100, 100, 0.8);
+}
+
+footer .redes h2, .contacto h2 {
+  color: rgba(250, 250, 250, 0.67)
+}
+
+/* --------------------- MEDIA QUERY --------------------*/
+/* QUERY TABLET */
+@media (min-width: 641px) and (max-width: 800px) {
+  header .izquierda_header nav ul li a {
+    font-size: 0.8rem;
+  }
+
+  .derecha_header nav .conenedor_buscador form input {
+    font-size: 1.2rem;
+  }
+
+  header .derecha_header #avanzada {
+    font-size: 0.8rem;
+  }
+  #logOut{
+    font-size: 0.6rem;
+  }
+
+  .primero {
+    padding-top: 12%;
+  }
+
+  /* FOOTER */
+  footer .DB p {
+    display: none;
+  }
+
+  footer #logo {
+    width: 80%;
+    margin-top: 5%;
+  }
+
+  footer .contacto {
+    display: none;
+  }
+
+  footer .redes {
+    width: 50%;
+  }
+}
+
+/* QUERY Celular */
+@media (max-width: 640px) {
+
+  /* HEADER */
+  header .derecha_header {
+    width: 65%;
+  }
+
+  header .derecha_header #avanzada {
+    font-size: 0.6rem;
+  }
+
+  header .izquierda_header {
+    width: 35%;
+  }
+
+  .nav-toggle {
+    display: none;
+    /*esto va a hacer que el checkbox no se vea, y va a ser reemplazado por el span */
+  }
+
+  header .a_logo {
+    width: 55%;
+  }
+
+  header .uk-navbar-container {
+    height: ;
+  }
+
+  .derecha_header nav .conenedor_buscador form {
+    width: 130px;
+    /* achico el width de 400 a 200 porque interferia con el hover de Avanzada */
+  }
+
+  .derecha_header nav .conenedor_buscador form input {
+    font-size: 1rem;
+  }
+
+  .derecha_header nav .conenedor_buscador form span {
+    width: 15%;
+    left: 8%;
+  }
+
+  .nav-toggle-label {
+    position: absolute;
+    left: 21%;
+    top: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* lo posiciono en el medio */
+  }
+
+  .nav-toggle-label span {
+    display: block;
+    position: relative;
+  }
+
+  span {
+    color: white;
+  }
+
+  #hamburguesa {
+    position: absolute;
+    top: 68%;
+    width: 100%;
+    left: 0;
+    background: rgba(56, 240, 148, 0.85);
+    /* el de antes */
+    transform: scale(1, 0);
+    /* se esconde todo lo que esta dentro de nav, con el 0 se achico al maximo la navegacion */
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+    /*esta bueno utilizar el transform, en lugar de display:none/display:block, porque te permite ajustar la transicion */
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /*le saco el punto del inicio */
+    margin-left: 12%;
+  }
+
+  nav li {
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+  }
+
+  header .izquierda_header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  nav a:hover {
+    color: #000;
+  }
+
+  /* el :checked buscado si a un checkbox seleccionado */
+  .nav-toggle:checked~#hamburguesa {
+    transform: scale(1, 1);
+    /*ahora al seleccionar el checkbox aparece mi lista , 1,1 aparece la lista en tamano entero*/
+  }
+
+  .nav-toggle:checked~#hamburguesa a {
+    opacity: 1;
+    /*esto permite que vaya apareciendo el textoo */
+    transition: opacity 250ms ease-in-out 250ms;
+    /*cuando ya esta checkeado comienza el efecto */
+    /*el segundo nos permite poner el tiempo de tardanza*/
+  }
+
+  .nav-toggle:checked~#hamburguesa {
+    opacity: 1;
+    /*esto permite que vaya apareciendo el textoo */
+    transition: opacity 250ms ease-in-out 250ms;
+    /*cuando ya esta checkeado comienza el efecto */
+    /*el segundo nos permite poner el tiempo de tardanza*/
+  }
+
+  header #corazón {
+    width: 12%;
+    margin-right: 1%;
+  }
+
+  header #a_usuario {
+    width: 18%;
+    margin-right: 1%;
+  }
+
+  #avanzada {
+    margin: 1%;
+  }
+  #logOut{
+    font-size: 0.5rem;
+  }
+
+  /* main */
+  .primero {
+    padding-top: 20%;
+  }
+
+  /* FOOTER */
+  footer .DB p {
+    display: none;
+  }
+
+  footer #logo {
+    width: 100%;
+    margin-top: 5%;
+  }
+
+  footer .contacto {
+    display: none;
+  }
+
+  footer .redes {
+    width: 50%;
+  }
+}

@@ -1,0 +1,51 @@
+main .div-resultados {
+  width: 100%;
+}
+
+main .div-resultados .resultados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+}
+
+main .div-resultados .resultados li {
+  width: 19%;
+  margin-left: 0px;
+  justify-content: space-around;
+  margin-bottom: 1%;
+}
+
+main .div-resultados .resultados li img {
+  width: 100%;
+}
+
+#titulos {
+  text-transform: capitalize;
+}
+
+/* media */
+/* TABLEt */
+@media (min-width: 451px) and (max-width: 768px) {
+  main .div-resultados ul.resultados li {
+    width: 30%;
+    padding: 1%;
+  }
+
+  #click_pelis img {
+    width: 50%;
+  }
+}
+
+/* CELULAR */
+@media (max-width: 450px) {
+  main .div-resultados ul.resultados li {
+    width: 50%;
+    padding: 0, 5%;
+  }
+
+  #click_pelis img {
+    width: 100%;
+  }
+}

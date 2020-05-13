@@ -1,0 +1,118 @@
+/* estilo de los detalles de las series */
+main {
+  display: flex;
+  position: relative;
+}
+
+main .foto_conteiner {
+  width: 50%;
+  padding: 5%;
+}
+
+#titulos {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+main .info_conteiner {
+  width: 50%;
+  padding: 5%;
+}
+
+main .info_conteiner h2 {
+  color: white;
+  text-transform: uppercase;
+}
+
+main .info_conteiner h3 {
+  color: rgba(250, 250, 250, 0.6);
+}
+
+main .info_conteiner p em {
+  color: rgba(250, 250, 250, 0.6);
+}
+
+main .trailer_conteiner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+main .trailer_conteiner iframe {
+  margin-bottom: 5%;
+}
+
+/* boton */
+button {
+  margin: 5% auto;
+  background-color: rgba(0, 0, 0, 0.03);
+  font-size: 1.3rem;
+  padding: 1%;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+}
+
+button:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: solid 3px rgba(56, 240, 148, .85);
+  border-radius: 25px;
+}
+
+.boton1, .boton2 {
+  width: 50%;
+  text-align: center;
+}
+
+.boton1 button, .boton2 button {
+  margin: 1%;
+  padding: 1.5%;
+}
+
+/* recomendaciones */
+#boton-recom {
+  font-size: 1.5rem;
+}
+
+main .Recomendaciones #titulos {
+  width: 95%;
+  margin-bottom: 2%;
+}
+
+.Recomendaciones {
+  display: none;
+}
+
+.show {
+  display: block;
+  /* Con esto aparecen las recomendaciones */
+}
+
+/* QUERY TABLET */
+@media (max-width: 800px) {
+  main h2, main h3 {
+    font-size: 1rem;
+  }
+
+  main .trailer_conteiner iframe {
+    width: 95%;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+/* QUERY CELULAR */
+@media (max-width: 450px) {
+  .foto_conteiner {
+    height: 50%;
+  }
+
+  p {
+    font-size: 0.7rem;
+  }
+}
