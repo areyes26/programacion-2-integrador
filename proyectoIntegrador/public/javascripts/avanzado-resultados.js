@@ -11,8 +11,8 @@ window.addEventListener("load", function() {
   console.log(incluir, excluir, orden, año);
 
   //guardo lo buscado
-  var elInput = document.querySelector("#id-año")
-  elInput.setAttribute("value", año) //meto el año
+  //var elInput = document.querySelector("#id-año")
+  //elInput.setAttribute("value", "año") //meto el año
 
   var select_incluir = document.querySelector(".incluir");
   var index_incluir = select_incluir.selectedIndex
