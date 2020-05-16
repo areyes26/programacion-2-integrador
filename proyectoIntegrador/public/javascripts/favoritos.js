@@ -25,10 +25,10 @@ window.addEventListener("load", function() {
       })
       .then(function(serie) {
         console.log(serie)
-        document.querySelector(".seriesfavoritas").innerHTML += '<li>' + '<a href="info_serie.html?id=' + serie.id + '">' + '<img src="https://image.tmdb.org/t/p/w300/' + serie.poster_path + '">' + '</a>' + '</li>'
+        document.querySelector(".seriesfavoritas").innerHTML += '<li>' + '<a href="/info_serie?id=' + serie.id + '">' + '<img src="https://image.tmdb.org/t/p/w300/' + serie.poster_path + '">' + '</a>' + '</li>'
         if (datos.poster_path == null) {
           var foto = document.querySelector('.seriesfavoritas');
-          foto.innerHTML += '<li><a href="info_serie.html?id=' + datos.results[i].id + '"> ' + '<img src="img/notfound.jpg">' + '</a></li>'
+          foto.innerHTML += '<li><a href="/info_serie?id=' + datos.results[i].id + '"> ' + '<img src="/images/notfound.jpg">' + '</a></li>'
         }
 
       })
@@ -43,7 +43,7 @@ window.addEventListener("load", function() {
     return Math.floor(Math.random() * 9542);
   }
 
-  buscarRandom.innerHTML = '<a href="info_serie.html?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
+  buscarRandom.innerHTML = '<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
 
   //Se creo una funcion que permite hallar series random
 

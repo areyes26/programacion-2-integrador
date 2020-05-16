@@ -27,9 +27,9 @@ window.addEventListener("load", function() {
         for (var i = 0; i < series.length; i++) {
           if (datos.results[i].poster_path == null) {
             var photo = document.querySelector('.ul_generos');
-            photo.innerHTML += '<li><a href="info_serie.html?id=' + datos.results[i].id + '"> ' + '<img src="img/notfound.jpg">' + '</a></li>'
+            photo.innerHTML += '<li><a href="/info_serie?id=' + datos.results[i].id + '"> ' + '<img src="/images/notfound.jpg">' + '</a></li>'
           } else {
-            div.innerHTML += '<li><a id="click_pelis" href="info_serie.html?id=' + datos.results[i].id + '"> ' + '<img src="https://image.tmdb.org/t/p/w500/' + datos.results[i].poster_path + '">' + '</a></li>'
+            div.innerHTML += '<li><a id="click_pelis" href="/info_serie?id=' + datos.results[i].id + '"> ' + '<img src="https://image.tmdb.org/t/p/w500/' + datos.results[i].poster_path + '">' + '</a></li>'
           }
 
         }
@@ -42,7 +42,7 @@ window.addEventListener("load", function() {
           titulo.style.color = "Red"
         }
         for (var i = 0; i < series.length; i++) {
-          div.innerHTML += '<li><a href="info_serie.html?id=' + datos.results[i].id + '"> ' + '<img src="https://image.tmdb.org/t/p/w500/' + datos.results[i].poster_path + '">' + '</a></li>'
+          div.innerHTML += '<li><a href="/info_serie?id=' + datos.results[i].id + '"> ' + '<img src="https://image.tmdb.org/t/p/w500/' + datos.results[i].poster_path + '">' + '</a></li>'
         }
         if (datos.total_pages == page) {
           console.log('cortamo');
@@ -74,7 +74,7 @@ window.addEventListener("load", function() {
     return Math.floor(Math.random() * 9542);
   }
 
-  buscarRandom.innerHTML = '<a href="info_serie.html?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
+  buscarRandom.innerHTML = '<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
 
   //Se creo una funcion que permite hallar series random
 

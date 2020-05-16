@@ -40,7 +40,7 @@ window.addEventListener("load", function() {
       var gnre = datos.genres
       var losgeneros = "";
       for (var i = 0; i < gnre.length; i++) {
-        losgeneros += ' <a href="series_xgenero.html?id=' + datos.genres[i].id + '">' + datos.genres[i].name + '</a> '
+        losgeneros += ' <a href="/series_xgenero?id=' + datos.genres[i].id + '">' + datos.genres[i].name + '</a> '
 
       }
       info_conteiner.innerHTML += '<h3><strong>Géneros: </strong>' + losgeneros + '</h3>'
@@ -57,7 +57,7 @@ window.addEventListener("load", function() {
       foto_conteiner.innerHTML = '<img src="https://image.tmdb.org/t/p/w500/' + datos.poster_path + '">'
       if (datos.poster_path == null) {
         var foto = document.querySelector('.foto_conteiner');
-        foto.innerHTML = '<img src="img/notfound.jpg">'
+        foto.innerHTML = '<img src="/images/notfound.jpg">'
       }
     })
   ///////TRAILER
@@ -97,7 +97,7 @@ window.addEventListener("load", function() {
         var recom = document.querySelector(".Recomendaciones");
         var btn = document.querySelector("#boton-recom");
         btn.style.display = "block";
-        recomen.innerHTML += '<li><a id="click_pelis" href="info_serie.html?id=' + datos.results[i].id + '"> ' + '<img src="https://image.tmdb.org/t/p/w500/' + datos.results[i].poster_path + '">' + '</a></li>'
+        recomen.innerHTML += '<li><a id="click_pelis" href="/info_serie?id=' + datos.results[i].id + '"> ' + '<img src="https://image.tmdb.org/t/p/w500/' + datos.results[i].poster_path + '">' + '</a></li>'
       }
     })
 
@@ -175,7 +175,7 @@ window.addEventListener("load", function() {
     return Math.floor(Math.random() * 9542);
   }
 
-  buscarRandom.innerHTML = '<a href="info_serie.html?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
+  buscarRandom.innerHTML = '<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
 
 
 

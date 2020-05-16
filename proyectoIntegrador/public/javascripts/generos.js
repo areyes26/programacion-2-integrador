@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
     return Math.floor(Math.random() * 9542);
   }
 
-  buscarRandom.innerHTML = '<a href="info_serie.html?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
+  buscarRandom.innerHTML = '<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
 
 
 
