@@ -38,14 +38,14 @@
     <!-- IZQUIERA -->
     <div class="izquierda_header">
       <!-- logo -->
-      <a class="a_logo" href="index.html"><img class="logo" src="/images/serieedd.png" alt=""></a>
+      <a class="a_logo" href="/"><img class="logo" src="/images/serieedd.png" alt=""></a>
       <!-- Hiperviculos -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" name="" value="">
       <nav id="hamburguesa">
         <ul>
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="/">Inicio</a></li>
           <li class="descubrir"><a href="">Descubrir</a></li>
-          <li><a href="generos.html">Genero</a></li>
+          <li><a href="/generos">Genero</a></li>
         </ul>
       </nav>
 
@@ -59,7 +59,7 @@
       <!-- buscador -->
       <nav class="uk-navbar-container" uk-navbar>
         <div class="conenedor_buscador">
-          <form class="uk-search uk-search-navbar" action="resultados.html" method="get">
+          <form class="uk-search uk-search-navbar" action="/resultados" method="get">
             <span id="SpanBusqueda" uk-search-icon></span>
             <input class="uk-search-input" type="search" placeholder="Search" name="busqueda">
           </form>
@@ -70,7 +70,7 @@
       <div id="modal-avan" uk-modal>
         <div id="modal_avanzada" class="uk-modal-dialog uk-modal-body">
           <h2 class="uk-modal-title">Ingrese su búsqueda</h2>
-          <form class="avana" action="avanzado.html" method="get">
+          <form class="avana" action="/avanzado" method="get">
             <label for="generos">Elige el género que deseas buscar:</label>
             <select class="incluir" name="incluir">
               <option value="">Ninguno</option>
@@ -100,8 +100,8 @@
       </div>
 
       <!-- MOdal del usuario -->
-      <a id="corazón" href="favoritos.html"><img src="/images/corazon.png" alt=""> </a>
-      <a id="a_usuario" href="#modal-usuario" uk-toggle><img src="img/usuario.png" alt=""> </a>
+      <a id="corazón" href="/favoritos"><img src="/images/corazon.png" alt=""> </a>
+      <a id="a_usuario" href="#modal-usuario" uk-toggle><img src="/images/usuario.png" alt=""> </a>
       <div class="logedIn">
         <p id="p_nombre"></p>
         <button id="logOut"type="button" name="button">Log Out</button>
@@ -109,7 +109,7 @@
       <div id="modal-usuario" uk-modal>
         <div id="modal_usuario" class="uk-modal-dialog uk-modal-body">
           <h2 class="uk-modal-title">Ingrese sus datos</h2>
-          <form class="LogIn" action="index.html" method="get">
+          <form class="LogIn" action="/index" method="get">
             <label for="nombre">Nombre de usuario:</label>
             <input type="text" name="nombre" value="" placeholder="JuanPerez2004">
             <label for="">Correo electrónico:</label>
@@ -124,6 +124,7 @@
 
     </div>
   </header>
+
 
   <!-- MAIN -->
   <main>
