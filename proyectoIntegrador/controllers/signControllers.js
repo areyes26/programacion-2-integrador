@@ -6,7 +6,7 @@ let bycrypt = require("bcryptjs")
 
 let signControllers = {
     signup: function(req,res) {
-res.render("signup")
+res.render("index")
     },
     save: function(req,res) {
         let user = {
