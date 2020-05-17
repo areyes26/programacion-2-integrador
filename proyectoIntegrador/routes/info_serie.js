@@ -1,11 +1,19 @@
 var express = require('express');
 var router = express.Router();
-
+var moduleControllers = require('../controllers/moduleControllers');
 /* GET home page. */
-const controller = require('../controllers/info_serie_controller');
+const controller = require('../modules/info_serie_controller');
 
-router.get('/', function(req, res, next) {
-    res.render('info_serie', { title: 'Express' });
-  });
-
+  /* GET home page. */
+  
+  router.get('/', moduleControllers.lista);
+  router.get('/add', moduleControllers.add);
+  router.post('/add', moduleControllers.save);
+  router.post('/delete/:id', moduleControllers.delete);
+  router.get('/edit/:id', moduleControllers.edit);
+  router.post('/edit/:id', moduleControllers.actualizar);
+  
+  
+  module.exports = router;
+  
 module.exports = router;

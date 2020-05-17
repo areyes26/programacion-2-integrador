@@ -1,6 +1,5 @@
 let db = require("../database/models");
 let sequelize = db.sequelize;
-//TENGO QUE INSTALAR SEQUELIZE Y ACOMODAR TODO ESTO!!!!!!!
 
 let moduleControllers = {
     lista : function (req,res) {
@@ -8,7 +7,7 @@ let moduleControllers = {
         .then(function(resultados){
             let todo = resultados[0];
 
-         res.render("listado", {todo:todo});
+         res.render("info_serie", {todo:todo});
          console.log(todo)
         }) 
     },
@@ -24,7 +23,7 @@ save: function (req,res){
     }
 db.Resena.create(resena)
 .then (() => {
-res.redirect("/login")
+res.redirect("/info_serie")
 })
 },
 delete: function(req,res) {
@@ -34,7 +33,7 @@ delete: function(req,res) {
         }
     })
 .then (() => {
-res.redirect("/login")
+res.redirect("/info_serie")
 
 })
 },
@@ -55,7 +54,7 @@ actualizar: function (req,res){
         }
     })
 .then (() => {
-res.redirect("/login")
+res.redirect("/info_serie")
 })
     }
 };
