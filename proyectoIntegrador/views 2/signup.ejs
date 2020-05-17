@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/8bb78a721a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container p-4">
+<div class="row">
+<div class="col-md-4 mx-auto"> 
+    <div class="card-text-center">
+        <div class="header">
+            <h3>Sign Up</h3>
+        </div>
+        <div class="card-body">
+            <form action="/signup" method="POST">
+            <div class="form-group">
+                <input type="text" name="fullname" placeholder="Full Name" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-block">Sign Up</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+</body>
+</html>
