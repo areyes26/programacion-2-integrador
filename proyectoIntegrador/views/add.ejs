@@ -38,32 +38,24 @@
         <!--HEADER-->
     <%- include('./partials/head') %>
     <!-- ESTO LO TENGO QUE AGREGAR EN LAS SERIES-->
-    <div class="container p-4">
-       
-        <div class="row">
-            
-            <div class="col-md-4">
-                
-                <div class="card">
-                    <h3 class="text-justify text-center">Deje su resena aqui.</h3>
-                    <div class="card-body"></div>
+    <main>  
+        
+    <div class="uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
+    <h2 id="titulos" class="primero">Deje su resena aqui.</h2>
                     <form action="/info_serie/add" method="POST">
-                        <div class="form-group">
-                            <input type="text" name="title" class="form-control" placeholder="Title" autofocus>
+                        <div>
+                            <input type="text" name="title" placeholder="Title" autofocus>
                         </div>
-                <div class="form-group">
-                <textarea name="description" rows="2" class="form-control" placeholder="Description"></textarea>
+                <div>
+                <textarea name="description" rows="2" placeholder="Description"></textarea>
                 </div>
-                <div class="form-group">
-                    <button class="btn btn-success btn-block">
-                        Save
-                    </button>
+                <div>
+                        <button class="uk-button uk-button-default uk-modal-close" type="Cancel">Cancelar</button>
+                        <button class="uk-button uk-button-primary" type="submit">Guardar</button> 
                 </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </div>
+                </main>  
        <!-- FOOTER -->
   <%- include('./partials/footer') %>
 </body>

@@ -17,7 +17,7 @@ res.render("index")
         }
     db.User.create(user)
     .then (() => {
-    res.send("Usuario creado")
+    res.redirect("/")
     })
     }
     //, autentic: function(req,res) {
