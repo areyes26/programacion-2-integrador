@@ -101,7 +101,7 @@
         </div>
       </div>
 
-      <!-- MOdal del usuario -->
+      <!-- MOdal del usuario ESTO SE AGREGO SOLO A LA PARTE DE GENEROS ASI QUE TENGO QUE HACER UN PARTIAS PARA EL HEADER SOLO -->
       <a id="corazón" href="/favoritos"><img src="/images/corazon.png" alt=""> </a>
       <a id="a_usuario" href="#modal-usuario" uk-toggle><img src="/images/usuario.png" alt=""> </a>
       <div class="logedIn">
@@ -111,7 +111,30 @@
       <div id="modal-usuario" uk-modal>
         <div id="modal_usuario" class="uk-modal-dialog uk-modal-body">
           <h2 class="uk-modal-title">Ingrese sus datos</h2>
-          <form class="LogIn" action="/index" method="get">
+          <form class="LogIn" action="/index" method="get">   
+        <div class="card-body">
+            <form action="/signup" method="POST">
+            <div>
+                <input type="text" name="fullname" placeholder="Full Name" class="form-control">
+            </div>
+            <div>
+                <input type="text" name="username" placeholder="Username" class="form-control">
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="Email" class="form-control">
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password" class="form-control">
+            </div>
+            <button class="uk-button uk-button-default uk-modal-close" type="Cancel">Cancelar</button>
+            <div>
+                <button class="btn btn-success btn-block">Sign Up</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<!--
             <label for="nombre">Nombre de usuario:</label>
             <input type="text" name="nombre" value="" placeholder="JuanPerez2004">
             <label for="">Correo electrónico:</label>
@@ -125,6 +148,7 @@
       </div>
 
     </div>
+-->
   </header>
 
 
