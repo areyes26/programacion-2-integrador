@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var moduleControllers = require('../controllers/moduleControllers');
 /* GET home page. */
-const controller = require('../modules/info_serie_controller');
+const controller = require("../controllers/info_serie_controller");
 
   /* GET home page. */
   
