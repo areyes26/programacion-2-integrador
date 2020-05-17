@@ -71,10 +71,14 @@ button:hover {
   margin: 1%;
   padding: 1.5%;
 }
-
+.resenas {
+    display: flex;
+    justify-content: center;
+  }
 /* recomendaciones */
 #boton-recom {
   font-size: 1.5rem;
+  
 }
 
 main .Recomendaciones #titulos {
@@ -85,11 +89,11 @@ main .Recomendaciones #titulos {
 .Recomendaciones {
   display: none;
 }
-
 .show {
   display: block;
-  /* Con esto aparecen las recomendaciones */
 }
+
+  /* Con esto aparecen las recomendaciones */
 
 /* QUERY TABLET */
 @media (max-width: 800px) {

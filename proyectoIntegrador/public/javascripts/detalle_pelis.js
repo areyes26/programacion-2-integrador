@@ -83,6 +83,7 @@ window.addEventListener("load", function() {
     recom.classList.toggle('show')
     // document.querySelector("#boton-recom").innerHTML = "Recomendaciones";
   }
+
   /////////////////// RECOMENDADOS
   fetch("https://api.themoviedb.org/3/tv/" + id + "/recommendations?api_key=c0e01d0df95b98b689dcb3af16007742&language=en-US&page=1")
     .then(function(respuesta) {
