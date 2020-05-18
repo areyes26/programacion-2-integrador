@@ -13,6 +13,7 @@ const favoritos_router = require('./routes/favoritos');
 const resultados_router = require('./routes/resultados');
 const series_xgenero_router = require('./routes/series_xgenero');
 
+
 var app = express();
 
 // view engine setup
