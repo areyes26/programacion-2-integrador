@@ -83,7 +83,16 @@ window.addEventListener("load", function() {
     recom.classList.toggle('show')
     // document.querySelector("#boton-recom").innerHTML = "Recomendaciones";
   }
-
+// ESTO HACIENDO EL BOTON DE RESENAS
+var botonResena = document.querySelector("#boton-resenas");
+var resenas = document.querySelector(".Resenas");
+botonResena.onclick = function(){
+  if (resenas.style.display === "none") {
+  resenas.style.display = "block";
+  } else {
+    resenas.style.display = "none";
+  }
+}
   /////////////////// RECOMENDADOS
   fetch("https://api.themoviedb.org/3/tv/" + id + "/recommendations?api_key=c0e01d0df95b98b689dcb3af16007742&language=en-US&page=1")
     .then(function(respuesta) {

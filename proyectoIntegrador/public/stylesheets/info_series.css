@@ -71,9 +71,31 @@ button:hover {
   margin: 1%;
   padding: 1.5%;
 }
+/*Hago lo mismo de Recomendaciones pero para resenas */
 .resenas {
     display: flex;
     justify-content: center;
+  }
+  main .Resenas #titulos {
+    width: 95%;
+    margin-bottom: 2%;
+  }
+  #boton-resenas {
+    font-size: 1.5rem;
+    
+  }
+  .Resenas {
+    display: none;
+  }
+  .Resenas h3 {
+    color: rgba(250, 250, 250, 0.6);
+  }
+  .Resenas h2 {
+    color: white;
+  text-transform: uppercase;
+  }
+  .Resenas p em {
+    color: rgba(250, 250, 250, 0.6);
   }
 /* recomendaciones */
 #boton-recom {

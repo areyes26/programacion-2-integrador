@@ -77,39 +77,36 @@
     </div>
   </main>
 <!-- Aca van a ir las resenas de las series, lo habia hecho con Bootstrap y no puede usar bootstrap al mismo tiempo que ulkit?-->
-<div class="resenas">
-<button id="boton-recom" type="send"><strong>Ver reseñas</strong></button>
-<h1>Listado de tus resenas</h1>
-    <div class="container p-4">
-<div class="row">
+<div class="uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
+<button id="boton-resenas" type="send" name="resenas"><strong>Ver reseñas</strong></button>
+<div class="Resenas" style="display: none">
+  <h2 id="titulos" ><strong> Lista de reseñas:</strong></h2>
+
+<div>
      <% for(let i = 0; i < todo.length; i++) { %>
-            <div class="col-md-3">
-                <div class="card text-center">
-                <div class="card-body">
-                    <h3 class="card-title text-uppercase"><%= todo[i].title%></h3> 
-            <p class="m-2"> <%= todo[i].description%></p>
-            <p class="m-2"> <%= todo[i].createdAt%></p>
+            <div>
+                    <h3><strong><%= todo[i].title%></strong></h3> 
+            <p><em><%= todo[i].description%></em></p>
+            <p><em><%= todo[i].createdAt%></em></p>
             <form action="/info_serie/delete/<%= todo[i].resena_id %>" method="POST">
-                <button class="btn btn-danger">Delete Resena</button>
+                <button class="uk-button-danger">Delete Resena</button>
             </form>
             <form action="/info_serie/edit/<%= todo[i].resena_id %>" method="GET">
-                <button class="btn btn-secondary">Modify</button>
+                <button class="uk-button-default">Modify</button>
             </form>
-            
-        </div>  
-    </div>  
+              
                 </div>
     <% } %>
 </div>
 </div>
-    <div class="col-md-4 mx-auto">
-        <div class="card car-body text-center">
-            <form action="/info_serie/add" method="GET">
-                <button class="btn btn-success btn-block"> Crea uno!</button>
-            </form>
-        </div>
-    </div>
-</div><!-- FOOTER -->
+
+<form action="/info_serie/add" method="GET">
+  <button class="uk-button uk-button-primary"> Crea uno!</button>
+</form>
+</div>
+</div>
+      </div>
+<!-- FOOTER -->
 <%- include('./partials/footer') %>
 </body>
 
