@@ -1,12 +1,12 @@
 let db = require("../database/models");
 let sequelize = db.sequelize;
 //let passport = require("passport");
-let bycrypt = require("bcryptjs")
-//tengo que acomodar todo el ruteo!!!!!
+let bycrypt = require("bcrypt")
+//Nose porque no funciona esto!!!!!
 
 let signControllers = {
     signup: function(req,res) {
-res.render("index")
+res.render("partials/head")
     },
     save: function(req,res) {
         let user = {
