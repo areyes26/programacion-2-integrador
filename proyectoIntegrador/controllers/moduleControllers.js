@@ -7,20 +7,22 @@ let moduleControllers = {
         .then(function(resultados){
             let todo = resultados[0];
 
-         res.render("info_serie", {todo:todo});
+         res.render("info_serie", {todo:todo,movie_id:req.query.id});
          console.log(todo)
         }) 
     },
     //CREANDO UNA RESENA
 add: function(req, res) {
-    res.render('add');
+    res.render('add', {movie_id:req.query.id});
 },
 //AHORA LO VOY A GUARDAR EN LA BASE DE DATOS
 save: function (req,res){
     let resena = {
         description: req.body.description,
-    title: req.body.title
+    title: req.body.title,
+   // movie_id: TENGO QUE PONER EL ID ACAAAAAAAA!!!!!!!
     }
+    console.log(req.params.id);
 db.Resena.create(resena)
 .then (() => {
 res.redirect("/info_serie")

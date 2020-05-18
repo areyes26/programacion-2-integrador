@@ -16,6 +16,12 @@ description : {
 user_id : {
     type:dataTypes.INTEGER
 },
+movie_id : {
+    type:dataTypes.INTEGER
+},
+rating : {
+    type:dataTypes.DECIMAL
+}
 };
     let config = {
         tableName: "resenas",
