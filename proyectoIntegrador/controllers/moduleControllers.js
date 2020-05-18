@@ -56,7 +56,7 @@ actualizar: function (req,res){
         }
     })
 .then (() => {
-res.redirect("/info_serie")
+res.redirect("/info_serie/?id=" + req.params.id)
 })
     }
 };
