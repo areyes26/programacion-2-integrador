@@ -13,7 +13,8 @@ res.render("partials/head")
             fullname: req.body.fullname,
         username: req.body.username,
         email: req.body.email,
-        password: bycrypt.hashSync(req.body.password, 10)
+        password: bycrypt.hashSync(req.body.password, 10),
+        birthday: req.body.birthday
         }
     db.User.create(user)
     .then (() => {
