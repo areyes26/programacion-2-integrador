@@ -80,7 +80,7 @@
 <div class="uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
 <button id="boton-resenas" type="send" name="resenas"><strong>Ver reseñas</strong></button>
 <div class="Resenas" style="display: none">
-  <h2 id="titulos" ><strong> Lista de reseñas:</strong></h2>
+  <h2 id="titulos"><strong> Lista de reseñas:</strong></h2>
 
 <div>
      <% for(let i = 0; i < todo.length; i++) { %>
@@ -92,7 +92,7 @@
                 <button class="uk-button-danger">Delete Resena</button>
             </form>
             <form action="/info_serie/edit/<%= todo[i].resena_id %>" method="GET">
-                <button class="uk-button-default">Modify</button>
+                <button class="uk-button-secondary">Modify</button>
             </form>
               
                 </div>

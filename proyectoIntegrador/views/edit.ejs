@@ -38,8 +38,8 @@
     <!--HEADER-->
 <%- include('./partials/head') %>
 <main>  
-    <div class="uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
-    <h2 id="titulos" class="primero">Edite su resena aqui.</h2>
+    <div class="Resenas uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
+    <h2 class="primero"> <strong>Edite su resena aqui.</strong></h2>
                     <form action="/info_serie/edit/<%= resena.resena_id %>" method="POST">
                         <div>
                             <input type="text" name="title" value="<%= resena.title %>" placeholder="Title" autofocus>
@@ -48,7 +48,7 @@
                 <textarea name="description" rows="2" placeholder="Description"><%= resena.description %></textarea>
                 </div>
                 <div>
-                        <button class="uk-button uk-button-default uk-modal-close" type="Cancel">Cancelar</button>
+                        <button class="uk-button uk-button-danger uk-modal-close" type="Cancel">Cancelar</button>
                         <button class="uk-button uk-button-primary" type="submit">Guardar</button>
                 </div>
                     </form>

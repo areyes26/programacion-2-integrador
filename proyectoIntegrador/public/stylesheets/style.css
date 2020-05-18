@@ -210,6 +210,7 @@ header .derecha_header #avanzada:hover {
   background-color: green;
 }
 
+
 /* TERMINA ESTILO BUSCADOR AVANZADO */
 /* MODAL USUARIO */
 header #corazón {
@@ -329,7 +330,11 @@ nav {
   margin-top: 5%;
   z-index: 34;
 }
-
+/*AGREGAR RESENAS */
+.Resenas h2 {
+  color: white;
+  margin-left: 2%;
+}
 /* ---------- Main ---------- */
 main {
   display: flex;
