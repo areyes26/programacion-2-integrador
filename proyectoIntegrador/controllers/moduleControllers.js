@@ -3,7 +3,7 @@ let sequelize = db.sequelize;
 
 let moduleControllers = {
     lista : function (req,res) {
-        sequelize.query("SELECT*FROM resenas")
+        sequelize.query("SELECT*FROM resenas where movie_id =" + req.query.id )
         .then(function(resultados){
             let todo = resultados[0];
 
@@ -13,19 +13,19 @@ let moduleControllers = {
     },
     //CREANDO UNA RESENA
 add: function(req, res) {
-    res.render('add', {movie_id:req.query.id});
+    res.render('add', {movie_id:req.params.id});
 },
 //AHORA LO VOY A GUARDAR EN LA BASE DE DATOS
 save: function (req,res){
     let resena = {
         description: req.body.description,
     title: req.body.title,
-   // movie_id: TENGO QUE PONER EL ID ACAAAAAAAA!!!!!!!
+   movie_id: req.params.id
     }
     console.log(req.params.id);
 db.Resena.create(resena)
 .then (() => {
-res.redirect("/info_serie")
+res.redirect("/info_serie/?id=" + req.params.id)
 })
 },
 delete: function(req,res) {
