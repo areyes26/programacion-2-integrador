@@ -13,36 +13,37 @@ let moduleControllers = {
     },
     //CREANDO UNA RESENA
 add: function(req, res) {
-    res.render('add', {movie_id:req.params.id});
+    res.render('add', {movie_id:req.params.movie_id});
 },
 //AHORA LO VOY A GUARDAR EN LA BASE DE DATOS
 save: function (req,res){
     let resena = {
         description: req.body.description,
     title: req.body.title,
-   movie_id: req.params.id
+   movie_id: req.params.movie_id
     }
     console.log(req.params.id);
 db.Resena.create(resena)
 .then (() => {
-res.redirect("/info_serie/?id=" + req.params.id)
+res.redirect("/info_serie/?id=" + req.params.movie_id)
 })
 },
 delete: function(req,res) {
     db.Resena.destroy({
         where: {
-            resena_id: req.params.id
+            movie_id:req.params.movie_id,
+            resena_id:req.params.id
         }
     })
 .then (() => {
-res.redirect("/info_serie")
+res.redirect("/info_serie/?id=" + req.params.movie_id)
 
 })
 },
 edit: function(req,res) {
     db.Resena.findByPk(req.params.id)
 .then ((resena) => {
-res.render("edit", {resena:resena});
+res.render("edit", {movie_id:req.params.movie_id, resena:resena});
 console.log(resena);
 })
 },
@@ -52,11 +53,12 @@ actualizar: function (req,res){
         title: req.body.title},
         {
         where: {
+            movie_id:req.params.movie_id,
             resena_id: req.params.id
         }
     })
 .then (() => {
-res.redirect("/info_serie/?id=" + req.params.id)
+res.redirect("/info_serie/?id=" + req.params.movie_id)
 })
     }
 };

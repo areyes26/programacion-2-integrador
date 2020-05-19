@@ -88,10 +88,10 @@
                     <h3><strong><%= todo[i].title%></strong></h3> 
             <p><em><%= todo[i].description%></em></p>
             <p><em><%= todo[i].createdAt%></em></p>
-            <form action="/info_serie/delete/<%= todo[i].resena_id %>" method="POST">
+            <form action="/info_serie/delete/<%=movie_id%>/<%= todo[i].resena_id %>" method="POST">
                 <button class="uk-button-danger">Delete Resena</button>
             </form>
-            <form action="/info_serie/edit/<%= todo[i].resena_id %>" method="GET">
+            <form action="/info_serie/edit/<%=movie_id%>/<%= todo[i].resena_id %>" method="GET">
                 <button class="uk-button-secondary">Modify</button>
             </form>
               

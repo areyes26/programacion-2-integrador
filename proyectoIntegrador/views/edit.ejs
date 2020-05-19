@@ -40,7 +40,7 @@
 <main>  
     <div class="Resenas uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
     <h2 class="primero"> <strong>Edite su resena aqui.</strong></h2>
-                    <form action="/info_serie/edit/<%= resena.resena_id %>" method="POST">
+                    <form action="/info_serie/edit/<%= movie_id %>/<%= resena.resena_id %>" method="POST">
                         <div>
                             <input type="text" name="title" value="<%= resena.title %>" placeholder="Title" autofocus>
                         </div>
