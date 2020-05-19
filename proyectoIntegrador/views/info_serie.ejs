@@ -87,9 +87,24 @@
 <div>
      <% for(let i = 0; i < todo.length; i++) { %>
             <div>
-                    <h3><strong><%= todo[i].title%></strong></h3> 
-            <p><em><%= todo[i].description%></em></p>
-            <p><em><%= todo[i].createdAt%></em></p>
+              <div class="uk-card uk-card-default uk-width-1-2@m">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-expand">
+                          <h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
+                          <p class="uk-text-meta uk-margin-remove-top"><%= todo[i].title%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-card-body">
+                  <h3 class="uk-card-title uk-margin-remove-bottom">Description:</h3>
+                  <p class="uk-text-meta uk-margin-remove-top"><strong><%= todo[i].description%></strong></p>
+                </div>
+                <div class="uk-card-footer">
+                  <h3 class="uk-card-title uk-margin-remove-bottom">Publicado el:</h3>
+                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><p><strong><%= todo[i].createdAt%></strong></time></p>
+                </div>
+            </div>
             <form action="/info_serie/delete/<%=movie_id%>/<%= todo[i].resena_id %>" method="POST">
                 <button class="uk-button-danger">Delete Resena</button>
             </form>
