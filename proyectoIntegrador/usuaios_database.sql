@@ -29,10 +29,12 @@ CREATE TABLE `resenas` (
   `title` varchar(16) DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifyAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `movie_id` int NOT NULL,
+  `rating` decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (`resena_id`),
   KEY `fk_uder` (`user_id`),
   CONSTRAINT `fk_uder` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +43,7 @@ CREATE TABLE `resenas` (
 
 LOCK TABLES `resenas` WRITE;
 /*!40000 ALTER TABLE `resenas` DISABLE KEYS */;
+INSERT INTO `resenas` VALUES (69,'intento de crear',NULL,'Hola','2020-05-19 00:30:16','2020-05-19 00:30:16',83097,NULL),(70,'Edito 3',NULL,'Flash','2020-05-19 00:36:00','2020-05-19 00:36:00',60735,NULL),(73,'Flasheamela',NULL,'Flash','2020-05-19 00:57:29','2020-05-19 00:57:29',60735,NULL),(75,'CREANDO UNA RESENA',NULL,'Hola','2020-05-19 02:18:38','2020-05-19 02:18:38',2734,NULL),(78,'',NULL,'','2020-05-20 21:32:39','2020-05-20 21:32:39',2734,NULL);
 /*!40000 ALTER TABLE `resenas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +62,7 @@ CREATE TABLE `users` (
   `birthday` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `fullname` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +71,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'ffranciscocasas','aFNMqFVRDJ4h9U3','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(2,'ffranciscocasas','$2a$10$eZgPqzhrN2VOZ6a8nfcQqeDqNEUijeJSurby2mabjLgb5qJLYcF4e','fcasas@udesa.edu.ar','0000-00-00 00:00:00','Francisco Casas'),(3,'43465916','$2a$10$xQ7IM/rkkMVqk7JlMaa2UuefpNY63Wzp61SvU92DvRQNFloIwE.Z6','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(4,'43465916','$2a$10$4eNlKytXNWbt/33xVP/e1uQmAxJVxsXkF1pYg9Z94CIL5gF2d6f3y','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(5,'redirecciona?','$2b$10$2P0RMWOOyYbTwFRKU3V1FeR9MKwr5z2jqQT0pIZ5p4/U96aSq.4Va','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(6,'registro2?','$2b$10$fnwSXD5qhUCdkYaYNSFFbO76eKyhGigkVfXmhE9Mv7YjulElwnWTi','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(7,'43465916','$2b$10$O0aHQQVDr0F5fAwA293ozO7eZATmGXF4pNaQcGBQ1ihSsaY944Kh6','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(8,'El','$2b$10$Z3JVXXxmW5sYDGCvr9z5/ejBs3.8D3v0ZCCoxilF4OF.AHsFATLUK','ffranciscocasas@gmail.com','2000-05-22 00:00:00','Funca');
+INSERT INTO `users` VALUES (1,'ffranciscocasas','aFNMqFVRDJ4h9U3','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(2,'ffranciscocasas','$2a$10$eZgPqzhrN2VOZ6a8nfcQqeDqNEUijeJSurby2mabjLgb5qJLYcF4e','fcasas@udesa.edu.ar','0000-00-00 00:00:00','Francisco Casas'),(3,'43465916','$2a$10$xQ7IM/rkkMVqk7JlMaa2UuefpNY63Wzp61SvU92DvRQNFloIwE.Z6','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(4,'43465916','$2a$10$4eNlKytXNWbt/33xVP/e1uQmAxJVxsXkF1pYg9Z94CIL5gF2d6f3y','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(5,'redirecciona?','$2b$10$2P0RMWOOyYbTwFRKU3V1FeR9MKwr5z2jqQT0pIZ5p4/U96aSq.4Va','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(6,'registro2?','$2b$10$fnwSXD5qhUCdkYaYNSFFbO76eKyhGigkVfXmhE9Mv7YjulElwnWTi','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(7,'43465916','$2b$10$O0aHQQVDr0F5fAwA293ozO7eZATmGXF4pNaQcGBQ1ihSsaY944Kh6','ffranciscocasas@gmail.com','0000-00-00 00:00:00','Francisco Casas'),(8,'El','$2b$10$Z3JVXXxmW5sYDGCvr9z5/ejBs3.8D3v0ZCCoxilF4OF.AHsFATLUK','ffranciscocasas@gmail.com','2000-05-22 00:00:00','Funca'),(9,'','$2b$10$v0jw0Ba0wMvWkZyieVefheDBM188iS44UgpgOCygymekm5YwH0fCm','','2000-05-22 00:00:00','');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -81,4 +84,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-18 15:19:38
+-- Dump completed on 2020-05-20 18:39:56
