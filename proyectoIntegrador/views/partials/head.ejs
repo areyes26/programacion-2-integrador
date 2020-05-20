@@ -24,10 +24,10 @@
       <!-- DERECHA-->
       <div class="derecha_header">
         <!-- buscador -->
-        <nav class="uk-navbar-container" uk-navbar>
+        <nav  class="uk-navbar-container" uk-navbar>
           <div class="conenedor_buscador">
-            <form class="uk-search uk-search-navbar" action="/resultados" method="get">
-              <span id="SpanBusqueda" uk-search-icon></span>
+            <form class="uk-search uk-search-navbar" action="/resultados" method="get" name="busqued">
+              <span  id="SpanBusqueda" uk-search-icon></span>
               <input class="uk-search-input" type="search" placeholder="Search" name="busqueda" >
             </form>
           </div>
@@ -44,7 +44,7 @@
                 <!-- api generos -->
               </select>
   
-              <label for="">Género que desea excluir</label>
+              <label  for="">Género que desea excluir</label>
               <select class="excluir" name="excluir">
                 <option value="">Ninguno</option>
                 <!-- api generos -->
@@ -79,7 +79,7 @@
             <h2 class="uk-modal-title">Ingrese sus datos</h2>
            
           <div class="card-body">
-              <form action="/" method="POST">
+              <form action="/" method="POST" name="formulario">
               <div>
                   <input type="text" name="fullname" placeholder="Full Name" class="form-control">
               </div>

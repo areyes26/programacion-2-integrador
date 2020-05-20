@@ -15,7 +15,7 @@ username : {
     password : {
         type:dataTypes.STRING
         },
-        email : {
+     email : {
             type:dataTypes.STRING
             },
         birthday : {
