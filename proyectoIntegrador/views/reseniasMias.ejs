@@ -40,7 +40,10 @@
 <%- include('./partials/head') %>
   <!-- - MAIN - -->
   <main>
-    <!-- ESTO TODAVIA ESTA MAL PORQUE LE FALTA VALIDAR -->    
+    <!-- ESTO TODAVIA ESTA MAL PORQUE LE FALTA VALIDAR -->   
+    <% if (todo.length == 0) { %>
+      <h2 style="color: white;"><strong>No hay reseñas</strong></h2>
+    <% } else { %> 
     <h2 id="titulos"><strong> Mis reseñas:</strong></h2>
     <% for(let i = 0; i < todo.length; i++) { %>
             <div>
@@ -64,6 +67,7 @@
               </div>
               
                 </div>
+    <% } %>
     <% } %>
   </main>
 <!-- FOOTER -->
