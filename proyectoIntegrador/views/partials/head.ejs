@@ -79,8 +79,23 @@
           <div id="modal_usuario" class="uk-modal-dialog uk-modal-body">
             <h2 class="uk-modal-title">Ingrese sus datos</h2>
            
+
+
+
+
+
+
           <div class="card-body">
-              <form action="/" method="POST" name="formulario">
+              <form action="/resultados/errores" method="POST" name="formulario" >
+                <% if (typeof errores != "undefined") { %>
+                  <ul style="color:red">
+                      <% for (let i = 0; i < errores.length; i++) { %>
+                          <li>
+                              <%=errores[i]%>
+                          </li>
+                      <% } %>
+                  </ul>
+              <% } %>
               <div>
                   <input type="text" name="fullname" placeholder="Full Name" class="form-control">
               </div>
