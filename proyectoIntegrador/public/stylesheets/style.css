@@ -6,22 +6,37 @@
   text-decoration: none;
   list-style: none;
 }
-
-main .ul-bus li {
+.nico h1{
   color: white;
-  margin-left: 30px;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 40px;
+  margin-bottom: 0px;
 }
-main .ul-bus li:hover {
-  color: green;
-  transform: scale(1.03);
+main .ul-bus h3 {
+  margin-right: 40%;
+  margin-left: 35%;
+  color: rgba(56, 240, 148, .85);
+  margin-top: -5px;
 }
-
-.nico h1 {
-  color:white;
-  margin-left: 5%;
-  margin-top: 5%;
+main .ul-bus {
+  background-color: black;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+main .ul-bus:hover {
+  transform: scale(1.02);
+  border-radius: 10px;
   
 }
+main .ul-bus h3:hover {
+  transform: scale(1.03);
+}
+main .ul-bus li {
+  color: white;
+  margin-left: 20px;
+}
+
 
 /* me aseguro que las medidas de los elementos, son las que defino */
 body {

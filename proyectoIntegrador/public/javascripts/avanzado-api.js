@@ -11,6 +11,7 @@ window.onload = function() {
       var buscador = document.querySelector(".avana");
       var label1 = document.querySelector(".incluir");
       var label2 = document.querySelector(".excluir");
+      const label3 = document.querySelector(".generofav")
 
       var gnre = datos.genres;
 
@@ -18,6 +19,7 @@ window.onload = function() {
       for (var i = 0; i < gnre.length; i++) {
         label1.innerHTML += '<option value="' + datos.genres[i].id + '">' + datos.genres[i].name + '</option>'
         label2.innerHTML += '<option value="' + datos.genres[i].id + '">' + datos.genres[i].name + '</option>'
+        label3.innerHTML += '<option value="' + datos.genres[i].id + '">' + datos.genres[i].name + '</option>'
       }
     })
 

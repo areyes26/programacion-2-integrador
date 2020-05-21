@@ -20,7 +20,8 @@ save: function (req,res){
     let resena = {
         description: req.body.description,
     title: req.body.title,
-   movie_id: req.params.movie_id
+   movie_id: req.params.movie_id,
+   rating: req.body.rating
     }
     console.log(req.params.id);
 db.Resena.create(resena)
@@ -32,7 +33,8 @@ delete: function(req,res) {
     db.Resena.destroy({
         where: {
             movie_id:req.params.movie_id,
-            resena_id:req.params.id
+            resena_id:req.params.id,
+            
         }
     })
 .then (() => {
@@ -50,7 +52,9 @@ console.log(resena);
 actualizar: function (req,res){
     db.Resena.update({
         description: req.body.description,
-        title: req.body.title},
+        title: req.body.title,
+        rating: req.body.rating
+    },
         {
         where: {
             movie_id:req.params.movie_id,
