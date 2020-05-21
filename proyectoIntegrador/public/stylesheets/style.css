@@ -7,6 +7,22 @@
   list-style: none;
 }
 
+main .ul-bus li {
+  color: white;
+  margin-left: 30px;
+}
+main .ul-bus li:hover {
+  color: green;
+  transform: scale(1.03);
+}
+
+.nico h1 {
+  color:white;
+  margin-left: 5%;
+  margin-top: 5%;
+  
+}
+
 /* me aseguro que las medidas de los elementos, son las que defino */
 body {
   font-family: sans-serif;
