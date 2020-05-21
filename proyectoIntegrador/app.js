@@ -12,7 +12,7 @@ const avanzado_router = require('./routes/avanzado');
 const favoritos_router = require('./routes/favoritos');
 const resultados_router = require('./routes/resultados');
 const series_xgenero_router = require('./routes/series_xgenero');
-
+const resenias_router = require('./routes/resenias');
 
 var app = express();
 
@@ -34,7 +34,7 @@ app.use('/avanzado', avanzado_router);
 app.use('/favoritos', favoritos_router);
 app.use('/resultados', resultados_router);
 app.use('/series_xgenero', series_xgenero_router);
-
+app.use('/resenias', resenias_router);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
