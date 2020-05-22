@@ -14,7 +14,8 @@ description : {
     type:dataTypes.TEXT
 },
 user_id : {
-    type:dataTypes.INTEGER
+    type:dataTypes.INTEGER,
+    foreignKey:true
 },
 movie_id : {
     type:dataTypes.INTEGER
@@ -28,5 +29,11 @@ rating : {
         timestamps: false
     };
     const Resena = sequelize.define("Resena", cols, config);
+    Resena.associate= function(modelos) {
+        Resena.hasMany(modelos.User, {
+            as:"usuarios",
+            foreignKey: "user_id"
+        });
+    }
     return Resena;
 };

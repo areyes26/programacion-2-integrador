@@ -27,5 +27,11 @@ type:dataTypes.DATE
         timestamps: false
     };
     const User = sequelize.define ("User", cols, config);
+    User.associate= function(modelos) {
+        User.belongsTo(modelos.Resena, {
+            as:"usuarios",
+            foreignKey: "user_id"
+        })
+    };
     return User;
 };
