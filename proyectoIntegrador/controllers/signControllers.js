@@ -14,7 +14,8 @@ res.render("partials/head")
         username: req.body.username,
         email: req.body.email,
         password: bycrypt.hashSync(req.body.password, 10),
-        birthday: req.body.birthday
+        birthday: req.body.birthday,
+        genero_id: req.body.genero_id
         }
     db.User.create(user)
     .then (() => {

@@ -20,6 +20,9 @@ username : {
             },
         birthday : {
 type:dataTypes.DATE
+        },
+        genero_id : {
+type:dataTypes.INTEGER
         }
     };
     let config = {
