@@ -39,7 +39,6 @@ add: function(req, res) {
 
 
 save: function (req,res){
-    nuevaResena: (req,res)  =>{
         modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
         .then(resultado=>{  
           console.log(resultado) //me muestra los datos de la bd del usuario
@@ -57,9 +56,7 @@ save: function (req,res){
                 res.redirect("/info_serie/?id=" + req.params.movie_id)
                 })
         }})
-    }
-
-},
+    },
 delete: function(req,res) {
     db.Resena.destroy({
         where: {
