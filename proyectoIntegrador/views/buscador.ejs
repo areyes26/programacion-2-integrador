@@ -38,13 +38,12 @@
 <br>
 <br>
 <main class="nico"><h1>  USUARIOS</h1></main>
-
 <br>
 <main>
   <ul class="ul-bus">
-    <br>
     <% for(let i = 0; i < name.length; i ++) { %>
-    <a href="/resultados/detalle"><h3 id="nico"><%=name[i].username%> </h3></a>
+      <br>
+    <h3 id="nico"><%=name[i].username%> </h3>
    <li>Nombre completo: <%=name[i].fullname%></li>  
   <li>Email: <%=name[i].email%></li>
   <li>Cumpleaños: <%=name[i].birthday%></li>

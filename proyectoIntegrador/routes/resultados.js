@@ -3,9 +3,10 @@ var router = express.Router();
 let db = require("../database/models");
 let Op = db.Sequelize.Op;
 
-
-
 const controller = require('../controllers/resultados_controller');
+
+
+
 
 function validarformulario(formulario) {
   let errores = [];
@@ -36,26 +37,6 @@ function validarformulario(formulario) {
 
 
 
-router.get('/detalle', function(req, res) {
-
-
-
-  db.User.findAll(
-    {
-        where: [
-            { username: {[Op.like] : "%" + reque + "%"} },
-  
-        ],
-    }
-        )
-.then((User) => {
-
-  res.render('detallebusqueda', {
-    User: User,
-  })
- 
-})
- })
 
 
 
@@ -74,7 +55,7 @@ let errores = validarformulario(formulario)
 if (errores.length > 0) {
   // Hubieron errores => Volver a mostrar la pagina con el form y los errores
   
-      res.send(document.querySelector("botton").click())
+      res.send()
       
   
 } else {

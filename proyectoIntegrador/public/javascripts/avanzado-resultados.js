@@ -10,6 +10,7 @@ window.addEventListener("load", function() {
 
   console.log(incluir, excluir, orden, año);
 
+
   //guardo lo buscado
   //var elInput = document.querySelector("#id-año")
   //elInput.setAttribute("value", "año") //meto el año
@@ -31,6 +32,10 @@ window.addEventListener("load", function() {
   //arranca scroll infinito
   var page = 1;
   vermas()
+
+
+
+
 
   function vermas() {
     var url = "https://api.themoviedb.org/3/discover/tv?api_key=c0e01d0df95b98b689dcb3af16007742&language=en-US&sort_by=" + orden + "&first_air_date_year=" + año + "&page=" + page + "&timezone=America%2FNew_York&with_genres=" + incluir + "&without_genres=" + excluir + "&include_null_first_air_dates=false";

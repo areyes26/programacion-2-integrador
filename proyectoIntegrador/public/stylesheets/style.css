@@ -15,14 +15,14 @@
 }
 main .ul-bus h3 {
   margin-right: 40%;
-  margin-left: 35%;
+  margin-left: 21%;
   color: rgba(56, 240, 148, .85);
   margin-top: -5px;
 }
 main .ul-bus {
   background-color: black;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin-left: 33%;
+  margin-right: 35%;
 }
 main .ul-bus:hover {
   transform: scale(1.02);
@@ -34,7 +34,7 @@ main .ul-bus h3:hover {
 }
 main .ul-bus li {
   color: white;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 
