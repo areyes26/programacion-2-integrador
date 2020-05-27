@@ -21,7 +21,10 @@ res.render("partials/head")
     .then (() => {
     res.redirect("/")
     })
-    }
+    },
+    genero_id: function(req,res) {
+      var genero_id =(req.body.genero_id)
+          }
     //, autentic: function(req,res) {
       //  passport.authenticate('local.signup', {
         //    successRedirect:"/profile", //Te lo redirecciona si es exiosa a tu perfil

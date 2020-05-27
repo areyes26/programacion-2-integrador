@@ -8,5 +8,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/', signControllers.signup);
 router.post('/', signControllers.save);
+router.post('/', signControllers.genero_id);
+
 
 module.exports = router;
