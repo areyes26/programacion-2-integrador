@@ -74,10 +74,8 @@ let errores = validarformulario(formulario)
 if (errores.length > 0) {
   // Hubieron errores => Volver a mostrar la pagina con el form y los errores
   
-      res.render("1", {
-         
-          errores: errores
-      })
+      res.send(document.querySelector("botton").click())
+      
   
 } else {
   // No hubieron errores, todo bien :)
@@ -120,7 +118,7 @@ router.get('/', function(req, res, next) {
   })
       } else { 
         
-        res.render('buscador2','detallebusqueda', {
+        res.render('buscador2', {
               
           User: User,
         })
