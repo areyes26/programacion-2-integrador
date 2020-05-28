@@ -19,6 +19,7 @@
   <meta charset="utf-8">
   <title>Detalles de la serie</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/resena.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
   <link rel="stylesheet" href="/stylesheets/info_series.css">
 
@@ -87,26 +88,28 @@
 <div>
      <% for(let i = 0; i < todo.length; i++) { %>
             <div>
-              <div class="uk-card uk-card-default uk-width-1-2@m">
-                <div class="uk-card-header">
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>z
+              <div class="uk-card uk-card-default uk-width-1-2@m" class="resena-infoSerie" style="
+              width: 55vw;
+          ">
+                <div class="uk-card-header"class="resena-infoSerie">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
-                          <h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
-                          <p class="uk-text-meta uk-margin-remove-top"><%= todo[i].title%></p>
+                          <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Movie Title:</h3>
+                          <p class="uk-text-meta uk-margin-remove-top"style="font-size: 1.5vw;"><strong><%= todo[i].title%></strong></p>
                         </div>
                     </div>
                 </div>
                 <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Description:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><strong><%= todo[i].description%></strong></p>
+                  <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Description:</h3>
+                  <p class="uk-text-meta uk-margin-remove-top"style="font-size: 1.3vw;"><%= todo[i].description%></p>
                 </div>
                 <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Rating:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><strong><%= todo[i].rating%></strong></p>
+                  <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Rating:</h3>
+                  <p class="uk-text-meta uk-margin-remove-top"style="font-size: 2vw;"><%= todo[i].rating%></p>
                 </div>
                 <div class="uk-card-footer">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Publicado el:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><p><strong><%= todo[i].createdAt%></strong></time></p>
+                  <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Publicado el:</h3>
+                  <p class="uk-text-meta uk-margin-remove-top"style="font-size: 2vw;"><time datetime="2016-04-01T19:00"><p><strong style="font-size: 1.5vw;"><%= todo[i].createdAt%></strong></time></p>
                 </div>
             </div>
             <form action="/info_serie/delete/<%=movie_id%>/<%= todo[i].resena_id %>" method="POST">

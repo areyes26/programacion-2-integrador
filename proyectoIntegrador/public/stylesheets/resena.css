@@ -1,0 +1,21 @@
+.resenas input, .resenas textarea{
+    width: 56vw;
+    height: 7vh;
+    margin-bottom: 1vw;
+    border-radius: 9px;
+}
+.resenas button{
+    width: 28vw;
+    border-radius: 9px;
+}
+.botones-resena a button{
+    width: 25vw;
+    font-family: "Work Sans", "sans-serif";
+    font-size: 1.1rem;
+    background:rgba(56, 240, 148, 0.85);
+    border: 0;
+}
+.resena-infoSerie{
+    width: 56vw;
+    color: rgba(250, 250, 250, 0.6);
+}

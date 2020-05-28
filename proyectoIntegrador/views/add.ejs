@@ -18,6 +18,7 @@
     <meta charset="utf-8">
     <title>Proyecto integrador</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/resena.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
   
     <!-- JAVA -->
@@ -42,27 +43,27 @@
         
     <div class="Resenas uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
     <h2 class="primero"><strong>Deje su resena aqui.</strong></h2>
-                    <form action="/info_serie/add/<%= movie_id %>" method="POST">
+                    <form action="/info_serie/add/<%= movie_id %>" method="POST" class="resenas">
                       <div>
-                        <input type="email" name="email" placeholder="pepito@mail.com" autofocus>
+                        <input type="email" name="email" placeholder="EMAIL    EJ:PEPITO@GMAIL.COM" autofocus>
                     </div>
                     <div>
-                      <input type="password" name="password" placeholder="password">
+                      <input type="password" name="password" placeholder="PASSWORD">
                   </div>
                   
                       <div>
-                    <input type="text" name="title" placeholder="Title">
+                    <input type="text" name="title" placeholder="TITLE">
                 </div>
                 <div>
-                <textarea name="description" rows="2" placeholder="Description"></textarea>
+                <textarea name="description" rows="2" placeholder="DESCRIPTION"></textarea>
                 </div>
                 <div>
-                  <input type="number" min="0" max="10" name="rating" placeholder="Calification">
+                  <input type="number" min="0" max="10" name="rating" placeholder="CALIFICATION">
                   </div>
 
                 <div>
-                        <button class="uk-button uk-button-danger uk-modal-close" type="Cancel">Cancelar</button>
-                        <button class="uk-button uk-button-primary" type="submit">Guardar</button> 
+                        <button class="uk-button uk-button-danger uk-modal-close" type="Cancel">CANCEL</button>
+                        <button class="uk-button uk-button-primary" type="submit">SAVE</button> 
                 </div>
                     </form>
                     </div>
