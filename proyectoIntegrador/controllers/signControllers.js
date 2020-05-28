@@ -1,7 +1,7 @@
 let db = require("../database/models");
 let sequelize = db.sequelize;
 //let passport = require("passport");
-let bycrypt = require("bcrypt")
+let bycrypt = require("bcryptjs")
 //Nose porque no funciona esto!!!!!
 
 let signControllers = {

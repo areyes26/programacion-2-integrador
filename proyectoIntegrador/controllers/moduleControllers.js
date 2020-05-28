@@ -20,9 +20,9 @@ save: function (req,res){
         modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
         .then(resultado=>{  
           console.log(resultado) //me muestra los datos de la bd del usuario
-        
           if(resultado != null){ // si existe un resultado, crea la resena. Resultado esta definido en el mdulo de login
             let resena = {
+            user_id: resultado.user_id,
                 description: req.body.description,
                 title: req.body.title,
                movie_id: req.params.movie_id,
