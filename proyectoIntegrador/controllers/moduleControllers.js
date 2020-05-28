@@ -4,7 +4,7 @@ let modulo = require("../modulo-login");
 
 let moduleControllers = {
     lista : function (req,res) {
-        sequelize.query("SELECT*FROM resenas where movie_id =" + req.query.id )
+        sequelize.query("SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id where movie_id =" + req.query.id )
         .then(function(resultados){
             let todo = resultados[0];
 
@@ -16,28 +16,6 @@ let moduleControllers = {
 add: function(req, res) {
     res.render('add', {movie_id:req.params.movie_id});
 },
-//AHORA LO VOY A GUARDAR EN LA BASE DE DATOS
-
-/*nuevaResena: (req,res)  =>{
-    modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
-    .then(resultado=>{  
-      console.log(resultado) //me muestra los datos de la bd del usuario
-    
-      if(resultado != null){ // si existe un resultado, crea la resena. Resultado esta definido en el mdulo de login
-      let nuevaResena= {   
-        resena: req.body.comment, //saca la info de lo q competa el usuario
-        puntaje: req.body.puntaje, // saca la info de lo q completa el usuario
-        idUsuario: resultado.id, //lo saca de los datos que me trajo mi base de datos
-        idPelicula: req.body.idPelicula, //idPelicula esta definida arriba de todo
-        createdAt: playitBD.sequelize.literal("CURRENT_DATE") // para que se guarde la fecha de hoy
-      }
-      console.log (nuevaResena)
-      playitBD.resenas.create(nuevaResena) //crea la resena en la tabla de la bd cn lo que escribio el usuario
-      .then
-*/
-
-
-
 save: function (req,res){
         modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
         .then(resultado=>{  
