@@ -18,6 +18,9 @@ username : {
      email : {
             type:dataTypes.STRING
             },
+            serie_favorita : {
+                type:dataTypes.STRING
+                },
         birthday : {
 type:dataTypes.DATE
         },

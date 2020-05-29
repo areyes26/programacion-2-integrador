@@ -51,6 +51,7 @@
   <li>Cumpleaños: <%=User[i].birthday%> </li> 
     <li>Email: <%=User[i].email%></li>
     <li><a href="/series_xgenero?id=<%=User[i].genero_id%>">Ver genero Favorito</a></li>
+    <li><a href="/resultados?busqueda=<%=User[i].serie_favorita%>">Busca mi serie favorita:</a></li>
     <br>
   <% } %>
   </ul>
