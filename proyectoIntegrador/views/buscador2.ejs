@@ -50,8 +50,16 @@
     <li>Nombre completo: <%=User[i].fullname%></li>
   <li>Cumpleaños: <%=User[i].birthday%> </li> 
     <li>Email: <%=User[i].email%></li>
+    <% if (User[i].genero_id == null) { %>
+      <h2 style="color: white;"><strong>No tien un genero Favorito</strong></h2>
+    <% } else { %>
     <li><a href="/series_xgenero?id=<%=User[i].genero_id%>">Ver genero Favorito</a></li>
+    <% } %>
+    <% if (User[i].serie_favorita == null) { %>
+      <h2 style="color: white;"><strong>No tiene una serie favorita</strong></h2>
+    <% } else { %>
     <li><a href="/resultados?busqueda=<%=User[i].serie_favorita%>">Busca mi serie favorita:</a></li>
+    <% } %>
     <br>
   <% } %>
   </ul>
