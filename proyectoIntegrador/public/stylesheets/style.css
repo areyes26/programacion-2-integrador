@@ -119,6 +119,7 @@ header .derecha_header {
   align-items: center;
 }
 
+
 /* << BARRA DE BUSQUEDA >> */
 header .uk-navbar-container {
   border-radius: 17px;
@@ -173,7 +174,18 @@ header .derecha_header #avanzada:hover {
   color: white;
   text-align: center;
 }
-
+/* ESTILO DE BOTON LOGIN */
+#login {
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin: 3%;
+}
+#login:hover {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
 /* ESTILO BUSCADOR AVANZADO */
 #modal_avanzada form select {
   width: 100%;

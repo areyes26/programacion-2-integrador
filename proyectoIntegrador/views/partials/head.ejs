@@ -82,25 +82,59 @@
         </div>
   
         <!-- MOdal del usuario ESTO SE AGREGO SOLO A LA PARTE DE GENEROS ASI QUE TENGO QUE HACER UN PARTIAS PARA EL HEADER SOLO -->
-        <a id="corazón" href="/favoritos"><img src="/images/corazon.png" alt=""> </a>
+        <!-- <a id="corazón" href="/favoritos"><img src="/images/corazon.png" alt=""> </a> -->
+          <a id="login" href="#modal-login" uk-toggle> <i class="fas fa-sign-in-alt fa-2x"></i> </a>
+          
+          <!-- Estoy haciendo un modal para el Log In-->
+          <div id="modal-login" uk-modal>
+          <!-- El id se lo copie al modal de registro asi tienen el mismo estilo-->
+            <div id="modal_usuario" class="uk-modal-dialog uk-modal-body uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport> 
+                <div class="uk-container">
+                  <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+                    <div class="uk-width-1-1@m">
+                      <div class="uk-margin uk-width-large uk-margin-auto uk-box-shadow-large">
+                      <h3 class="uk-modal-title uk-text-center" style="color: white;">Welcome back!</h3>
+                      <form action="" method="POST" name="formulario">
+                        <div class="uk-margin">
+                          <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                            <input class="uk-input uk-form-large" type="text">
+                          </div>
+                        </div>
+                        <div class="uk-margin">
+                          <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            <input class="uk-input uk-form-large" type="password">	
+                          </div>
+                        </div>
+                        <div class="uk-margin">
+                          <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
+                        </div>
+                        <div class="uk-text-small uk-text-center">
+                          Not registered? <a href="#modal-usuario" uk-toggle>Create an account</a>
+                        </div>
+                      </form>
+                   
+                  </div>
+                </div>
+              </div>
+              </div>
+        </div>
+      </div>
         <a id="a_usuario" href="#modal-usuario" uk-toggle><img src="/images/usuario.png" alt=""> </a>
-        <div class="logedIn">
+       
+        <!-- ESTO LO TENIA ANTES PARA EL LOG IN CON LOCAL STORAGE-->
+        <!-- <div class="logedIn">
           <p id="p_nombre"></p>
           <button id="logOut"type="button" name="button">Log Out</button>
         </div>
+         -->
          <!-- <form class="LogIn" action="/index" method="get">  -->
         <div id="modal-usuario" uk-modal>
           <div id="modal_usuario" class="uk-modal-dialog uk-modal-body">
             <h2 class="uk-modal-title">Ingrese sus datos</h2>
-           
-
-
-
-
-
-
           <div class="card-body">
-              <form action="" method="POST" name="formulario" >
+              <form action="" method="POST" name="formulario">
                 <% if (typeof errores != "undefined") { %>
                   <ul style="color:red">
                       <% for (let i = 0; i < errores.length; i++) { %>
