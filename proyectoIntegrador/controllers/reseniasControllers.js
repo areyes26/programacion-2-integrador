@@ -2,15 +2,6 @@ let db = require("../database/models");
 let sequelize = db.sequelize;
 
 let reseniasControllers = {
-    mias : function (req,res) {
-        sequelize.query("SELECT*FROM resenas")
-        .then(function(resultados){
-            let todo = resultados[0];
-
-         res.render("reseniasMias", {todo:todo});
-         console.log(todo)
-        }) 
-    },
     peores : function (req,res) {
         sequelize.query("SELECT*FROM resenas ORDER BY rating")
         .then(function(resultados){

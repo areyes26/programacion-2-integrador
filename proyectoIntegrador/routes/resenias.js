@@ -10,9 +10,6 @@ var reseniasControllers = require('../controllers/reseniasControllers');
     res.render('resenias', { title: 'Express' });
   });
   router.get('/peores', reseniasControllers.peores );
-
-  router.get('/mias', reseniasControllers.mias);
-
   router.get('/mejores',reseniasControllers.mejores);
   router.get('/recientes', reseniasControllers.recientes);
 

@@ -31,8 +31,7 @@ let moduloLogin = {
             },
         })
         .then(results=>{
-           if(results && bcryptjs.compareSync(
-               password,results.password)){
+           if(results && bcryptjs.compareSync(password,results.password)){
                    return results;    
                }
                else {
