@@ -27,25 +27,29 @@ res.render("partials/head")
     genero_id: function(req,res) {
       var genero_id =(req.body.genero_id)
           },
-  //ACA ESTOY VALIDANDO EL LOGIN DEL USUARIO
-  perfil : function(req,res) {
-      sequelize.query("SELECT*FROM resenas")
-      .then(function(resultados){
-          let todo = resultados[0];
-       res.render("reseniasMias", {todo:todo});
-       console.log(todo)
-      }) 
-  },
+ // perfil: function (req,res) {
+   // sequelize.query("SELECT*FROM resenas where user_id =" + resultado.user_id)
+    //.then(function(resultados){
+      //  let todo = resultados[0];
+
+     //res.render("reseniasMias", {todo:todo});
+     //console.log(todo)
+    //}) 
+ // } ,
   login: function (req,res) {
       modulo.validar (req.body.emaillogin, req.body.passwordlogin)  //valida lo que el usuario completa en el form
             .then(resultado=>{  
               console.log(resultado) //me muestra los datos de la bd del usuario
               if(resultado != null){ // Si existe el usuario
-                console.log(resultado)
-                .then (() => {
-                  res.redirect("/resenias/mias")
-                  })   
-                    }})
+                sequelize.query("SELECT*FROM resenas where user_id =" + resultado.user_id)
+                .then(function(resultados) {
+                    let todo = resultados[0];
+                    console.log(todo);
+                 res.render("reseniasMias", {todo:todo});
+                 console.log(todo)
+                }) 
+                  }   
+                    })
                   },
 
 };
