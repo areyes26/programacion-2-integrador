@@ -3,6 +3,7 @@ let sequelize = db.sequelize;
 //let passport = require("passport");
 let bycrypt = require("bcryptjs")
 //Nose porque no funciona esto!!!!!
+let modulo = require("../modulo-login");
 
 let signControllers = {
     signup: function(req,res) {
@@ -25,15 +26,19 @@ res.render("partials/head")
     },
     genero_id: function(req,res) {
       var genero_id =(req.body.genero_id)
-          }
-    //, autentic: function(req,res) {
-      //  passport.authenticate('local.signup', {
-        //    successRedirect:"/profile", //Te lo redirecciona si es exiosa a tu perfil
-          //  failureRedirect: "/"
-        //})
-    //},
-//profile: function(req,res){
-  //  res.send("Esto es tu perfil")
-//}
+          },
+  //ACA ESTOY VALIDANDO EL LOGIN DEL USUARIO
+  login: function (req,res){
+      modulo.validar (req.body.emaillogin, req.body.passwordlogin)  //valida lo que el usuario completa en el form
+            .then(resultado=>{  
+              console.log(resultado) //me muestra los datos de la bd del usuario
+              if(resultado != null){ // Si existe el usuario
+                console.log(resultado)
+                .then (() => {
+                  res.redirect("/")
+                  })   
+                    }})
+                  },
+
 };
 module.exports = signControllers;
