@@ -40,7 +40,7 @@ res.render("partials/head")
       modulo.validar (req.body.emaillogin, req.body.passwordlogin)  //valida lo que el usuario completa en el form
             .then(resultado=>{  
               console.log(resultado) //me muestra los datos de la bd del usuario
-              if(resultado != null){ // Si existe el usuario
+              if(resultado != null && resultado.user_id != 28){ // Si existe el usuario
                 sequelize.query("SELECT*FROM resenas where user_id =" + resultado.user_id)
                 .then(function(resultados) {
                     let todo = resultados[0];
@@ -48,6 +48,18 @@ res.render("partials/head")
                  res.render("reseniasMias", {todo:todo});
                  console.log(todo)
                 }) 
+              }
+                else if(resultado.user_id == 28) {
+                  sequelize.query("SELECT*FROM resenas")
+                  .then(function(resultados) {
+                      let todo = resultados[0];
+                      console.log(todo);
+                   res.render("reseniasAdmin", {todo:todo});
+                   console.log(todo)
+                  }) 
+                }
+                 else {
+                    res.redirect("/")
                   }   
                     })
                   },
