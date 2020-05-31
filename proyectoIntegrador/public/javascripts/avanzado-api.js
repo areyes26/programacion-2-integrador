@@ -57,6 +57,24 @@ window.onload = function() {
 
 
 
+  //Random
+
+  var buscarRandom = document.querySelector(".descubrir")
+
+  function aleatorio() {
+    return Math.floor(Math.random() * 9542);
+  }
+
+  buscarRandom.innerHTML = '<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
+
+  //Se creo una funcion que permite hallar series random
+
+
+
+
+
+
+
 
 
 };

@@ -12,20 +12,4 @@ window.addEventListener("load", function() {
 
 
 
-
-
-
-
-  //
-  //
-  // })
-  //
-  //
-
-
-
-
-
-
-
 })
