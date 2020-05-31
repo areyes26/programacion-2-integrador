@@ -63,6 +63,9 @@ res.render("partials/head")
                   }   
                     })
                   },
+                  login2: function(req,res) {
+                      res.render("login");
+                  },
                   delete: function(req,res) {
                     db.Resena.destroy({
                         where: {
