@@ -115,13 +115,6 @@
                   <p class="uk-text-meta uk-margin-remove-top"style="font-size: 2vw;"><time datetime="2016-04-01T19:00"><p><strong style="font-size: 1.5vw;"><%= todo[i].username%></strong></time></p>
                 </div>
             </div>
-            <form action="/info_serie/delete/<%=movie_id%>/<%= todo[i].resena_id %>" method="POST">
-                <button class="uk-button-danger">Delete Resena</button>
-            </form>
-            <form action="/info_serie/edit/<%=movie_id%>/<%= todo[i].resena_id %>" method="GET">
-                <button class="uk-button-secondary">Modify</button>
-            </form>
-              
                 </div>
     <% } %>
 </div>

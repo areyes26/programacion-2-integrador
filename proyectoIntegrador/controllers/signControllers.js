@@ -51,6 +51,37 @@ res.render("partials/head")
                   }   
                     })
                   },
-
+                  delete: function(req,res) {
+                    db.Resena.destroy({
+                        where: {
+                            resena_id:req.params.id,
+                        }
+                    })
+                .then (() => {
+                res.redirect("/")
+                })
+                },
+                edit: function(req,res) {
+                    db.Resena.findByPk(req.params.id)
+                .then ((resena) => {
+                res.render("edit", {resena:resena});
+                console.log(resena);
+                })
+                },
+                actualizar: function (req,res){
+                    db.Resena.update({
+                        description: req.body.description,
+                        title: req.body.title,
+                        rating: req.body.rating
+                    },
+                        {
+                        where: {
+                            resena_id: req.params.id
+                        }
+                    })
+                .then (() => {
+                res.redirect("/")
+                })
+                    }
 };
 module.exports = signControllers;

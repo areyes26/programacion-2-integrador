@@ -34,42 +34,6 @@ save: function (req,res){
                 res.redirect("/info_serie/?id=" + req.params.movie_id)
                 })
         }})
-    },
-delete: function(req,res) {
-    db.Resena.destroy({
-        where: {
-            movie_id:req.params.movie_id,
-            resena_id:req.params.id,
-            
-        }
-    })
-.then (() => {
-res.redirect("/info_serie/?id=" + req.params.movie_id)
-
-})
-},
-edit: function(req,res) {
-    db.Resena.findByPk(req.params.id)
-.then ((resena) => {
-res.render("edit", {movie_id:req.params.movie_id, resena:resena});
-console.log(resena);
-})
-},
-actualizar: function (req,res){
-    db.Resena.update({
-        description: req.body.description,
-        title: req.body.title,
-        rating: req.body.rating
-    },
-        {
-        where: {
-            movie_id:req.params.movie_id,
-            resena_id: req.params.id
-        }
-    })
-.then (() => {
-res.redirect("/info_serie/?id=" + req.params.movie_id)
-})
     }
 };
 module.exports = moduleControllers;

@@ -40,7 +40,7 @@
 <main>  
     <div class="Resenas uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
     <h2 class="primero"> <strong>Edite su resena aqui.</strong></h2>
-                    <form action="/info_serie/edit/<%= movie_id %>/<%= resena.resena_id %>" method="POST">
+                    <form action="/login/edit/<%=resena.resena_id%>" method="POST">
                         <div>
                             <input type="text" name="title" value="<%= resena.title %>" placeholder="Title" autofocus>
                         </div>
@@ -50,13 +50,7 @@
                 <div>
                   <input type="number" min="0" max="10"  name="rating" value="<%= resena.rating %>" placeholder="Rating">
                   </div>
-                <div>
-                  <input type="email" name="email" placeholder="Email">
-                </div>
-                <div>
-                  <input type="password" name="password"  placeholder="Password">
-                  </div>
-                <div>
+                        <div>
                         <button class="uk-button uk-button-danger uk-modal-close" type="Cancel">Cancelar</button>
                         <button class="uk-button uk-button-primary" type="submit">Guardar</button>
                 </div>
