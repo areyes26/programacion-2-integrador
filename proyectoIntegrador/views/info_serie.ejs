@@ -110,6 +110,10 @@
                   <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Publicado el:</h3>
                   <p class="uk-text-meta uk-margin-remove-top"style="font-size: 2vw;"><time datetime="2016-04-01T19:00"><p><strong style="font-size: 1.5vw;"><%= todo[i].createdAt%></strong></time></p>
                 </div>
+                <div class="uk-card-footer">
+                  <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Creado por:</h3>
+                  <p class="uk-text-meta uk-margin-remove-top"style="font-size: 2vw;"><time datetime="2016-04-01T19:00"><p><strong style="font-size: 1.5vw;"><%= todo[i].username%></strong></time></p>
+                </div>
             </div>
             <form action="/info_serie/delete/<%=movie_id%>/<%= todo[i].resena_id %>" method="POST">
                 <button class="uk-button-danger">Delete Resena</button>
