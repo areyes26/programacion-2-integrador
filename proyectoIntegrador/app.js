@@ -27,7 +27,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'Secreto!!!'}));
-
+app.use(function(req, res, next){
+  if(req.session.erroresregistracion){
+    res.locals = {
+      erroresregistracion: req.session.erroresregistracion
+    }
+    req.session.erroresregistracion = null
+  }
+  next()
+  
+})
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/info_serie', info_serie_router);
