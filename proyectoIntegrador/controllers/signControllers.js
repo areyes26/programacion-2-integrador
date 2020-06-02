@@ -67,11 +67,14 @@ res.render("partials/head")
                       res.render("login");
                   },
                   delete: function(req,res) {
+                    console.log(req.body);
                     modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
                     .then(resultado=>{  
-                      console.log(resultado) //me muestra los datos de la bd del usuario
-                      if(resultado != null){
-                    db.Resena.destroy({
+                        console.log(req.body)
+                       //me muestra los datos de la bd del usuario
+                      if(resultado != null && resultado.user_id ==  sequelize.query("SELECT user_id FROM resenas where resena_id =" + req.params.id ) ){
+                        console.log(req.body)
+                        db.Resena.destroy({
                         where: {
                             resena_id: req.params.id,
                         }
@@ -79,8 +82,8 @@ res.render("partials/head")
                 .then (() => {
                 res.redirect("/")
                 })
-                }
-                else {
+            } else {
+                console.log(req.body);
                     res.redirect('/login/delete/' + req.params.id)
                 }
             })
@@ -96,7 +99,7 @@ res.render("partials/head")
                     modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
                     .then(resultado=>{  
                       console.log(resultado) //me muestra los datos de la bd del usuario
-                      if(resultado != null){
+                      if(resultado != null  && resultado.user_id ==  sequelize.query("SELECT user_id FROM resenas where resena_id =" + req.params.id )){ //Le tendria que agregar que coincida el resultado.user_id con el de resenia 
                     db.Resena.update({
                         description: req.body.description,
                         title: req.body.title,

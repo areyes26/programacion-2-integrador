@@ -31,6 +31,10 @@ let moduloLogin = {
             },
         })
         .then(results=>{
+            console.log("-------------")
+console.log(email)
+console.log("---------------")
+console.log(results)
            if(results && bcryptjs.compareSync(password,results.password)){
                    return results;    
                }
