@@ -82,7 +82,18 @@ res.render("partials/head")
                 .then (() => {
                 res.redirect("/")
                 })
-            } else {
+            }  else if(resultado != null && resultado.user_id == 28 ){
+                console.log(req.body)
+                db.Resena.destroy({
+                where: {
+                    resena_id: req.params.id,
+                }
+            })
+        .then (() => {
+        res.redirect("/")
+        })
+    }
+            else {
                 console.log(req.body);
                     res.redirect('/login/delete/' + req.params.id)
                 }
