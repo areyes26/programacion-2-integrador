@@ -73,7 +73,7 @@
                   <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><p><strong><%= todo[i].createdAt%></strong></time></p>
                 </div>
               </div>
-              <form action="/login/delete/<%= todo[i].resena_id %>" method="POST">
+              <form action="/login/delete/<%= todo[i].resena_id %>" method="GET">
                 <button class="uk-button-danger">Delete Resena</button>
             </form>
             <form action="/login/edit/<%= todo[i].resena_id %>" method="GET">

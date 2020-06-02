@@ -67,15 +67,24 @@ res.render("partials/head")
                       res.render("login");
                   },
                   delete: function(req,res) {
+                    modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
+                    .then(resultado=>{  
+                      console.log(resultado) //me muestra los datos de la bd del usuario
+                      if(resultado != null){
                     db.Resena.destroy({
                         where: {
-                            resena_id:req.params.id,
+                            resena_id: req.params.id,
                         }
                     })
                 .then (() => {
                 res.redirect("/")
                 })
-                },
+                }
+                else {
+                    res.redirect('/login/delete/' + req.params.id)
+                }
+            })
+        },
                 edit: function(req,res) {
                     db.Resena.findByPk(req.params.id)
                 .then ((resena) => {
@@ -84,6 +93,10 @@ res.render("partials/head")
                 })
                 },
                 actualizar: function (req,res){
+                    modulo.validar(req.body.email, req.body.password)  //valida lo que el usuario completa en el form
+                    .then(resultado=>{  
+                      console.log(resultado) //me muestra los datos de la bd del usuario
+                      if(resultado != null){
                     db.Resena.update({
                         description: req.body.description,
                         title: req.body.title,
@@ -97,6 +110,10 @@ res.render("partials/head")
                 .then (() => {
                 res.redirect("/")
                 })
+                    } else {
+                        res.redirect('/login/edit/' + req.params.id)
                     }
-};
+                })
+                }
+            };
 module.exports = signControllers;
