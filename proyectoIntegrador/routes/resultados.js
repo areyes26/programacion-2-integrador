@@ -27,7 +27,8 @@ router.post('/errores', function (req, res) {
 		username: req.body.username,
 		email: req.body.email,
 		password: req.body.password,
-		genero_id: req.body.genero_id
+		genero_id: req.body.genero_id,
+		serie_favorita: req.body.serie_favorita
 	};
 
 	let errores = validarformulario(formulario);
