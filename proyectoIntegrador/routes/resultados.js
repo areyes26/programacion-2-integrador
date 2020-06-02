@@ -12,8 +12,8 @@ function validarformulario(formulario) {
 		errores.push('Por favor dejame el titulo completo, no vacío che');
 	} else if (formulario.username.length < 3) {
 		errores.push('Che amigo, al menos 3 caracteres');
-	} else if (isNaN(formulario.password)) {
-		errores.push('Che amigo, la contraseña tiene que ser un numero');
+	} else if ((formulario.password.length < 5)) {
+		errores.push('La contraseña es muy debil tiene que ser mas larga');
 	} else if (formulario.genero_id == '') {
 		errores.push('Falta dejar el genero favorito');
 	}
