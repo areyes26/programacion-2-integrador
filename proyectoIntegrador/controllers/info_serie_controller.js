@@ -1,6 +1,3 @@
-let controlador = {
-   
-}
-
+let controlador = {};
 
 module.exports = controlador;

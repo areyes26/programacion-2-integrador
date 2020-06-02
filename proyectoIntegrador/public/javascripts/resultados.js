@@ -1,92 +1,94 @@
-window.addEventListener("load", function() {
-  var queryString = location.search; //Capturamos la query string del navegador
+window.addEventListener('load', function () {
+	var queryString = location.search; //Capturamos la query string del navegador
 
-  var searchParams = new URLSearchParams(queryString); //Obtenemos las posiciones y los datos de la queryString
+	var searchParams = new URLSearchParams(queryString); //Obtenemos las posiciones y los datos de la queryString
 
-  var busqueda = searchParams.get("busqueda"); //con el método get obtenenemos el valor del término a buscar. En este obtenenemos lo que escribió el usuario en el campo de busqueda cuyo "name" es "busqueda" (name="busqueda").
-  var input = document.querySelector(".uk-search-input")
-  input.setAttribute("value", busqueda)
+	var busqueda = searchParams.get('busqueda'); //con el método get obtenenemos el valor del término a buscar. En este obtenenemos lo que escribió el usuario en el campo de busqueda cuyo "name" es "busqueda" (name="busqueda").
+	var input = document.querySelector('.uk-search-input');
+	input.setAttribute('value', busqueda);
 
-  var page = 1;
-  vermas()
+	var page = 1;
+	vermas();
 
-  function vermas() {
+	function vermas() {
+		var url =
+			'https://api.themoviedb.org/3/search/tv?api_key=7246c48f98d8db92d443b21af0633a14&language=en-US&query=' +
+			busqueda +
+			'&page=' +
+			page;
 
-    var url = "https://api.themoviedb.org/3/search/tv?api_key=7246c48f98d8db92d443b21af0633a14&language=en-US&query=" + busqueda + '&page=' + page
+		fetch(url)
+			.then(function (respuesta) {
+				return respuesta.json();
+			})
+			.then(function (datos) {
+				var destino = document.querySelector('.resultados');
+				var datosFinales = datos.results;
+				var titulo = document.querySelector('.primero');
 
-    fetch(url)
-      .then(function(respuesta) {
-        return respuesta.json();
-      })
-      .then(function(datos) {
+				titulo.innerText = busqueda;
 
+				console.log(datos, page);
 
-        var destino = document.querySelector(".resultados");
-        var datosFinales = datos.results;
-        var titulo = document.querySelector(".primero");
+				console.log(datos);
 
-        titulo.innerText = busqueda;
+				if (datos.results.length === 0 && page == 1) {
+					titulo.innerText = 'No se encontraron resultados';
+					titulo.style.textTransform = 'none';
+					titulo.style.padding = '20%';
+					titulo.style.textAlign = 'center';
+					titulo.style.color = 'Red';
+				}
 
+				for (var i = 0; i < datosFinales.length; i++) {
+					if (datos.results[i].poster_path == null) {
+						var foto = document.querySelector('.resultados');
+						foto.innerHTML +=
+							'<li><a href="/info_serie?id=' +
+							datos.results[i].id +
+							'"> ' +
+							'<img src="/images/notfound.jpg">' +
+							'</a></li>';
+					} else {
+						destino.innerHTML +=
+							'<li><a href="/info_serie?id=' +
+							datos.results[i].id +
+							'"> ' +
+							'<img src="https://image.tmdb.org/t/p/w500/' +
+							datos.results[i].poster_path +
+							'">' +
+							'</a></li>';
+					}
+				}
+				if (datos.total_pages == page) {
+					console.log('cortamo');
+					window.removeEventListener('scroll', scrolled);
+					return;
+					// alert("No se encuentran resultados")
+				}
+			});
+	}
+	window.addEventListener('scroll', scrolled);
 
-        console.log(datos, page);
+	function scrolled(e) {
+		var myDiv = document.querySelector('body');
+		if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
+			// scrolledToBottom(e);
+			page++;
+			vermas();
+		}
+	}
 
-        console.log(datos);
+	//Random
 
-        if (datos.results.length === 0 && page == 1) {
-          titulo.innerText = "No se encontraron resultados";
-          titulo.style.textTransform = "none";
-          titulo.style.padding = "20%"
-          titulo.style.textAlign = "center"
-          titulo.style.color = "Red"
-        }
+	var buscarRandom = document.querySelector('.descubrir');
 
-        for (var i = 0; i < datosFinales.length; i++) {
-          if (datos.results[i].poster_path == null) {
-            var foto = document.querySelector('.resultados');
-            foto.innerHTML += '<li><a href="/info_serie?id=' + datos.results[i].id + '"> ' + '<img src="/images/notfound.jpg">' + '</a></li>'
-          } else {
-            destino.innerHTML += '<li><a href="/info_serie?id=' + datos.results[i].id + '"> ' + '<img src="https://image.tmdb.org/t/p/w500/' + datos.results[i].poster_path + '">' + '</a></li>'
-          }
-        }
-        if (datos.total_pages == page) {
-          console.log('cortamo');
-          window.removeEventListener('scroll', scrolled)
-          return
-          // alert("No se encuentran resultados")
-        }
-      })
+	function aleatorio() {
+		return Math.floor(Math.random() * 9542);
+	}
 
-  }
-  window.addEventListener('scroll', scrolled)
+	buscarRandom.innerHTML =
+		'<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>';
 
-  function scrolled(e) {
-    var myDiv = document.querySelector('body')
-    if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
-      // scrolledToBottom(e);
-      page++
-      vermas()
-    }
-
-  }
-
-
-  //Random
-
-  var buscarRandom = document.querySelector(".descubrir")
-
-  function aleatorio() {
-    return Math.floor(Math.random() * 9542);
-  }
-
-  buscarRandom.innerHTML = '<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
-
-  //Se creo una funcion que permite hallar series random
-
-
-
-
-
-
-
-
+	//Se creo una funcion que permite hallar series random
 });

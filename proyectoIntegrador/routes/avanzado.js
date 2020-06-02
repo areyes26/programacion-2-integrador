@@ -3,8 +3,8 @@ var router = express.Router();
 
 const controller = require('../controllers/avanzado_controller');
 
-router.get('/', function(req, res, next) {
-    res.render('avanzado', { title: 'Express' });
-  });
+router.get('/', function (req, res, next) {
+	res.render('avanzado', { title: 'Express' });
+});
 
 module.exports = router;

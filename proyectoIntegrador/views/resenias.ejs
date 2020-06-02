@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+	<head>
+		<!-- Global site tag (gtag.js) - le estoy metiendo Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
 
-<head>
-  <!-- Global site tag (gtag.js) - le estoy metiendo Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+			gtag('config', 'UA-152881111-1');
+		</script>
 
-    gtag('config', 'UA-152881111-1');
-  </script>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<title>Proyecto integrador</title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/resena.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
+		/>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>Proyecto integrador</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <link rel="stylesheet" href="/stylesheets/resena.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
-
-  <!-- JAVA -->
-  <!-- uikit -->
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
-  <!-- script nuestro -->
-  <script type="text/javascript" src="/javascripts/java.js"></script>
-  <script src="https://kit.fontawesome.com/4710dd3a67.js"></script>
-  <script type="text/javascript" src="/javascripts/tres-caracteres.js"></script>
-  <script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
-  <script type="text/javascript" src="/javascripts/tarde.js">
-
-  </script>
-  <!-- <script src="js/discover.js" charset="utf-8"></script> -->
-</head>
-<body>
-  <!--HEADER-->
-<%- include('./partials/head') %>
-  <!-- - MAIN - -->
-  <main>
-    <!-- Genero Favorito -->
-    <h1 id="titulos" class="primero">Mis Reseñas</h1>
-    <div class="botones-resena">
-    <div class="img_resena">
-        <a href="/resenias/mejores">
-          <img src="/images/logo-mejor.png" alt="">
-        <img src="/images/Mejores Puntuadas.jpg" alt="">
-      </a>
-    </div>
-    <div class="img_resena">
-      <a href="/resenias/peores">
-        <img src="/images/logo-peor.png" alt="">
-        <img src="/images/Peores Puntuadas.jpg" alt="">
-      </a>
-    </div>
-    <div class="img_resena">
-      <a href="/resenias/recientes">
-        <img src="/images/logo-recientes.png" alt="">
-        <img src="/images/Mas recientes.jpg" alt="">
-      </a>
-    </div>
-
-    </div>
-    
-  </main>
-<!-- FOOTER -->
-<%- include('./partials/footer') %>
-</body>
-
+		<!-- JAVA -->
+		<!-- uikit -->
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+		<!-- script nuestro -->
+		<script type="text/javascript" src="/javascripts/java.js"></script>
+		<script src="https://kit.fontawesome.com/4710dd3a67.js"></script>
+		<script
+			type="text/javascript"
+			src="/javascripts/tres-caracteres.js"
+		></script>
+		<script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
+		<script type="text/javascript" src="/javascripts/tarde.js"></script>
+		<!-- <script src="js/discover.js" charset="utf-8"></script> -->
+	</head>
+	<body>
+		<!--HEADER-->
+		<%- include('./partials/head') %>
+		<!-- - MAIN - -->
+		<main>
+			<!-- Genero Favorito -->
+			<h1 id="titulos" class="primero">Mis Reseñas</h1>
+			<div class="botones-resena">
+				<div class="img_resena">
+					<a href="/resenias/mejores">
+						<img src="/images/logo-mejor.png" alt="" />
+						<img src="/images/Mejores Puntuadas.jpg" alt="" />
+					</a>
+				</div>
+				<div class="img_resena">
+					<a href="/resenias/peores">
+						<img src="/images/logo-peor.png" alt="" />
+						<img src="/images/Peores Puntuadas.jpg" alt="" />
+					</a>
+				</div>
+				<div class="img_resena">
+					<a href="/resenias/recientes">
+						<img src="/images/logo-recientes.png" alt="" />
+						<img src="/images/Mas recientes.jpg" alt="" />
+					</a>
+				</div>
+			</div>
+		</main>
+		<!-- FOOTER -->
+		<%- include('./partials/footer') %>
+	</body>
 </html>

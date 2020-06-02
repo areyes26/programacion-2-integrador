@@ -1,87 +1,107 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+	<head>
+		<!-- Global site tag (gtag.js) - le estoy metiendo Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
 
-<head>
-  <!-- Global site tag (gtag.js) - le estoy metiendo Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+			gtag('config', 'UA-152881111-1');
+		</script>
 
-    gtag('config', 'UA-152881111-1');
-  </script>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<title>Proyecto integrador</title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
+		/>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>Proyecto integrador</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
-
-  <!-- JAVA -->
-  <!-- uikit -->
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
-  <!-- script nuestro -->
-  <script type="text/javascript" src="/javascripts/java.js"></script>
-  <script src="https://kit.fontawesome.com/4710dd3a67.js"></script>
-  <script type="text/javascript" src="/javascripts/tres-caracteres.js"></script>
-  <script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
-  <script type="text/javascript" src="/javascripts/tarde.js">
-
-  </script>
-  <!-- <script src="js/discover.js" charset="utf-8"></script> -->
-</head>
-<body>
-  <!--HEADER-->
-<%- include('./partials/head') %>
-  <!-- - MAIN - -->
-  <main>
-    <!-- ESTO TODAVIA ESTA MAL PORQUE LE FALTA VALIDAR -->   
-    <% if (todo.length == 0) { %>
-      <h2 style="color: white;"><strong>No hay reseñas</strong></h2>
-    <% } else { %> 
-    <h2 id="titulos"><strong> Mis reseñas:</strong></h2>
-    <% for(let i = 0; i < todo.length; i++) { %>
-            <div>
-              <div class="uk-card uk-card-default uk-width-1-2@m">
-                <div class="uk-card-header">
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>
-                      <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Quieres saber cual peli es?:</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><a href="/info_serie?id=<%= todo[i].movie_id%>">Entra y enterate!</a></p>
-                      </div>
-                        <div class="uk-width-expand">
-                          <h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
-                          <p class="uk-text-meta uk-margin-remove-top"><%= todo[i].title%></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Description:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><strong><%= todo[i].description%></strong></p>
-                </div>
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Rating:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><strong><%= todo[i].rating%></strong></p>
-                </div>
-                <div class="uk-card-footer">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Publicado el:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><p><strong><%= todo[i].createdAt%></strong></time></p>
-                </div>
-              </div>
-              <form action="/login/delete/<%= todo[i].resena_id %>" method="GET">
-                <button class="uk-button-danger">Delete Resena</button>
-            </form>
-                </div>
-    <% } %>
-    <% } %>
-  </main>
-<!-- FOOTER -->
-<%- include('./partials/footer') %>
-</body>
-
+		<!-- JAVA -->
+		<!-- uikit -->
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+		<!-- script nuestro -->
+		<script type="text/javascript" src="/javascripts/java.js"></script>
+		<script src="https://kit.fontawesome.com/4710dd3a67.js"></script>
+		<script
+			type="text/javascript"
+			src="/javascripts/tres-caracteres.js"
+		></script>
+		<script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
+		<script type="text/javascript" src="/javascripts/tarde.js"></script>
+		<!-- <script src="js/discover.js" charset="utf-8"></script> -->
+	</head>
+	<body>
+		<!--HEADER-->
+		<%- include('./partials/head') %>
+		<!-- - MAIN - -->
+		<main>
+			<!-- ESTO TODAVIA ESTA MAL PORQUE LE FALTA VALIDAR -->
+			<% if (todo.length == 0) { %>
+			<h2 style="color: white;"><strong>No hay reseñas</strong></h2>
+			<% } else { %>
+			<h2 id="titulos"><strong> Mis reseñas:</strong></h2>
+			<% for(let i = 0; i < todo.length; i++) { %>
+			<div>
+				<div class="uk-card uk-card-default uk-width-1-2@m">
+					<div class="uk-card-header">
+						<div class="uk-grid-small uk-flex-middle" uk-grid>
+							<div class="uk-width-expand">
+								<h3 class="uk-card-title uk-margin-remove-bottom">
+									Quieres saber cual peli es?:
+								</h3>
+								<p class="uk-text-meta uk-margin-remove-top">
+									<a href="/info_serie?id=<%= todo[i].movie_id%>"
+										>Entra y enterate!</a
+									>
+								</p>
+							</div>
+							<div class="uk-width-expand">
+								<h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
+								<p class="uk-text-meta uk-margin-remove-top">
+									<%= todo[i].title%>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="uk-card-body">
+						<h3 class="uk-card-title uk-margin-remove-bottom">Description:</h3>
+						<p class="uk-text-meta uk-margin-remove-top">
+							<strong><%= todo[i].description%></strong>
+						</p>
+					</div>
+					<div class="uk-card-body">
+						<h3 class="uk-card-title uk-margin-remove-bottom">Rating:</h3>
+						<p class="uk-text-meta uk-margin-remove-top">
+							<strong><%= todo[i].rating%></strong>
+						</p>
+					</div>
+					<div class="uk-card-footer">
+						<h3 class="uk-card-title uk-margin-remove-bottom">Publicado el:</h3>
+						<p class="uk-text-meta uk-margin-remove-top">
+							<time datetime="2016-04-01T19:00"
+								><p><strong><%= todo[i].createdAt%></strong></p></time
+							>
+						</p>
+					</div>
+				</div>
+				<form action="/login/delete/<%= todo[i].resena_id %>" method="GET">
+					<button class="uk-button-danger">Delete Resena</button>
+				</form>
+			</div>
+			<% } %> <% } %>
+		</main>
+		<!-- FOOTER -->
+		<%- include('./partials/footer') %>
+	</body>
 </html>

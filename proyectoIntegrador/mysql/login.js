@@ -12,5 +12,4 @@ router.post('/delete/:id', moduleControllers.delete);
 router.get('/edit/:id', moduleControllers.edit);
 router.post('/edit/:id', moduleControllers.actualizar);
 
-
 module.exports = router;
