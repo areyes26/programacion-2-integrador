@@ -187,6 +187,7 @@ botonResena.onclick = function(){
 
   buscarRandom.innerHTML = '<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>'
 
+  //Se creo una funcion que permite hallar series random
 
 
 
