@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//Nose porque no esta funcionando por ahora app.use(recordameMiddleware);
+//No funciona nose porque app.use(recordameMiddleware);
 //? Se cruza con toda la aplicacion el recordame
 //!Esto es para el login
 app.use(session({ secret: 'session' }));

@@ -45,7 +45,7 @@ let signControllers = {
 					req.session.usuarioLogeado = req.body.emaillogin;
 					//TODO aca le estoy haciendo un cookie para que cuando salga de la pagina me lo recuerde
 					if (req.body.recordame != undefined) {
-						res.cookie('recordame', req.session.usuarioLogeado.emaillogin, {
+						res.cookie('recordame', req.session.usuarioLogeado, {
 							maxAge: 300000
 							//! Esto se guarda por 5 minutos
 						});
@@ -82,9 +82,9 @@ let signControllers = {
 			}
 		});
 	},
-	logout: function(req,res) {
+	logout: function (req, res) {
 		req.session.destroy();
-		res.redirect("/")
+		res.redirect('/');
 	},
 	delete: function (req, res) {
 		console.log(req.body);
