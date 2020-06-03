@@ -144,6 +144,11 @@
               <form action="/resultados/errores" method="POST" name="formulario">
                 
                 <% if (typeof erroresregistracion != "undefined") { %>
+                  <script>
+                    window.addEventListener("load", function() {
+                          document.getElementById("a_usuario").click()
+                    })
+               </script>
                   
                   <ul style="color:red">
                       <% for (let i = 0; i < erroresregistracion.length; i++) { %>
@@ -152,11 +157,7 @@
                           </li>
                       <% } %>
                   </ul>
-                  <script>
-                    window.addEventListener("load", function() {
-                          document.getElementById("a_usuario").click()
-                    })
-               </script>
+                
               <% }%>
                   
               <div>
