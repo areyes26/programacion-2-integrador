@@ -6,9 +6,6 @@ var logger = require('morgan');
 var session = require('express-session');
 //Este es para inicio de sesion
 
-//! Esto es para la cookie
-var recordameMiddleware = require('./middlewares/recordameMiddleware');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const info_serie_router = require('./routes/info_serie');
@@ -31,26 +28,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: "usuario"}))
-app.use(function(req, res, next){
-	if(req.session.erroresregistracion){
-		console.log(req.session.erroresregistracion)
-		res.locals = {
-			erroresregistracion: req.session.erroresregistracion
-		}
-	}
-	console.log()
-	next()
-})
+
 
 //!Esto es para el login
 app.use(session({ secret: 'session' }));
 //TODO esto es para la funcion
 app.use(function (req, res, next) {
-	res.locals = { usuarioLogeado: req.session.usuarioLogeado };
+	let locals = {}
+	if(req.session.erroresregistracion){
+		
+		locals.erroresregistracion = req.session.erroresregistracion
+		
+	}
+	req.session.erroresregistracion = undefined
+
+	locals.usuarioLogeado = req.session.usuarioLogeado
+	res.locals = locals;
 	next();
 });
-app.use(recordameMiddleware);
-//? Se cruza con toda la aplicacion el recordame
 
 //?Comienza el sistema de Ruteo
 app.use('/', indexRouter);
