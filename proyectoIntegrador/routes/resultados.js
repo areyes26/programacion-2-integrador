@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 let db = require('../database/models');
 let Op = db.Sequelize.Op;
-
+let bycrypt = require('bcryptjs');
 const controller = require('../controllers/resultados_controller');
 
 function validarformulario(formulario) {
@@ -12,7 +12,7 @@ function validarformulario(formulario) {
 		errores.push('Por favor dejame el titulo completo, no vacío che');
 	} else if (formulario.username.length < 3) {
 		errores.push('Che amigo, al menos 3 caracteres');
-	} else if ((formulario.password.length < 5)) {
+	} else if (formulario.password.length < 5) {
 		errores.push('La contraseña es muy debil tiene que ser mas larga');
 	} else if (formulario.genero_id == '') {
 		errores.push('Falta dejar el genero favorito');
@@ -26,9 +26,8 @@ router.post('/errores', function (req, res) {
 		fullname: req.body.fullname,
 		username: req.body.username,
 		email: req.body.email,
-		password: req.body.password,
-		genero_id: req.body.genero_id,
-		
+		password: bycrypt.hashSync(req.body.password, 10),
+		genero_id: req.body.genero_id
 	};
 
 	let errores = validarformulario(formulario);
@@ -38,14 +37,20 @@ router.post('/errores', function (req, res) {
 		req.session.erroresregistracion = errores;
 		res.redirect('back');
 	} else {
-		
-		db.User.create(formulario)
-		.then((user) => {
-			res.render('registro', {
-				user:user
-			})
-		} )
-		
+		let user = {
+			fullname: req.body.fullname,
+			username: req.body.username,
+			email: req.body.email,
+			password: bycrypt.hashSync(req.body.password, 10),
+			birthday: req.body.birthday,
+			genero_id: req.body.genero_id,
+			serie_favorita: req.body.serie_favorita
+		};
+
+		db.User.create(user).then(() => {
+			res.redirect('/');
+		});
+
 		// Guardarla en base de datos....
 	}
 });

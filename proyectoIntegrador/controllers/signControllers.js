@@ -19,6 +19,7 @@ let signControllers = {
 			genero_id: req.body.genero_id,
 			serie_favorita: req.body.serie_favorita
 		};
+		return res.send(user);
 		db.User.create(user).then(() => {
 			res.redirect('/');
 		});
@@ -52,7 +53,6 @@ let signControllers = {
 					}
 					res.redirect('/login');
 				} else {
-					//? ESTO ES PARA LOS ERRORES DE FEDE let error = 'Por favor ingrese usuario y contraseña válidos';
 					res.redirect('/');
 				}
 			});
