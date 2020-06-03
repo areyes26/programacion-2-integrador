@@ -6,6 +6,9 @@ var logger = require('morgan');
 var session = require('express-session');
 //Este es para inicio de sesion
 
+//! Esto es para la cookie
+var recordameMiddleware = require('./middlewares/recordameMiddleware');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const info_serie_router = require('./routes/info_serie');
@@ -27,7 +30,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+//Nose porque no esta funcionando por ahora app.use(recordameMiddleware);
+//? Se cruza con toda la aplicacion el recordame
 //!Esto es para el login
 app.use(session({ secret: 'session' }));
 //TODO esto es para la funcion
