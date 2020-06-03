@@ -11,6 +11,7 @@ router.post('/', signControllers.save);
 router.post('/', signControllers.genero_id);
 //router.get('/login:user_id', signControllers.perfil);
 router.post('/login', signControllers.login);
+router.get('/login', signControllers.misResenas);
 router.get('/login/delete/:id', function (req, res) {
 	res.render('eliminar', { tipo: 'delete', deleteId: req.params.id });
 });

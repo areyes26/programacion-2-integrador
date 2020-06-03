@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session')
+var session = require('express-session');
 //Este es para inicio de sesion
 
 var indexRouter = require('./routes/index');
@@ -29,12 +29,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //!Esto es para el login
-app.use(session({secret: 'session'}))
+app.use(session({ secret: 'session' }));
 //TODO esto es para la funcion
-app.use(func(req,res,next) {
-	res.locals = {usuarioLogeado: req.session.usuarioLogeado}
-	next()
-})
+app.use(function (req, res, next) {
+	res.locals = { usuarioLogeado: req.session.usuarioLogeado };
+	next();
+});
 
 //?Comienza el sistema de Ruteo
 app.use('/', indexRouter);
