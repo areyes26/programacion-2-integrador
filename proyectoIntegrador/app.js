@@ -30,8 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//No funciona nose porque app.use(recordameMiddleware);
-//? Se cruza con toda la aplicacion el recordame
+
 //!Esto es para el login
 app.use(session({ secret: 'session' }));
 //TODO esto es para la funcion
@@ -39,6 +38,8 @@ app.use(function (req, res, next) {
 	res.locals = { usuarioLogeado: req.session.usuarioLogeado };
 	next();
 });
+app.use(recordameMiddleware);
+//? Se cruza con toda la aplicacion el recordame
 
 //?Comienza el sistema de Ruteo
 app.use('/', indexRouter);
