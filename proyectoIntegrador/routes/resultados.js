@@ -38,8 +38,13 @@ router.post('/errores', function (req, res) {
 		req.session.erroresregistracion = errores;
 		res.redirect('back');
 	} else {
-		// No hubieron errores, todo bien :)
-		res.redirect('back');
+		
+		db.User.create(formulario).then((user) => {
+			res.render('registro', {
+				user:user
+			})
+		} )
+		
 		// Guardarla en base de datos....
 	}
 });
