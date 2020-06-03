@@ -20,9 +20,6 @@ router.get('/login/edit/:id', signControllers.edit);
 router.post('/login/edit/:id', signControllers.actualizar);
 //Falta agregar validacion tanto si quiere eliminar una resena y tmbn cuando quiere editar una
 
-router.get('/login2', signControllers.login2);
-// INTENTO DE LOGIN MAS QUE FALLIDO router.post("/login2",signControllers.processLogin);
-
 // router.get('/pruebaSession', function(req,res){
 //if(req.session.numeroVisitas == undefined){
 //req.session.numeroVisitas = 0;
