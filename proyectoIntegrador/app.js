@@ -27,6 +27,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: "usuario"}))
+app.use(function(req, res, next){
+	if(req.session.erroresregistracion){
+		console.log(req.session.erroresregistracion)
+		res.locals = {
+			erroresregistracion: req.session.erroresregistracion
+		}
+	}
+	console.log()
+	next()
+})
 
 //!Esto es para el login
 app.use(session({ secret: 'session' }));

@@ -28,7 +28,7 @@ router.post('/errores', function (req, res) {
 		email: req.body.email,
 		password: req.body.password,
 		genero_id: req.body.genero_id,
-		serie_favorita: req.body.serie_favorita
+		
 	};
 
 	let errores = validarformulario(formulario);
@@ -39,7 +39,8 @@ router.post('/errores', function (req, res) {
 		res.redirect('back');
 	} else {
 		
-		db.User.create(formulario).then((user) => {
+		db.User.create(formulario)
+		.then((user) => {
 			res.render('registro', {
 				user:user
 			})
