@@ -73,11 +73,11 @@ let signControllers = {
 				console.log(req.body);
 				//me muestra los datos de la bd del usuario
 				if (
-					resultado != null &&
-					resultado.user_id ==
-						sequelize.query(
-							'SELECT user_id FROM resenas where resena_id =' + req.params.id
-						)
+					resultado != null
+					//resultado.user_id ==
+					//	sequelize.query(
+					//		'SELECT user_id FROM resenas where resena_id =' + req.params.id
+					//	)
 				) {
 					console.log(req.body);
 					db.Resena.destroy({
@@ -114,11 +114,11 @@ let signControllers = {
 			.then((resultado) => {
 				console.log(resultado); //me muestra los datos de la bd del usuario
 				if (
-					resultado != null &&
-					resultado.user_id ==
-						sequelize.query(
-							'SELECT user_id FROM resenas where resena_id =' + req.params.id
-						)
+					resultado != null
+					//resultado.user_id ==
+					//	sequelize.query(
+					//		'SELECT user_id FROM resenas where resena_id =' + req.params.id
+					//	)
 				) {
 					//Le tendria que agregar que coincida el resultado.user_id con el de resenia
 					db.Resena.update(

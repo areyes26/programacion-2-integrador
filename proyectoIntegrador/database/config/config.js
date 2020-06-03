@@ -1,11 +1,11 @@
 module.exports = {
 	development: {
-		username: "root",
-		password: "root",
+		username: 'root',
+		password: 'ravioles',
 		database: 'usuarios',
 		host: '127.0.0.1',
 		dialect: 'mysql',
-		port: 3306,
+		port: 3306
 		//"operatorsAliases": false
 	},
 	test: {
