@@ -6,6 +6,9 @@ var logger = require('morgan');
 var session = require('express-session');
 //Este es para inicio de sesion
 
+//! Esto es para la cookie
+var recordameMiddleware = require('./middlewares/recordameMiddleware');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const info_serie_router = require('./routes/info_serie');
@@ -46,6 +49,8 @@ app.use(function (req, res, next) {
 	res.locals = { usuarioLogeado: req.session.usuarioLogeado };
 	next();
 });
+app.use(recordameMiddleware);
+//? Se cruza con toda la aplicacion el recordame
 
 //?Comienza el sistema de Ruteo
 app.use('/', indexRouter);

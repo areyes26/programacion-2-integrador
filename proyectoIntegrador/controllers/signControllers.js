@@ -43,6 +43,13 @@ let signControllers = {
 				if (resultado != null) {
 					//! Si existe el usuario, esto me lleva al login general
 					req.session.usuarioLogeado = req.body.emaillogin;
+					//TODO aca le estoy haciendo un cookie para que cuando salga de la pagina me lo recuerde
+					if (req.body.recordame != undefined) {
+						res.cookie('recordame', req.session.usuarioLogeado, {
+							maxAge: 300000
+							//! Esto se guarda por 5 minutos
+						});
+					}
 					res.redirect('/login');
 				} else {
 					//? ESTO ES PARA LOS ERRORES DE FEDE let error = 'Por favor ingrese usuario y contraseña válidos';
@@ -74,6 +81,10 @@ let signControllers = {
 				res.redirect('/');
 			}
 		});
+	},
+	logout: function (req, res) {
+		req.session.destroy();
+		res.redirect('/');
 	},
 	delete: function (req, res) {
 		console.log(req.body);

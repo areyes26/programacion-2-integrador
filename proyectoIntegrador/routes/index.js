@@ -15,17 +15,9 @@ router.get('/login', signControllers.misResenas);
 router.get('/login/delete/:id', function (req, res) {
 	res.render('eliminar', { tipo: 'delete', deleteId: req.params.id });
 });
+router.get('/logout', signControllers.logout);
 router.post('/login/delete/:id', signControllers.delete);
 router.get('/login/edit/:id', signControllers.edit);
 router.post('/login/edit/:id', signControllers.actualizar);
-//Falta agregar validacion tanto si quiere eliminar una resena y tmbn cuando quiere editar una
-
-// router.get('/pruebaSession', function(req,res){
-//if(req.session.numeroVisitas == undefined){
-//req.session.numeroVisitas = 0;
-//}
-//req.session.numeroVisitas++;
-//res.send('Session tiene el numero: ' + req.session.numeroVisitas);
-//});
 
 module.exports = router;
