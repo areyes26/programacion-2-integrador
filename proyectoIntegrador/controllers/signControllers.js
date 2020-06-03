@@ -41,29 +41,43 @@ let signControllers = {
 			.then((resultado) => {
 				console.log(resultado); //me muestra los datos de la bd del usuario
 				if (resultado != null && resultado.user_id != 28) {
-					// Si existe el usuario
-					sequelize
-						.query('SELECT*FROM resenas where user_id =' + resultado.user_id)
-						.then(function (resultados) {
-							let todo = resultados[0];
-							console.log(todo);
-							res.render('reseniasMias', { todo: todo });
-							console.log(todo);
-						});
-				} else if (resultado.user_id == 28) {
-					sequelize.query('SELECT*FROM resenas').then(function (resultados) {
-						let todo = resultados[0];
-						console.log(todo);
-						res.render('reseniasAdmin', { todo: todo });
-						console.log(todo);
-					});
+					//! Si existe el usuario, esto me lleva al login general
+					req.session.usuarioLogeado = req.body.emaillogin;
+					res.redirect('/login');
 				} else {
-					res.redirect('/');
+//? ESTO ES PARA LOS ERRORES DE FEDE let error = 'Por favor ingrese usuario y contraseña válidos';
+res redirect ("/");
 				}
 			});
 	},
-	login2: function (req, res) {
-		res.render('login');
+	myReviews: function(req,res) {
+modulo.buscarPorEmail(req.session.usuarioLogeado)
+.then(function(resultado)){
+	console.log(resultado);
+	let id = resultado.user_id
+	console.log(id);
+	return id
+	.then(function(id)) {
+		console.log(id);
+		sequelize.query('SELECT*FROM resenas where user_id =' + resultado.user_id)
+		.then(function (resultados) {
+			let todo = resultados[0];
+			console.log(todo);
+			res.render('reseniasMias', { todo: todo });
+			console.log(todo);
+		});
+} else if (resultado.user_id == 28) {
+	sequelize.query('SELECT*FROM resenas').then(function (resultados) {
+		let todo = resultados[0];
+		console.log(todo);
+		res.render('reseniasAdmin', { todo: todo });
+		console.log(todo);
+	});
+} else {
+	res.redirect('/');
+
+	}
+}
 	},
 	delete: function (req, res) {
 		console.log(req.body);

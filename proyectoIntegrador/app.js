@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session');
+var session = require('express-session')
+//Este es para inicio de sesion
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -26,16 +27,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'Secreto!!!' }));
-app.use(function (req, res, next) {
-	if (req.session.erroresregistracion) {
-		res.locals = {
-			erroresregistracion: req.session.erroresregistracion
-		};
-		req.session.erroresregistracion = null;
-	}
-	next();
-});
+
+//!Esto es para el login
+app.use(session({secret: 'session'}))
+//TODO esto es para la funcion
+app.use(func(req,res,next) {
+	res.locals = {usuarioLogeado: req.session.usuarioLogeado}
+	next()
+})
+
+//?Comienza el sistema de Ruteo
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/info_serie', info_serie_router);
