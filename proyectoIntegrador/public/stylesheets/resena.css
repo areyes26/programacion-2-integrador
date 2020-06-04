@@ -44,3 +44,23 @@
 #caja-resena div p {
 	font-size: large;
 }
+
+#resena-general{
+	width: 100%;
+}
+
+.titulo-resena{
+	margin-left: 0;
+}
+/*Resenas Administrador*/
+
+#eliminar-admin{
+	width: 60%;
+	margin-left: 20%;
+	height: 6vh;
+}
+
+#eliminar-admin button{
+	width: 100%;
+	height: 100%;
+}
