@@ -99,6 +99,22 @@
                       <h3 class="uk-modal-title uk-text-center" style="color: white;">Bienvenido de vuelta!</h3>
 
                       <form action="/login" method="POST" name="formulario">
+                        <% if (typeof erroreslogin != "undefined") { %>
+                          <script>
+                            window.addEventListener("load", function() {
+                                  document.getElementById("login").click()
+                            })
+                       </script>
+                          
+                          <ul style="color:red">
+                              <% for (let i = 0; i < erroreslogin.length; i++) { %>
+                                  <li>
+                                      <%=erroreslogin[i]%>
+                                  </li>
+                              <% } %>
+                          </ul>
+                        
+                      <% }%>
                         <div class="uk-margin">
                           <div class="uk-inline uk-width-1-1">
                             <span class="uk-form-icon" uk-icon="icon:mail"></span>
