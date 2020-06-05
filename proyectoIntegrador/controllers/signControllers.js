@@ -37,6 +37,26 @@ let signControllers = {
 	//})
 	// } ,
 	login: function (req, res) {
+
+
+		function validarformulario(formulario) {
+			let errores = [];
+		
+			
+				errores.push('Tu contraseña es incorrecta');
+			
+		
+			return errores;
+		}
+
+		let formulario = {
+			passwordlogin: req.body.passwordlogin,
+			
+		};
+	
+		let errores = validarformulario(formulario);
+
+
 		modulo
 			.validar(req.body.emaillogin, req.body.passwordlogin) //valida lo que el usuario completa en el form
 			.then((resultado) => {
@@ -53,7 +73,8 @@ let signControllers = {
 					}
 					res.redirect('/login');
 				} else {
-					res.redirect('/');
+					req.session.erroreslogin = errores;
+		          res.redirect('back');
 				}
 			});
 	},
