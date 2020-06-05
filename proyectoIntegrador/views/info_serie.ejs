@@ -60,7 +60,7 @@
     </div>
 
     <!-- boton -->
-    <button id="boton-recom" type="send" name="recomendaciones" style="display:none"><strong>Ver recomendaciones</strong></button>
+    <button id="boton-recom" type="send" name="recomendaciones" style="margin-top: 0;display: none;margin-bottom: 0;"><strong>Ver recomendaciones</strong></button>
 
     <!-- carrusel ui kits -->
     <div class="Recomendaciones">
@@ -82,40 +82,41 @@
   <% if (todo.length == 0) { %>
     <h2 style="color: white;"><strong>No hay resenas, quieres agregar una?</strong></h2>
   <% } else { %>
-<button id="boton-resenas" type="send" name="resenas"><strong>Ver reseñas</strong></button>
-<div class="Resenas" style="display: none">
-  <h2 id="titulos"><strong> Lista de reseñas:</strong></h2>
+<button id="boton-resenas" type="send" name="resenas" style="margin: 3%;"><strong>Ver reseñas</strong></button>
+<div class="Resenas" style="width: 100%;display: none;">
+  <h2 id="titulos" style="margin-left: 0;"><strong> Lista de reseñas:</strong></h2>
 <div>
      <% for(let i = 0; i < todo.length; i++) { %>
             <div>
-              <div class="uk-card uk-card-default uk-width-1-2@m" class="resena-infoSerie" style="
-              width: 55vw;">
-                <div class="uk-card-header"class="resena-infoSerie">
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>
-                        <div class="uk-width-expand">
-                          <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Movie Title:</h3>
-                          <p class="uk-text-meta uk-margin-remove-top"style="font-size: 1.5vw;"><strong><%= todo[i].title%></strong></p>
-                        </div>
+              <div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
+                <div class="uk-card-header">
+                  <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-expand">
+                      <h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
+                      <p><%= todo[i].title%></p>
                     </div>
+                  </div>
+                </div>
+                <div class="uk-card-header">
+                  <h3>Description:</h3>
+                  <p><strong><%= todo[i].description%></strong></p>
                 </div>
                 <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Description:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"style="font-size: 1.3vw;"><%= todo[i].description%></p>
-                </div>
-                <div class="uk-card-body">
-                  <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Rating:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"style="font-size: 2vw;"><%= todo[i].rating%></p>
+                  <h3>Rating:</h3>
+                  <p><strong><%= todo[i].rating%></strong></p>
                 </div>
                 <div class="uk-card-footer">
-                  <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Publicado el:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"style="font-size: 2vw;"><time datetime="2016-04-01T19:00"><p><strong style="font-size: 1.5vw;"><%= todo[i].createdAt%></strong></time></p>
+                  <h3>Publicado el:</h3>
+                  <p>
+                    <time datetime="2016-04-01T19:00"
+                      ><p><strong><%= todo[i].createdAt%></strong></p></time
+                    >
+                  </p>
                 </div>
-                <div class="uk-card-footer">
-                  <h3 class="uk-card-title uk-margin-remove-bottom"style="font-size: 2vw;">Creado por:</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"style="font-size: 2vw;"><time datetime="2016-04-01T19:00"><p><strong style="font-size: 1.5vw;"><%= todo[i].username%></strong></time></p>
+              </div>
                 </div>
-            </div>
-                </div>
+                <br>
+                <br>
     <% } %>
 </div>
 </div>

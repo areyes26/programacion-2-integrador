@@ -21,6 +21,7 @@
 		<meta charset="utf-8" />
 		<title>Proyecto integrador</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/resena.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
@@ -48,19 +49,17 @@
 		<main>
 			<!-- ESTO TODAVIA ESTA MAL PORQUE LE FALTA VALIDAR -->
 			<% if (todo.length == 0) { %>
-			<h2 style="color: white;"><strong>No hay reseñas</strong></h2>
-			<% } else { %>
-			<h2 id="titulos"><strong> Mis reseñas:</strong></h2>
-			<% for(let i = 0; i < todo.length; i++) { %>
-			<div>
-				<div class="uk-card uk-card-default uk-width-1-2@m">
+				<h2 style="color: white;"><strong>No hay reseñas</strong></h2>
+				<% } else { %>
+				<h2 id="titulos" style="padding-top: 10%;"><strong>Reseñas de los Usuarios</strong></h2>
+				<% for(let i = 0; i < todo.length; i++) { %>
+	
+				<div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
 					<div class="uk-card-header">
 						<div class="uk-grid-small uk-flex-middle" uk-grid>
 							<div class="uk-width-expand">
-								<h3 class="uk-card-title uk-margin-remove-bottom">
-									Quieres saber cual peli es?:
-								</h3>
-								<p class="uk-text-meta uk-margin-remove-top">
+								<h3>Quieres saber cual peli es?:</h3>
+								<p>
 									<a href="/info_serie?id=<%= todo[i].movie_id%>"
 										>Entra y enterate!</a
 									>
@@ -68,37 +67,33 @@
 							</div>
 							<div class="uk-width-expand">
 								<h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
-								<p class="uk-text-meta uk-margin-remove-top">
-									<%= todo[i].title%>
-								</p>
+								<p><%= todo[i].title%></p>
 							</div>
 						</div>
 					</div>
-					<div class="uk-card-body">
-						<h3 class="uk-card-title uk-margin-remove-bottom">Description:</h3>
-						<p class="uk-text-meta uk-margin-remove-top">
-							<strong><%= todo[i].description%></strong>
-						</p>
+					<div class="uk-card-header">
+						<h3>Description:</h3>
+						<p><strong><%= todo[i].description%></strong></p>
 					</div>
 					<div class="uk-card-body">
-						<h3 class="uk-card-title uk-margin-remove-bottom">Rating:</h3>
-						<p class="uk-text-meta uk-margin-remove-top">
-							<strong><%= todo[i].rating%></strong>
-						</p>
+						<h3>Rating:</h3>
+						<p><strong><%= todo[i].rating%></strong></p>
 					</div>
 					<div class="uk-card-footer">
-						<h3 class="uk-card-title uk-margin-remove-bottom">Publicado el:</h3>
-						<p class="uk-text-meta uk-margin-remove-top">
+						<h3>Publicado el:</h3>
+						<p>
 							<time datetime="2016-04-01T19:00"
 								><p><strong><%= todo[i].createdAt%></strong></p></time
 							>
 						</p>
 					</div>
 				</div>
-				<form action="/login/delete/<%= todo[i].resena_id %>" method="GET">
-					<button class="uk-button-danger">Delete Resena</button>
+				<br>
+				<form action="/login/delete/<%= todo[i].resena_id %>" id="eliminar-admin" method="GET">
+					<button class="uk-button-danger" >Delete Resena</button>
 				</form>
-			</div>
+				<br>
+				<br>
 			<% } %> <% } %>
 		</main>
 		<!-- FOOTER -->
