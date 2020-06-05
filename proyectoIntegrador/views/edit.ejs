@@ -21,6 +21,7 @@
 		<meta charset="utf-8" />
 		<title>Proyecto integrador</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/resena.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
@@ -50,7 +51,7 @@
 				style="display: flex; align-items: center; justify-content: center;"
 			>
 				<h2 class="primero"><strong>Edite su resena aqui.</strong></h2>
-				<form action="/login/edit/<%=resena.resena_id%>" method="POST">
+				<form action="/login/edit/<%=resena.resena_id%>" method="POST" class="resenas">
 					<div>
 						<input
 							type="email"

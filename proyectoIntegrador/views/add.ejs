@@ -57,6 +57,17 @@
 					method="POST"
 					class="resenas"
 				>
+				<% if (typeof erroresreseñas != "undefined") { %>
+					
+					<ul style="color:red">
+						<% for (let i = 0; i < erroresreseñas.length; i++) { %>
+							<li>
+								<%=erroresreseñas[i]%>
+							</li>
+						<% } %>
+					</ul>
+				  
+				<% }%>
 					<div>
 						<input
 							type="email"

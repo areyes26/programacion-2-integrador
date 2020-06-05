@@ -21,8 +21,25 @@ let moduleControllers = {
 		res.render('add', { movie_id: req.params.movie_id });
 	},
 	save: function (req, res) {
-		modulo
-			.validar(req.body.email, req.body.password) //valida lo que el usuario completa en el form
+       
+		function validarformulario(formulario) {
+			let errores = [];
+		
+			
+				errores.push('Tu contraseña es incorrecta');
+			
+		
+			return errores;
+		}
+
+		let formulario = {
+			password: req.body.password,
+			
+		};
+	
+		let errores = validarformulario(formulario);
+		
+		modulo.validar(req.body.email, req.body.password) //valida lo que el usuario completa en el form
 			.then((resultado) => {
 				console.log(resultado); //me muestra los datos de la bd del usuario
 				if (resultado != null) {
@@ -38,6 +55,9 @@ let moduleControllers = {
 					db.Resena.create(resena).then(() => {
 						res.redirect('/info_serie/?id=' + req.params.movie_id);
 					});
+				} else {
+					req.session.erroresreseñas = errores;
+		          res.redirect('back');
 				}
 			});
 	}
