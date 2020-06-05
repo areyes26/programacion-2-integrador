@@ -44,10 +44,10 @@
     <div class="Resenas uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
     <h2 class="primero"><strong>¿Desea elimanar su reseña?</strong></h2>
                     <form action="/login/delete/<%= deleteId %>" method="POST" class="resenas">
-                      <div>
+                      <div style="display: none;">
                         <input type="email" name="email" placeholder="EMAIL    EJ:PEPITO@GMAIL.COM" autofocus>
                     </div>
-                    <div>
+                    <div style="display: none;">
                       <input type="password" name="password" placeholder="PASSWORD">
                   </div>
                         <button class="uk-button uk-button-primary" type="submit">SAVE</button> 

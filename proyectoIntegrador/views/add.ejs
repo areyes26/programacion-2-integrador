@@ -47,6 +47,63 @@
 		<%- include('./partials/head') %>
 		<!-- ESTO LO TENGO QUE AGREGAR EN LAS SERIES-->
 		<main>
+			<% if (usuarioLogeado) { %>
+			<div
+				class="Resenas uk-flex uk-flex-column"
+				style="display: flex; align-items: center; justify-content: center;"
+			>
+				<h2 class="primero"><strong>Deje su resena aqui.</strong></h2>
+				<form
+					action="/info_serie/guardar/<%= movie_id %>"
+					method="POST"
+					class="resenas"
+				>
+					<div style="display: none;">
+						<input
+							type="email"
+							name="email"
+							placeholder="EMAIL    EJ:PEPITO@GMAIL.COM"
+							autofocus
+						/>
+					</div>
+					<div style="display: none;">
+						<input type="password" name="password" placeholder="PASSWORD" />
+					</div>
+					<div>
+						<input type="text" name="title" placeholder="TITLE" />
+					</div>
+					<div>
+						<textarea
+							name="description"
+							rows="2"
+							placeholder="DESCRIPTION"
+						></textarea>
+					</div>
+					<div>
+						<input
+							type="number"
+							min="0"
+							max="10"
+							name="rating"
+							placeholder="CALIFICATION"
+						/>
+					</div>
+
+					<div>
+						<button
+							class="uk-button uk-button-danger uk-modal-close"
+							type="Cancel"
+						>
+							CANCEL
+						</button>
+						<button class="uk-button uk-button-primary" type="submit">
+							SAVE
+						</button>
+					</div>
+				</form>
+			</div>
+			<% } else { %>
+
 			<div
 				class="Resenas uk-flex uk-flex-column"
 				style="display: flex; align-items: center; justify-content: center;"
@@ -57,17 +114,17 @@
 					method="POST"
 					class="resenas"
 				>
-				<% if (typeof erroresreseñas != "undefined") { %>
-					
-					<ul style="color:red">
+					<% if (typeof erroresreseñas != "undefined") { %>
+
+					<ul style="color: red;">
 						<% for (let i = 0; i < erroresreseñas.length; i++) { %>
-							<li>
-								<%=erroresreseñas[i]%>
-							</li>
+						<li>
+							<%=erroresreseñas[i]%>
+						</li>
 						<% } %>
 					</ul>
-				  
-				<% }%>
+
+					<% } %>
 					<div>
 						<input
 							type="email"
@@ -113,6 +170,7 @@
 					</div>
 				</form>
 			</div>
+			<% } %>
 		</main>
 		<!-- FOOTER -->
 		<%- include('./partials/footer') %>

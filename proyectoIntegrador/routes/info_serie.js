@@ -9,6 +9,7 @@ const controller = require('../controllers/info_serie_controller');
 router.get('/', moduleControllers.lista);
 router.get('/add/:movie_id', moduleControllers.add);
 router.post('/add/:movie_id', moduleControllers.save);
+router.post('/guardar/:movie_id', moduleControllers.guardar);
 module.exports = router;
 
 module.exports = router;

@@ -51,8 +51,12 @@
 				style="display: flex; align-items: center; justify-content: center;"
 			>
 				<h2 class="primero"><strong>Edite su resena aqui.</strong></h2>
-				<form action="/login/edit/<%=resena.resena_id%>" method="POST" class="resenas">
-					<div>
+				<form
+					action="/login/edit/<%=resena.resena_id%>"
+					method="POST"
+					class="resenas"
+				>
+					<div style="display: none;">
 						<input
 							type="email"
 							name="email"
@@ -60,7 +64,7 @@
 							autofocus
 						/>
 					</div>
-					<div>
+					<div style="display: none;">
 						<input type="password" name="password" placeholder="PASSWORD" />
 					</div>
 					<div>

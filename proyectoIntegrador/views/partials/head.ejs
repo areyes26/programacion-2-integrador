@@ -14,20 +14,6 @@
             <li class="descubrir"><a href="">Descubrir</a></li>
             <li><a href="/generos">Genero</a></li>
             <li><a href="/resenias">Reseñas</a></li>
-            <!--<div uk-dropdown="offset: 80">
-              <a href="/resenias/mias">
-                <button id="boton-resenas" type="send" name="resenas"> Quiero ver mis reseñas</button>
-              </a>
-              <a href="/resenias/mejores">
-                <button id="boton-resenas" type="send" name="resenas"> Quiero ver las reseñas mejores puntuadas</button>
-              </a>
-              <a href="/resenias/peores">
-                <button id="boton-resenas" type="send" name="resenas">Quiero ver las reseñas peores puntuadas</button>
-              </a>
-              <a href="/resenias/recientes">
-                <button id="boton-resenas" type="send" name="resenas">Quiero ver las reseñas más recientes</button>
-              </a>
-            </div>-->
           </ul>
         </nav>
   
@@ -85,6 +71,7 @@
         <!-- <a id="corazón" href="/favoritos"><img src="/images/corazon.png" alt=""> </a> -->
           <!--! Esto es para que salga de la session-->
           <% if(usuarioLogeado) { %>
+            <a href="/login" uk-toggle>Mis resenas</a>
             <a href="/logout" uk-toggle>Salir de sesion</a>
           <% } else{ %>
           <a id="login" href="#modal-login" uk-toggle> <i class="fas fa-sign-in-alt fa-2x"></i> </a>
