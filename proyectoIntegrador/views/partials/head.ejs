@@ -124,7 +124,6 @@
                           No estas registrado? <a href="#modal-usuario" uk-toggle>Create una cuenta</a>
                         </div>
                       </form>
-                   
                   </div>
                 </div>
               </div>
@@ -132,14 +131,11 @@
         </div>
       </div>
         <a id="a_usuario" href="#modal-usuario" uk-toggle><img src="/images/usuario.png" alt=""> </a>
-       
         <!-- ESTO LO TENIA ANTES PARA EL LOG IN CON LOCAL STORAGE-->
         <!-- <div class="logedIn">
           <p id="p_nombre"></p>
           <button id="logOut"type="button" name="button">Log Out</button>
-        </div>
-         -->
-         <!-- <form class="LogIn" action="/index" method="get">  -->
+        </div>--><!-- <form class="LogIn" action="/index" method="get">  -->
         <div id="modal-usuario" uk-modal>
           <div id="modal_usuario" class="uk-modal-dialog uk-modal-body">
             <h2 class="uk-modal-title">Ingrese sus datos</h2>
@@ -151,7 +147,7 @@
                     window.addEventListener("load", function() {
                           document.getElementById("a_usuario").click()
                     })
-               </script>
+                    </script>
                   
                   <ul style="color:red">
                       <% for (let i = 0; i < erroresregistracion.length; i++) { %>
@@ -198,19 +194,4 @@
       </div>
   </div>
   <% } %>
-  <!--
-              <label for="nombre">Nombre de usuario:</label>
-              <input type="text" name="nombre" value="" placeholder="JuanPerez2004">
-              <label for="">Correo electrónico:</label>
-              <input type="text" name="email" value="" placeholder="juanperez@gmail.com">
-              <p class="uk-text-right">
-                <button class="uk-button uk-button-default uk-modal-close" type="Cancel">Cancelar</button>
-                <button class="uk-button uk-button-primary" type="submit">Enviar</button>
-              </p>
-            </form>
-          </div>
-        </div>
-  
-      </div>
-  -->
     </header>
