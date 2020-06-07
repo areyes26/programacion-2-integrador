@@ -9,53 +9,20 @@ let signControllers = {
 	signup: function (req, res) {
 		res.render('partials/head');
 	},
-	save: function (req, res) {
-		let user = {
-			fullname: req.body.fullname,
-			username: req.body.username,
-			email: req.body.email,
-			password: bycrypt.hashSync(req.body.password, 10),
-			birthday: req.body.birthday,
-			genero_id: req.body.genero_id,
-			serie_favorita: req.body.serie_favorita
-		};
-		return res.send(user);
-		db.User.create(user).then(() => {
-			res.redirect('/');
-		});
-	},
-	genero_id: function (req, res) {
-		var genero_id = req.body.genero_id;
-	},
-	// perfil: function (req,res) {
-	// sequelize.query("SELECT*FROM resenas where user_id =" + resultado.user_id)
-	//.then(function(resultados){
-	//  let todo = resultados[0];
-
-	//res.render("reseniasMias", {todo:todo});
-	//console.log(todo)
-	//})
-	// } ,
 	login: function (req, res) {
-
-
 		function validarformulario(formulario) {
 			let errores = [];
-		
-			
-				errores.push('Tu contraseña es incorrecta');
-			
-		
+
+			errores.push('Tu contraseña es incorrecta');
+
 			return errores;
 		}
 
 		let formulario = {
-			passwordlogin: req.body.passwordlogin,
-			
+			passwordlogin: req.body.passwordlogin
 		};
-	
-		let errores = validarformulario(formulario);
 
+		let errores = validarformulario(formulario);
 
 		modulo
 			.validar(req.body.emaillogin, req.body.passwordlogin) //valida lo que el usuario completa en el form
@@ -74,7 +41,7 @@ let signControllers = {
 					res.redirect('/login');
 				} else {
 					req.session.erroreslogin = errores;
-		          res.redirect('back');
+					res.redirect('back');
 				}
 			});
 	},
@@ -83,16 +50,14 @@ let signControllers = {
 			console.log(resultado); //me muestra los datos de la bd del usuario
 			if (resultado != null && resultado.user_id != 28) {
 				//! Si existe el usuario, utilizo el sequelize porque me siento mas comodo con el lenguaje
-				sequelize
-					.query('SELECT*FROM resenas where user_id =' + resultado.user_id)
-					.then(function (resultados) {
-						let todo = resultados[0];
-						console.log(todo);
-						res.render('reseniasMias', { todo: todo });
-						console.log(todo);
-					});
+				sequelize.query('SELECT*FROM resenas where user_id =' + resultado.user_id).then(function (resultados) {
+					let todo = resultados[0];
+					console.log(todo);
+					res.render('reseniasMias', { todo: todo });
+					console.log(todo);
+				});
 			} else if (resultado.user_id == 28) {
-				sequelize.query('SELECT*FROM resenas').then(function (resultados) {
+				sequelize.query('SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id').then(function (resultados) {
 					let todo = resultados[0];
 					console.log(todo);
 					res.render('reseniasAdmin', { todo: todo });
@@ -107,20 +72,32 @@ let signControllers = {
 		req.session.destroy();
 		res.redirect('/');
 	},
+	borrar: function (req, res) {
+		if (req.session.usuarioLogeado) {
+			modulo
+				.buscarPorEmail(req.session.usuarioLogeado) //
+				.then((results) => {
+					let dataUsuario = results;
+					console.log('Aca va el console log de Data Usuario');
+					console.log(dataUsuario);
+					db.Resena.findByPk(req.params.id).then((resena) => {
+						if (resena.user_id == dataUsuario.user_id) {
+							res.render('eliminar', { tipo: 'delete', deleteId: req.params.id });
+						}
+					});
+				});
+		} else {
+			res.render('logeate');
+		}
+	},
 	delete: function (req, res) {
 		console.log(req.body);
 		modulo
-			.validar(req.body.email, req.body.password) //valida lo que el usuario completa en el form
+			.buscarPorEmail(req.session.usuarioLogeado) //
 			.then((resultado) => {
-				console.log(req.body);
+				console.log(resultado);
 				//me muestra los datos de la bd del usuario
-				if (
-					resultado != null
-					//resultado.user_id ==
-					//	sequelize.query(
-					//		'SELECT user_id FROM resenas where resena_id =' + req.params.id
-					//	)
-				) {
+				if (resultado != null) {
 					console.log(req.body);
 					db.Resena.destroy({
 						where: {
@@ -144,15 +121,23 @@ let signControllers = {
 				}
 			});
 	},
-	edit: function (req, res) {
-		db.Resena.findByPk(req.params.id).then((resena) => {
-			res.render('edit', { resena: resena });
-			console.log(resena);
-		});
+	edit: (req, res) => {
+		if (req.session.usuarioLogeado) {
+			modulo
+				.buscarPorEmail(req.session.usuarioLogeado) //
+				.then((results) => {
+					let dataUsuario = results;
+					db.Resena.findByPk(req.params.id).then((resena) => {
+						if (resena.user_id == dataUsuario.user_id) res.render('edit', { resena: resena });
+					});
+				});
+		} else {
+			res.render('logeate');
+		}
 	},
 	actualizar: function (req, res) {
 		modulo
-			.validar(req.body.email, req.body.password) //valida lo que el usuario completa en el form
+			.buscarPorEmail(req.session.usuarioLogeado) //valida lo que el usuario completa en el form
 			.then((resultado) => {
 				console.log(resultado); //me muestra los datos de la bd del usuario
 				if (

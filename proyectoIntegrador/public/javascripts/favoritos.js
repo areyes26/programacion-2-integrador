@@ -18,34 +18,17 @@ window.addEventListener('load', function () {
 		}
 		for (var i = 0; i < seriesFavoritos.length; i++) {
 			// BUSCAR ESE GIF Y MOSTRARLO
-			fetch(
-				'https://api.themoviedb.org/3/tv/' +
-					seriesFavoritos[i] +
-					'?api_key=c0e01d0df95b98b689dcb3af16007742&language=en-US'
-			)
+			fetch('https://api.themoviedb.org/3/tv/' + seriesFavoritos[i] + '?api_key=c0e01d0df95b98b689dcb3af16007742&language=en-US')
 				.then(function (response) {
 					return response.json();
 				})
 				.then(function (serie) {
 					console.log(serie);
 					document.querySelector('.seriesfavoritas').innerHTML +=
-						'<li>' +
-						'<a href="/info_serie?id=' +
-						serie.id +
-						'">' +
-						'<img src="https://image.tmdb.org/t/p/w300/' +
-						serie.poster_path +
-						'">' +
-						'</a>' +
-						'</li>';
+						'<li>' + '<a href="/info_serie?id=' + serie.id + '">' + '<img src="https://image.tmdb.org/t/p/w300/' + serie.poster_path + '">' + '</a>' + '</li>';
 					if (datos.poster_path == null) {
 						var foto = document.querySelector('.seriesfavoritas');
-						foto.innerHTML +=
-							'<li><a href="/info_serie?id=' +
-							datos.results[i].id +
-							'"> ' +
-							'<img src="/images/notfound.jpg">' +
-							'</a></li>';
+						foto.innerHTML += '<li><a href="/info_serie?id=' + datos.results[i].id + '"> ' + '<img src="/images/notfound.jpg">' + '</a></li>';
 					}
 				});
 		}
@@ -59,8 +42,7 @@ window.addEventListener('load', function () {
 		return Math.floor(Math.random() * 9542);
 	}
 
-	buscarRandom.innerHTML =
-		'<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>';
+	buscarRandom.innerHTML = '<a href="/info_serie?id=' + aleatorio() + '">' + 'Descubrir' + '</a>';
 
 	//Se creo una funcion que permite hallar series random
 });

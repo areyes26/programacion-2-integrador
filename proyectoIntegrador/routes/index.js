@@ -7,14 +7,10 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/', signControllers.signup);
-router.post('/', signControllers.save);
-router.post('/', signControllers.genero_id);
-//router.get('/login:user_id', signControllers.perfil);
+/* El boton de registrar lo hizo nico por otro lado */
 router.post('/login', signControllers.login);
 router.get('/login', signControllers.misResenas);
-router.get('/login/delete/:id', function (req, res) {
-	res.render('eliminar', { tipo: 'delete', deleteId: req.params.id });
-});
+router.get('/login/delete/:id', signControllers.borrar);
 router.get('/logout', signControllers.logout);
 router.post('/login/delete/:id', signControllers.delete);
 router.get('/login/edit/:id', signControllers.edit);

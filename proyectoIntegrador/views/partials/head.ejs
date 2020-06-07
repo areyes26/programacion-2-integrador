@@ -71,8 +71,8 @@
         <!-- <a id="corazón" href="/favoritos"><img src="/images/corazon.png" alt=""> </a> -->
           <!--! Esto es para que salga de la session-->
           <% if(usuarioLogeado) { %>
-            <a href="/login" uk-toggle>Mis resenas</a>
-            <a href="/logout" uk-toggle>Salir de sesion</a>
+            <a href="/login" id="avanzada" uk-toggle>Mis resenas</a>
+            <a href="/logout"    uk-toggle><i id="boton-logout" class="fas fa-sign-in-alt fa-2x" aria-hidden="true"></i></a>
           <% } else{ %>
           <a id="login" href="#modal-login" uk-toggle> <i class="fas fa-sign-in-alt fa-2x"></i> </a>
           <!-- Estoy haciendo un modal para el Log In-->
@@ -115,8 +115,11 @@
                           </div>
                         </div>
                         <br>
-            <label for="">Recordame</label>
-            <input type="checkbox" name="recordame" id="">
+                        <div style="display: flex;">
+                          <label for="">Recordame</label>
+                          <input type="checkbox" style="width: 10%;height: 1.5vw;"name="recordame" id="">
+                        </div>
+            
                         <div class="uk-margin">
                           <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
                         </div>
@@ -124,7 +127,6 @@
                           No estas registrado? <a href="#modal-usuario" uk-toggle>Create una cuenta</a>
                         </div>
                       </form>
-                   
                   </div>
                 </div>
               </div>
@@ -132,14 +134,11 @@
         </div>
       </div>
         <a id="a_usuario" href="#modal-usuario" uk-toggle><img src="/images/usuario.png" alt=""> </a>
-       
         <!-- ESTO LO TENIA ANTES PARA EL LOG IN CON LOCAL STORAGE-->
         <!-- <div class="logedIn">
           <p id="p_nombre"></p>
           <button id="logOut"type="button" name="button">Log Out</button>
-        </div>
-         -->
-         <!-- <form class="LogIn" action="/index" method="get">  -->
+        </div>--><!-- <form class="LogIn" action="/index" method="get">  -->
         <div id="modal-usuario" uk-modal>
           <div id="modal_usuario" class="uk-modal-dialog uk-modal-body">
             <h2 class="uk-modal-title">Ingrese sus datos</h2>
@@ -151,7 +150,7 @@
                     window.addEventListener("load", function() {
                           document.getElementById("a_usuario").click()
                     })
-               </script>
+                    </script>
                   
                   <ul style="color:red">
                       <% for (let i = 0; i < erroresregistracion.length; i++) { %>
@@ -198,19 +197,4 @@
       </div>
   </div>
   <% } %>
-  <!--
-              <label for="nombre">Nombre de usuario:</label>
-              <input type="text" name="nombre" value="" placeholder="JuanPerez2004">
-              <label for="">Correo electrónico:</label>
-              <input type="text" name="email" value="" placeholder="juanperez@gmail.com">
-              <p class="uk-text-right">
-                <button class="uk-button uk-button-default uk-modal-close" type="Cancel">Cancelar</button>
-                <button class="uk-button uk-button-primary" type="submit">Enviar</button>
-              </p>
-            </form>
-          </div>
-        </div>
-  
-      </div>
-  -->
     </header>

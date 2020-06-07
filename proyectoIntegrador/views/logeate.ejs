@@ -38,55 +38,8 @@
 		<%- include('./partials/head') %>
 		<!-- - MAIN - -->
 		<main>
-			<% if (todo.length == 0) { %>
-			<h2 style="color: white;"><strong>No hay reseñas</strong></h2>
-			<% } else { %>
-			<h2 id="titulos" style="padding-top: 10%;"><strong>Las reseñas más recientes:</strong></h2>
-			<% for(let i = 0; i < todo.length; i++) { %>
-
-			<div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
-				<div class="uk-card-header">
-					<div class="uk-grid-small uk-flex-middle" uk-grid>
-						<div class="uk-width-expand">
-							<h3>Quieres saber cual peli es?:</h3>
-							<p>
-								<a href="/info_serie?id=<%= todo[i].movie_id%>">Entra y enterate!</a>
-							</p>
-						</div>
-						<div class="uk-width-expand">
-							<h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
-							<p><%= todo[i].title%></p>
-						</div>
-					</div>
-				</div>
-				<div class="uk-card-header">
-					<h3>Description:</h3>
-					<p><strong><%= todo[i].description%></strong></p>
-				</div>
-				<div class="uk-card-body">
-					<h3>Rating:</h3>
-					<p><strong><%= todo[i].rating%></strong></p>
-				</div>
-				<div class="uk-card-footer">
-					<h3>Publicado por:</h3>
-					<p>
-						<time datetime="2016-04-01T19:00"
-							><p><strong><%= todo[i].username%></strong></p></time
-						>
-					</p>
-				</div>
-				<div class="uk-card-footer">
-					<h3>Publicado el:</h3>
-					<p>
-						<time datetime="2016-04-01T19:00"
-							><p><strong><%= todo[i].createdAt%></strong></p></time
-						>
-					</p>
-				</div>
-			</div>
-
-			<br /><br />
-			<% } %> <% } %>
+			<!--! Esto es por si copia el url y quiere boorar o editar cuando no se esta logeado-->
+			<h2 style="text-transform: none; padding: 20%; text-align: center; color: red;"><strong>Necesitas logearte para poder editar o eliminar una reseña</strong></h2>
 		</main>
 		<!-- FOOTER -->
 		<%- include('./partials/footer') %>
