@@ -29,6 +29,7 @@
 		/>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link rel="stylesheet" href="/stylesheets/resultados.css" />
+		<link rel="stylesheet" href="/stylesheets/resena.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
@@ -54,44 +55,58 @@
 		<main class="nico"><h1>USUARIOS</h1></main>
 		<br />
 		<main>
-			<ul class="ul-bus">
-				<% for(let i = 0; i < User.length; i ++) { %>
-				<br />
-				<h3 id="nico"><%=User[i].username%></h3>
-				<li>Nombre completo: <%=User[i].fullname%></li>
-				<li>Cumpleaños: <%=User[i].birthday%></li>
-				<li>Email: <%=User[i].email%></li>
-				<li>ID: <%=User[i].user_id%></li>
-				<% if (User[i].genero_id == null) { %>
-				<h2 style="color: white;">
-					<strong>No tien un genero Favorito</strong>
-				</h2>
-				<% } else { %>
-				<li>
-					<a href="/series_xgenero?id=<%=User[i].genero_id%>"
-						>Ver genero Favorito</a
-					>
-				</li>
-				<% } %> <% if (User[i].serie_favorita == null) { %>
-				<h2 style="color: white;">
-					<strong>No tiene una serie favorita</strong>
-				</h2>
-				<% } else { %>
-				<li>
-					<a href="/resultados?busqueda=<%=User[i].serie_favorita%>"
-						>Busca mi serie favorita:</a
-					>
-				</li>
-				<% } %> 
-					<li>
-						<a href="/reseniasXuser?idXuser=<%=User[i].user_id%>"
-							>Mostrar resenas de usuario</a
-						>
-					</li>
-
-				<br />
-				<% } %>
-			</ul>
+			<% for(let i = 0; i < User.length; i ++) { %>
+				<div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
+					<div class="uk-card-header">
+						<div class="uk-grid-small uk-flex-middle" uk-grid>
+						<div class="uk-width-expand">
+							<h3 class="uk-card-title uk-margin-remove-bottom"style="text-align: center;"><%= User[i].username%></h3>
+						</div>
+						</div>
+					</div>
+					<div class="uk-card-header">
+						<h3>Nombre completo:</h3>
+						<p><strong><%=User[i].fullname%></strong></p>
+					</div>
+					<div class="uk-card-header">
+						<h3>Cumpleaños:</h3>
+						<p><strong><%=User[i].birthday%></strong></p>
+					</div>
+					<div class="uk-card-header">
+						<h3>Email:</h3>
+						<p><strong><%=User[i].email%></strong></p>
+					</div>
+						<% if (User[i].genero_id == null) { %>
+						<div class="uk-card-header">
+							<strong>No tiene un genero Favorito</strong>
+						</div>
+						<% } else { %>
+						<div class="uk-card-header">
+							<a href="/series_xgenero?id=<%=User[i].genero_id%>"
+								>Ver genero Favorito</a
+							>
+						</div>
+						<% } %> <% if (User[i].serie_favorita == null) { %>
+						<div class="uk-card-header">
+							<strong>No tiene una serie Favorita</strong>
+						</div>
+						<% } else { %>
+						<div class="uk-card-header">
+							<a href="/resultados?busqueda=<%=User[i].serie_favorita%>"
+								>Busca mi serie favorita:</a
+							>
+						</div>
+						<% } %> 
+						<div class="uk-card-footer">
+							<a href="/reseniasXuser?idXuser=<%=User[i].user_id%>"
+								>Mostrar resenas de usuario</a
+							>
+						</div>
+				</div>
+				<br><br>
+			<% } %>
+			<br>
+			<br>
 			<br />
 		</main>
 

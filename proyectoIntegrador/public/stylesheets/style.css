@@ -51,6 +51,10 @@ main .ul-bus li {
 	color: white;
 	margin-left: 30px;
 }
+main .ul-bus  h2{
+	color: white;
+	margin-left: 30px;
+}
 
 /* me aseguro que las medidas de los elementos, son las que defino */
 body {
@@ -197,6 +201,13 @@ header .derecha_header #avanzada:hover {
 	color: red;
 	text-decoration: none;
 	font-weight: bold;
+}
+#boton-logout{
+	color: red;
+	margin-right: 1.4vw;
+}
+#boton-logout:hover{
+	color: #000;
 }
 /* ESTILO BUSCADOR AVANZADO */
 #modal_avanzada form select {
