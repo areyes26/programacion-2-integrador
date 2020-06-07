@@ -144,11 +144,19 @@ let signControllers = {
 				}
 			});
 	},
-	edit: function (req, res) {
-		db.Resena.findByPk(req.params.id).then((resena) => {
-			res.render('edit', { resena: resena });
-			console.log(resena);
-		});
+	edit: (req, res) => {
+		modulo.buscarPorEmail(req.session.usuarioLogeado)//
+		.then(results=> {
+			let dataUsuario = results
+			db.Resena.findByPk(req.params.id)
+
+
+			.then(resena => {
+				if(resena.user_id == dataUsuario.user_id)
+				res.render('edit', { resena: resena });
+			})
+			
+		})
 	},
 	actualizar: function (req, res) {
 		modulo
