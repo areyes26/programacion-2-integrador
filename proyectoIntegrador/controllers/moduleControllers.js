@@ -2,6 +2,7 @@ let db = require('../database/models');
 let sequelize = db.sequelize;
 let modulo = require('../modulo-login');
 
+
 let moduleControllers = {
 	lista: function (req, res) {
 		sequelize
@@ -21,20 +22,7 @@ let moduleControllers = {
 		res.render('add', { movie_id: req.params.movie_id });
 	},
 	save: function (req, res) {
-		function validarformulario(formulario) {
-			let errores = [];
-
-			errores.push('Tu contraseña es incorrecta');
-
-			return errores;
-		}
-
-		let formulario = {
-			password: req.body.password
-		};
-
-		let errores = validarformulario(formulario);
-
+		
 		modulo
 			.validar(req.body.email, req.body.password) //valida lo que el usuario completa en el form
 			.then((resultado) => {
