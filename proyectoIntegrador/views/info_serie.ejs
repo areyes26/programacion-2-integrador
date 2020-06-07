@@ -65,7 +65,7 @@
 
     <!-- carrusel ui kits -->
     <div class="Recomendaciones">
-      <h2 id="titulos">Recomendaciones:</h2>
+      <br>
       <div uk-slider>
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
           <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m" id="Reco">
@@ -80,12 +80,12 @@
   </main>
 <!-- Aca van a ir las resenas de las series, lo habia hecho con Bootstrap y no puede usar bootstrap al mismo tiempo que ulkit?-->
 <div class="uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
-  <% if (todo.length == 0) { %>
-    <h2 style="color: white;"><strong>No hay resenas, quieres agregar una?</strong></h2>
-  <% } else { %>
 <button id="boton-resenas" type="send" name="resenas" style="margin: 3%;"><strong>Ver reseñas</strong></button>
 <div class="Resenas" style="width: 100%;display: none;">
-  <h2 id="titulos" style="margin-left: 0;"><strong> Lista de reseñas:</strong></h2>
+  <% if (todo.length == 0) { %>
+    <h2 style="color: white; text-align: center;"><strong>No hay reseñas, quieres agregar una?</strong></h2>
+  <% } else { %>
+  <br>
 <div>
      <% for(let i = 0; i < todo.length; i++) { %>
             <div>
@@ -128,16 +128,15 @@
                 <br>
     <% } %>
 </div>
-</div>
 <% } %>
+</div>
 <a href="/info_serie/add/<%=movie_id%>">
   <button class="uk-button uk-button-primary uk-margin-medium-bottom"> Crea uno!</button>
 </a>
 </div>
 </div>
       </div>
+</body>
 <!-- FOOTER -->
 <%- include('./partials/footer') %>
-</body>
-
 </html>
