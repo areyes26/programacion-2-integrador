@@ -2,10 +2,7 @@
 <html lang="en" dir="ltr">
 	<head>
 		<!-- Global site tag (gtag.js) - le estoy metiendo Google Analytics -->
-		<script
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"
-		></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 
@@ -22,10 +19,7 @@
 		<title>Proyecto integrador</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link rel="stylesheet" href="/stylesheets/resena.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
-		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
 
 		<!-- JAVA -->
 		<!-- uikit -->
@@ -34,10 +28,7 @@
 		<!-- script nuestro -->
 		<script type="text/javascript" src="/javascripts/java.js"></script>
 		<script src="https://kit.fontawesome.com/4710dd3a67.js"></script>
-		<script
-			type="text/javascript"
-			src="/javascripts/tres-caracteres.js"
-		></script>
+		<script type="text/javascript" src="/javascripts/tres-caracteres.js"></script>
 		<script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
 		<script type="text/javascript" src="/javascripts/tarde.js"></script>
 		<!-- <script src="js/discover.js" charset="utf-8"></script> -->
@@ -59,9 +50,7 @@
 						<div class="uk-width-expand">
 							<h3>Quieres saber cual peli es?:</h3>
 							<p>
-								<a href="/info_serie?id=<%= todo[i].movie_id%>"
-									>Entra y enterate!</a
-								>
+								<a href="/info_serie?id=<%= todo[i].movie_id%>">Entra y enterate!</a>
 							</p>
 						</div>
 						<div class="uk-width-expand">
@@ -77,6 +66,14 @@
 				<div class="uk-card-body">
 					<h3>Rating:</h3>
 					<p><strong><%= todo[i].rating%></strong></p>
+				</div>
+				<div class="uk-card-footer">
+					<h3>Publicado por:</h3>
+					<p>
+						<time datetime="2016-04-01T19:00"
+							><p><strong><%= todo[i].username%></strong></p></time
+						>
+					</p>
 				</div>
 				<div class="uk-card-footer">
 					<h3>Publicado el:</h3>

@@ -4,7 +4,7 @@ let sequelize = db.sequelize;
 let reseniasControllers = {
 	peores: function (req, res) {
 		sequelize
-			.query('SELECT*FROM resenas ORDER BY rating')
+			.query('SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id ORDER BY rating')
 			.then(function (resultados) {
 				let todo = resultados[0];
 
@@ -14,7 +14,7 @@ let reseniasControllers = {
 	},
 	mejores: function (req, res) {
 		sequelize
-			.query('SELECT*FROM resenas ORDER BY rating DESC')
+			.query('SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id ORDER BY rating DESC')
 			.then(function (resultados) {
 				let todo = resultados[0];
 
@@ -24,7 +24,7 @@ let reseniasControllers = {
 	},
 	recientes: function (req, res) {
 		sequelize
-			.query('SELECT*FROM resenas ORDER BY createdAt DESC')
+			.query('SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id ORDER BY createdAt DESC')
 			.then(function (resultados) {
 				let todo = resultados[0];
 

@@ -2,10 +2,7 @@
 <html lang="en" dir="ltr">
 	<head>
 		<!-- Global site tag (gtag.js) - le estoy metiendo Google Analytics -->
-		<script
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"
-		></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 
@@ -22,10 +19,7 @@
 		<title>Proyecto integrador</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link rel="stylesheet" href="/stylesheets/resena.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
-		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
 
 		<!-- JAVA -->
 		<!-- uikit -->
@@ -34,10 +28,7 @@
 		<!-- script nuestro -->
 		<script type="text/javascript" src="/javascripts/java.js"></script>
 		<script src="https://kit.fontawesome.com/4710dd3a67.js"></script>
-		<script
-			type="text/javascript"
-			src="/javascripts/tres-caracteres.js"
-		></script>
+		<script type="text/javascript" src="/javascripts/tres-caracteres.js"></script>
 		<script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
 		<script type="text/javascript" src="/javascripts/tarde.js"></script>
 		<!-- <script src="js/discover.js" charset="utf-8"></script> -->
@@ -49,51 +40,57 @@
 		<main>
 			<!-- ESTO TODAVIA ESTA MAL PORQUE LE FALTA VALIDAR -->
 			<% if (todo.length == 0) { %>
-				<h2 style="color: white;"><strong>No hay reseñas</strong></h2>
-				<% } else { %>
-				<h2 id="titulos" style="padding-top: 10%;"><strong>Reseñas de los Usuarios</strong></h2>
-				<% for(let i = 0; i < todo.length; i++) { %>
-	
-				<div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
-					<div class="uk-card-header">
-						<div class="uk-grid-small uk-flex-middle" uk-grid>
-							<div class="uk-width-expand">
-								<h3>Quieres saber cual peli es?:</h3>
-								<p>
-									<a href="/info_serie?id=<%= todo[i].movie_id%>"
-										>Entra y enterate!</a
-									>
-								</p>
-							</div>
-							<div class="uk-width-expand">
-								<h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
-								<p><%= todo[i].title%></p>
-							</div>
+			<h2 style="color: white;"><strong>No hay reseñas</strong></h2>
+			<% } else { %>
+			<h2 id="titulos" style="padding-top: 10%;"><strong>Reseñas de los Usuarios</strong></h2>
+			<% for(let i = 0; i < todo.length; i++) { %>
+
+			<div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
+				<div class="uk-card-header">
+					<div class="uk-grid-small uk-flex-middle" uk-grid>
+						<div class="uk-width-expand">
+							<h3>Quieres saber cual peli es?:</h3>
+							<p>
+								<a href="/info_serie?id=<%= todo[i].movie_id%>">Entra y enterate!</a>
+							</p>
+						</div>
+						<div class="uk-width-expand">
+							<h3 class="uk-card-title uk-margin-remove-bottom">Title:</h3>
+							<p><%= todo[i].title%></p>
 						</div>
 					</div>
-					<div class="uk-card-header">
-						<h3>Description:</h3>
-						<p><strong><%= todo[i].description%></strong></p>
-					</div>
-					<div class="uk-card-body">
-						<h3>Rating:</h3>
-						<p><strong><%= todo[i].rating%></strong></p>
-					</div>
-					<div class="uk-card-footer">
-						<h3>Publicado el:</h3>
-						<p>
-							<time datetime="2016-04-01T19:00"
-								><p><strong><%= todo[i].createdAt%></strong></p></time
-							>
-						</p>
-					</div>
 				</div>
-				<br>
-				<form action="/login/delete/<%= todo[i].resena_id %>" id="eliminar-admin" method="GET">
-					<button class="uk-button-danger" >Delete Resena</button>
-				</form>
-				<br>
-				<br>
+				<div class="uk-card-header">
+					<h3>Description:</h3>
+					<p><strong><%= todo[i].description%></strong></p>
+				</div>
+				<div class="uk-card-body">
+					<h3>Rating:</h3>
+					<p><strong><%= todo[i].rating%></strong></p>
+				</div>
+				<div class="uk-card-footer">
+					<h3>Publicado por:</h3>
+					<p>
+						<time datetime="2016-04-01T19:00"
+							><p><strong><%= todo[i].username%></strong></p></time
+						>
+					</p>
+				</div>
+				<div class="uk-card-footer">
+					<h3>Publicado el:</h3>
+					<p>
+						<time datetime="2016-04-01T19:00"
+							><p><strong><%= todo[i].createdAt%></strong></p></time
+						>
+					</p>
+				</div>
+			</div>
+			<br />
+			<form action="/login/delete/<%= todo[i].resena_id %>" id="eliminar-admin" method="GET">
+				<button class="uk-button-danger">Delete Resena</button>
+			</form>
+			<br />
+			<br />
 			<% } %> <% } %>
 		</main>
 		<!-- FOOTER -->
