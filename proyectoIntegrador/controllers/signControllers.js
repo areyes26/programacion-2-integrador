@@ -104,7 +104,7 @@ let signControllers = {
 							resena_id: req.params.id
 						}
 					}).then(() => {
-						res.redirect('/');
+						res.redirect('/login');
 					});
 				} else if (resultado != null && resultado.user_id == 28) {
 					console.log(req.body);
@@ -113,7 +113,7 @@ let signControllers = {
 							resena_id: req.params.id
 						}
 					}).then(() => {
-						res.redirect('/');
+						res.redirect('/login');
 					});
 				} else {
 					console.log(req.body);
@@ -160,7 +160,7 @@ let signControllers = {
 							}
 						}
 					).then(() => {
-						res.redirect('/');
+						res.redirect('/login');
 					});
 				} else {
 					res.redirect('/login/edit/' + req.params.id);
