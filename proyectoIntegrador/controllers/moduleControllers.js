@@ -29,7 +29,8 @@ let moduleControllers = {
 			let errores = [];
 		
 			
-				errores.push('La contraseña es incorrecta');
+				errores.push('La contraseña es incorrecta')
+				
 			
 			return errores;
 		}
@@ -37,11 +38,9 @@ let moduleControllers = {
 
 
 		let formulario = {
-			fullname: req.body.fullname,
-			username: req.body.username,
-			email: req.body.email,
+			
 			password: bycrypt.hashSync(req.body.password, 10),
-			genero_id: req.body.genero_id
+			
 		};
 	
 		let errores = validarformulario(formulario);
@@ -52,20 +51,21 @@ let moduleControllers = {
 			.validar(req.body.email, req.body.password) //valida lo que el usuario completa en el form
 			.then((resultado) => {
 				console.log(resultado); //me muestra los datos de la bd del usuario
-				if (resultado != null) {
-					// si existe un resultado, crea la resena. Resultado esta definido en el mdulo de login
-					let resena = {
-						user_id: resultado.user_id,
-						description: req.body.description,
-						title: req.body.title,
-						movie_id: req.params.movie_id,
-						rating: req.body.rating
-					};
-					console.log(req.params.id);
-					db.Resena.create(resena).then(() => {
-						res.redirect('/info_serie/?id=' + req.params.movie_id);
-					});
-				} else {
+				
+					if (resultado != null) {
+						// si existe un resultado, crea la resena. Resultado esta definido en el mdulo de login
+						let resena = {
+							user_id: resultado.user_id,
+							description: req.body.description,
+							title: req.body.title,
+							movie_id: req.params.movie_id,
+							rating: req.body.rating
+						};
+						console.log(req.params.id);
+						db.Resena.create(resena).then(() => {
+							res.redirect('/info_serie/?id=' + req.params.movie_id);
+						});
+					}  else if(errores.length > 0) {
 					req.session.erroresreseñas = errores;
 					res.redirect('back');
 				}

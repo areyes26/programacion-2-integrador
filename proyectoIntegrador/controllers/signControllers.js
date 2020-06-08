@@ -37,7 +37,7 @@ let signControllers = {
 							maxAge: 300000
 							//! Esto se guarda por 5 minutos
 						});
-					}
+					} 
 					res.redirect('/login');
 				} else {
 					req.session.erroreslogin = errores;
