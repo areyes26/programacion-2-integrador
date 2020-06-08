@@ -46,27 +46,31 @@ let signControllers = {
 			});
 	},
 	misResenas: function (req, res) {
-		modulo.buscarPorEmail(req.session.usuarioLogeado).then((resultado) => {
-			console.log(resultado); //me muestra los datos de la bd del usuario
-			if (resultado != null && resultado.user_id != 28) {
-				//! Si existe el usuario, utilizo el sequelize porque me siento mas comodo con el lenguaje
-				sequelize.query('SELECT*FROM resenas where user_id =' + resultado.user_id).then(function (resultados) {
-					let todo = resultados[0];
-					console.log(todo);
-					res.render('reseniasMias', { todo: todo });
-					console.log(todo);
-				});
-			} else if (resultado.user_id == 28) {
-				sequelize.query('SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id').then(function (resultados) {
-					let todo = resultados[0];
-					console.log(todo);
-					res.render('reseniasAdmin', { todo: todo });
-					console.log(todo);
-				});
-			} else {
-				res.redirect('/');
-			}
-		});
+		if (req.session.usuarioLogeado) {
+			modulo.buscarPorEmail(req.session.usuarioLogeado).then((resultado) => {
+				console.log(resultado); //me muestra los datos de la bd del usuario
+				if (resultado != null && resultado.user_id != 28) {
+					//! Si existe el usuario, utilizo el sequelize porque me siento mas comodo con el lenguaje
+					sequelize.query('SELECT*FROM resenas where user_id =' + resultado.user_id).then(function (resultados) {
+						let todo = resultados[0];
+						console.log(todo);
+						res.render('reseniasMias', { todo: todo });
+						console.log(todo);
+					});
+				} else if (resultado.user_id == 28) {
+					sequelize.query('SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id').then(function (resultados) {
+						let todo = resultados[0];
+						console.log(todo);
+						res.render('reseniasAdmin', { todo: todo });
+						console.log(todo);
+					});
+				} else {
+					res.redirect('/');
+				}
+			});
+		} else {
+			res.render('logear');
+		}
 	},
 	logout: function (req, res) {
 		req.session.destroy();
@@ -83,6 +87,8 @@ let signControllers = {
 					db.Resena.findByPk(req.params.id).then((resena) => {
 						if (resena.user_id == dataUsuario.user_id) {
 							res.render('eliminar', { tipo: 'delete', deleteId: req.params.id });
+						} else if (resena.user_id != dataUsuario.user_id) {
+							res.render('noes');
 						}
 					});
 				});
@@ -128,7 +134,11 @@ let signControllers = {
 				.then((results) => {
 					let dataUsuario = results;
 					db.Resena.findByPk(req.params.id).then((resena) => {
-						if (resena.user_id == dataUsuario.user_id) res.render('edit', { resena: resena });
+						if (resena.user_id == dataUsuario.user_id) {
+							res.render('edit', { resena: resena });
+						} else if (resena.user_id != dataUsuario.user_id) {
+							res.render('noes');
+						}
 					});
 				});
 		} else {

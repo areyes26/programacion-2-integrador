@@ -31,25 +31,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: "usuario"}))
+app.use(session({ secret: 'usuario' }));
 app.use(function (req, res, next) {
-	let locals = {}
-	if(req.session.erroresregistracion){
-		
-		locals.erroresregistracion = req.session.erroresregistracion
-		
+	let locals = {};
+	if (req.session.erroresregistracion) {
+		locals.erroresregistracion = req.session.erroresregistracion;
 	}
-	req.session.erroresregistracion = undefined
+	req.session.erroresregistracion = undefined;
 
-	locals.erroreslogin = req.session.erroreslogin
+	locals.erroreslogin = req.session.erroreslogin;
 
-	req.session.erroreslogin = undefined
+	req.session.erroreslogin = undefined;
 
-	locals.erroresreseñas = req.session.erroresreseñas
-	
-	req.session.erroresreseñas = undefined
+	locals.erroresreseñas = req.session.erroresreseñas;
 
-	locals.usuarioLogeado = req.session.usuarioLogeado
+	req.session.erroresreseñas = undefined;
+
+	locals.usuarioLogeado = req.session.usuarioLogeado;
 	res.locals = locals;
 	next();
 });
@@ -65,11 +63,14 @@ app.use('/users', usersRouter);
 app.use('/info_serie', info_serie_router);
 app.use('/generos', generos_router);
 app.use('/avanzado', avanzado_router);
-app.use('/favoritos', favoritos_router);
+
+//TODO voy a comentar /favoritos porque no se agrego
+//app.use('/favoritos', favoritos_router);
+
 app.use('/resultados', resultados_router);
 app.use('/series_xgenero', series_xgenero_router);
 app.use('/resenias', resenias_router);
-app.use('/reseniasXuser',reseniasXuser_router)
+app.use('/reseniasXuser', reseniasXuser_router);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));
