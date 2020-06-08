@@ -19,7 +19,7 @@ let signControllers = {
 		}
 
 		let formulario = {
-			passwordlogin: req.body.passwordlogin
+			passwordlogin: req.body.passwordlogin,
 		};
 
 		let errores = validarformulario(formulario);
