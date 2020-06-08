@@ -23,6 +23,16 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 			crossorigin="anonymous"
 		/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="/stylesheets/resultados.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
+		/>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<link rel="stylesheet" href="/stylesheets/resena.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -34,6 +44,11 @@
 		<script src="/javascripts/favoritos.js" charset="utf-8"></script>
 		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+		<script type="text/javascript" src="/javascripts/tres-caracteres.js"></script>
+		<script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+		<script type="text/javascript" src="/javascripts/resultados.js"></script>
 		<script type="text/javascript" src="/javascripts/tres-caracteres.js"></script>
 		<script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
 	</head>
@@ -93,7 +108,16 @@
 			<br />
 			<br />
 		</main>
-
+		<main>
+			<h1 id="titulos" class="primero">
+				<!-- Busqueda -->
+			</h1>
+			<div class="div-resultados">
+				<ul class="resultados">
+					<!-- api -->
+				</ul>
+			</div>
+		</main>
 		<%- include('./partials/footer') %>
 	</body>
 </html>
