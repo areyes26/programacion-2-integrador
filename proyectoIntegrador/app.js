@@ -32,9 +32,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'usuario' }));
+//? El secret es solo para esta app
+
 app.use(function (req, res, next) {
 	let locals = {};
 	if (req.session.erroresregistracion) {
+		// Comparta los mismos errores de registracion para todas las vistas
 		locals.erroresregistracion = req.session.erroresregistracion;
 	}
 	req.session.erroresregistracion = undefined;
@@ -46,8 +49,10 @@ app.use(function (req, res, next) {
 	locals.erroresreseñas = req.session.erroresreseñas;
 
 	req.session.erroresreseñas = undefined;
-
+	//! Res.locals: objeto que se envia a traves de toda tu aplicacion. Son 'globales' al renderizar.
 	locals.usuarioLogeado = req.session.usuarioLogeado;
+	//todo en la linea de arriba se esta compartiendo el email del usuario capturado
+	//todo con toda la aplicacioon
 	res.locals = locals;
 	next();
 });

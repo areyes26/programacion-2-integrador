@@ -30,9 +30,13 @@ let signControllers = {
 				console.log(resultado); //me muestra los datos de la bd del usuario
 				if (resultado != null) {
 					//! Si existe el usuario, esto me lleva al login general
+					// Aca es donde defino que el usuario obtenga este email
 					req.session.usuarioLogeado = req.body.emaillogin;
+					console.log('A continuacion se va a ver la variable usuarioLogeado');
+					console.log(req.session.usuarioLogeado);
 					//TODO aca le estoy haciendo un cookie para que cuando salga de la pagina me lo recuerde
 					if (req.body.recordame != undefined) {
+						//Obtiene el name "recordame" del checkbox de login y si esta checkeado guarda a ese mail
 						res.cookie('recordame', req.session.usuarioLogeado, {
 							maxAge: 300000
 							//! Esto se guarda por 5 minutos
@@ -40,6 +44,7 @@ let signControllers = {
 					}
 					res.redirect('/login');
 				} else {
+					//? Aca lo que hace es imprimir los errores de arriba y se lo adjudica a erroresLogin que se cruza con toda la aplicacion
 					req.session.erroreslogin = errores;
 					res.redirect('back');
 				}
