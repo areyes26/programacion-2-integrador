@@ -82,11 +82,14 @@
 <div class="uk-flex uk-flex-column" style="display: flex; align-items: center;justify-content: center;">
 <button id="boton-resenas" type="send" name="resenas" style="margin: 3%;"><strong>Ver reseñas</strong></button>
 <div class="Resenas" style="width: 100%;display: none;">
+ 
+ <!--! recorre todo el objeto "todo" y si es nulo pone no hay resenas-->
   <% if (todo.length == 0) { %>
     <h2 style="color: white; text-align: center;"><strong>No hay reseñas, quieres agregar una?</strong></h2>
   <% } else { %>
   <br>
 <div>
+  <!--Todo tiene un length por ende hay un for que recorre e imprime todas las resenas correspondientes-->
      <% for(let i = 0; i < todo.length; i++) { %>
             <div>
               <div class="uk-card uk-card-default uk-width-1-2@m" id="caja-resena">
@@ -130,6 +133,7 @@
 </div>
 <% } %>
 </div>
+<!--TODO reenvia a un formulario que esta en add.ejs correspondiente al movie_id-->
 <a href="/info_serie/add/<%=movie_id%>">
   <button class="uk-button uk-button-primary uk-margin-medium-bottom"> Crea uno!</button>
 </a>

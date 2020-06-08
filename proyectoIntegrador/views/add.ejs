@@ -2,10 +2,7 @@
 <html lang="en">
 	<head>
 		<!-- Global site tag (gtag.js) - le estoy metiendo Google Analytics -->
-		<script
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"
-		></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 
@@ -21,12 +18,9 @@
 		<meta charset="utf-8" />
 		<title>Proyecto integrador</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="/stylesheets/resena.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css"
-		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
 
 		<!-- JAVA -->
 		<!-- uikit -->
@@ -35,10 +29,7 @@
 		<!-- script nuestro -->
 		<script type="text/javascript" src="/javascripts/java.js"></script>
 		<script src="https://kit.fontawesome.com/4710dd3a67.js"></script>
-		<script
-			type="text/javascript"
-			src="/javascripts/tres-caracteres.js"
-		></script>
+		<script type="text/javascript" src="/javascripts/tres-caracteres.js"></script>
 		<script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
 		<script type="text/javascript" src="/javascripts/tarde.js"></script>
 		<!-- <script src="js/discover.js" charset="utf-8"></script> -->
@@ -49,23 +40,12 @@
 		<!-- ESTO LO TENGO QUE AGREGAR EN LAS SERIES-->
 		<main>
 			<% if (usuarioLogeado) { %>
-			<div
-				class="Resenas uk-flex uk-flex-column"
-				style="display: flex; align-items: center; justify-content: center;"
-			>
+			<!--! Si es que esta dentro de la sesion, tiene un formulario distinto al otro con un form con un POST distinto -->
+			<div class="Resenas uk-flex uk-flex-column" style="display: flex; align-items: center; justify-content: center;">
 				<h2 class="primero"><strong>Deje su resena aqui.</strong></h2>
-				<form
-					action="/info_serie/guardar/<%= movie_id %>"
-					method="POST"
-					class="resenas"
-				>
+				<form action="/info_serie/guardar/<%= movie_id %>" method="POST" class="resenas">
 					<div style="display: none;">
-						<input
-							type="email"
-							name="email"
-							placeholder="EMAIL    EJ:PEPITO@GMAIL.COM"
-							autofocus
-						/>
+						<input type="email" name="email" placeholder="EMAIL    EJ:PEPITO@GMAIL.COM" autofocus />
 					</div>
 					<div style="display: none;">
 						<input type="password" name="password" placeholder="PASSWORD" />
@@ -74,54 +54,34 @@
 						<input type="text" name="title" placeholder="TITLE" />
 					</div>
 					<div>
-						<textarea
-							name="description"
-							rows="2"
-							placeholder="DESCRIPTION"
-						></textarea>
+						<textarea name="description" rows="2" placeholder="DESCRIPTION"></textarea>
 					</div>
 					<div>
-						<input
-							type="number"
-							min="0"
-							max="10"
-							name="rating"
-							placeholder="CALIFICATION"
-						/>
+						<input type="number" min="0" max="10" name="rating" placeholder="CALIFICATION" />
 					</div>
 
 					<div>
-
-						<button class="uk-button uk-button-primary" type="submit" style="width: 100%;margin-bottom: 1vw;">
+						<!--? Imprime el formulario por POST-->
+						<button class="uk-button uk-button-primary" type="submit" style="width: 100%; margin-bottom: 1vw;">
 							SAVE
 						</button>
 					</div>
 				</form>
+				<!--! El cancelar redirige al detalle de info anterior-->
 				<a href="/info_serie?id=<%= movie_id %>">
-					<button
-					class="uk-button uk-button-danger uk-modal-close"
-					type="Cancel"
-					style="width: 56vw;border-radius: 9px;margin-bottom: 2vw;"
-				>
-					CANCEL
-				</button>
+					<button class="uk-button uk-button-danger uk-modal-close" type="Cancel" style="width: 56vw; border-radius: 9px; margin-bottom: 2vw;">
+						CANCEL
+					</button>
 				</a>
 			</div>
 
 			<% } else { %>
 
-			<div
-				class="Resenas uk-flex uk-flex-column"
-				style="display: flex; align-items: center; justify-content: center;"
-			>
+			<div class="Resenas uk-flex uk-flex-column" style="display: flex; align-items: center; justify-content: center;">
 				<h2 class="primero"><strong>Deje su resena aqui.</strong></h2>
-				<form
-					action="/info_serie/add/<%= movie_id %>"
-					method="POST"
-					class="resenas"
-				>
+				<form action="/info_serie/add/<%= movie_id %>" method="POST" class="resenas">
 					<% if (typeof erroresreseñas != "undefined") { %>
-
+					<!--todo aca checkea la validacion y si hay errores lo imprime -->
 					<ul style="color: red;">
 						<% for (let i = 0; i < erroresreseñas.length; i++) { %>
 						<li>
@@ -132,12 +92,7 @@
 
 					<% } %>
 					<div>
-						<input
-							type="email"
-							name="email"
-							placeholder="EMAIL    EJ:PEPITO@GMAIL.COM"
-							autofocus
-						/>
+						<input type="email" name="email" placeholder="EMAIL    EJ:PEPITO@GMAIL.COM" autofocus />
 					</div>
 					<div>
 						<input type="password" name="password" placeholder="PASSWORD" />
@@ -147,37 +102,23 @@
 						<input type="text" name="title" placeholder="TITLE" />
 					</div>
 					<div>
-						<textarea
-							name="description"
-							rows="2"
-							placeholder="DESCRIPTION"
-						></textarea>
+						<textarea name="description" rows="2" placeholder="DESCRIPTION"></textarea>
 					</div>
 					<div>
-						<input
-							type="number"
-							min="0"
-							max="10"
-							name="rating"
-							placeholder="CALIFICATION"
-						/>
+						<input type="number" min="0" max="10" name="rating" placeholder="CALIFICATION" />
 					</div>
-
+					<!--! Aca manda la informacion con POST-->
 					<div>
-
-						<button class="uk-button uk-button-primary" type="submit" style="width: 100%;margin-bottom: 1vw;">
+						<button class="uk-button uk-button-primary" type="submit" style="width: 100%; margin-bottom: 1vw;">
 							SAVE
 						</button>
 					</div>
 				</form>
+				<!--todo Aca cancela el envio del formulario y lo redirecciona a la pagina de informacion anterior-->
 				<a href="/info_serie?id=<%= movie_id %>">
-					<button
-					class="uk-button uk-button-danger uk-modal-close"
-					type="Cancel"
-					style="width: 56vw;border-radius: 9px;margin-bottom: 2vw;"
-				>
-					CANCEL
-				</button>
+					<button class="uk-button uk-button-danger uk-modal-close" type="Cancel" style="width: 56vw; border-radius: 9px; margin-bottom: 2vw;">
+						CANCEL
+					</button>
 				</a>
 			</div>
 
