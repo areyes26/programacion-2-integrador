@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<!-- Global site tag (gtag.js) - le estoy metiendo Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152881111-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-152881111-1');
+		</script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<title>Proyecto integrador</title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/stylesheets/resena.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+
+		<!-- JAVA -->
+		<!-- uikit -->
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+		<!-- script nuestro -->
+		<script type="text/javascript" src="/javascripts/java.js"></script>
+		<script src="https://kit.fontawesome.com/4710dd3a67.js"></script>
+		<script type="text/javascript" src="/javascripts/tres-caracteres.js"></script>
+		<script type="text/javascript" src="/javascripts/avanzado-api.js"></script>
+		<script type="text/javascript" src="/javascripts/tarde.js"></script>
+		<!-- <script src="js/discover.js" charset="utf-8"></script> -->
+	</head>
+	<body>
+		<!--HEADER-->
+		<%- include('./partials/head') %>
+		<!-- - MAIN - -->
+		<main>
+			<!--! Esto es por si copia el url y quiere boorar o editar cuando no se esta logeado-->
+			<h2 style="text-transform: none; padding: 20%; text-align: center; color: red;"><strong>No puedes editar o eliminar esta reseña porque no eres el creador</strong></h2>
+		</main>
+		<!-- FOOTER -->
+		<%- include('./partials/footer') %>
+	</body>
+</html>
