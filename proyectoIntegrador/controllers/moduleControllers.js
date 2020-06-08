@@ -1,6 +1,7 @@
 let db = require('../database/models');
 let sequelize = db.sequelize;
 let modulo = require('../modulo-login');
+let bycrypt = require('bcryptjs');
 
 
 let moduleControllers = {
@@ -23,6 +24,30 @@ let moduleControllers = {
 	},
 	save: function (req, res) {
 		
+
+		function validarformulario(formulario) {
+			let errores = [];
+		
+			
+				errores.push('La contraseña es incorrecta');
+			
+			return errores;
+		}
+
+
+
+		let formulario = {
+			fullname: req.body.fullname,
+			username: req.body.username,
+			email: req.body.email,
+			password: bycrypt.hashSync(req.body.password, 10),
+			genero_id: req.body.genero_id
+		};
+	
+		let errores = validarformulario(formulario);
+
+
+
 		modulo
 			.validar(req.body.email, req.body.password) //valida lo que el usuario completa en el form
 			.then((resultado) => {
