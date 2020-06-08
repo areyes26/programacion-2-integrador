@@ -26,7 +26,7 @@ CREATE TABLE `resenas` (
   `resena_id` int NOT NULL AUTO_INCREMENT,
   `description` text,
   `user_id` int DEFAULT NULL,
-  `title` varchar(16) DEFAULT NULL,
+  `title` text,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modifyAt` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `movie_id` int NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `resenas` (
   PRIMARY KEY (`resena_id`),
   KEY `fk_uder` (`user_id`),
   CONSTRAINT `fk_uder` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,4 +86,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-07 21:46:52
+-- Dump completed on 2020-06-07 23:08:57

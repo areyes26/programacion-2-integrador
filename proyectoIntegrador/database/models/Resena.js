@@ -5,8 +5,9 @@ module.exports = (sequelize, dataTypes) => {
 			primaryKey: true,
 			autoIncrement: true
 		},
+		//? Antes el title era un VARCHAR(16) como estaba limitado a esta cantidad de palabras fue modificado para que sea un texto
 		title: {
-			type: dataTypes.STRING
+			type: dataTypes.TEXT
 		},
 		description: {
 			type: dataTypes.TEXT
