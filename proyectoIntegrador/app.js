@@ -6,6 +6,9 @@ var logger = require('morgan');
 var session = require('express-session');
 //Este es para inicio de sesion
 
+//TODO el require te dice que va devolver un objeto literal por lo que es importante guardarlo dentro de una variable para poder acceder a sus propiedades y funcionalidades.
+//? Existen tres modulos: nativos, de terceros y creados por uno. El ultimo, se debe exportar mediante un objeto nativo llamdao 'modulo' y su propiedad 'exports'
+
 //! Esto es para la cookie
 var recordameMiddleware = require('./middlewares/recordameMiddleware');
 
@@ -14,18 +17,22 @@ var usersRouter = require('./routes/users');
 const info_serie_router = require('./routes/info_serie');
 const generos_router = require('./routes/generos');
 const avanzado_router = require('./routes/avanzado');
-const favoritos_router = require('./routes/favoritos');
+//const favoritos_router = require('./routes/favoritos'); Esta vista no existe o fue eliminada
 const resultados_router = require('./routes/resultados');
 const series_xgenero_router = require('./routes/series_xgenero');
 const resenias_router = require('./routes/resenias');
 const reseniasXuser_router = require('./routes/reseniasXuser');
 
-var app = express();
+//Esto esta importando el objeto router situado en esas direcciones
 
+var app = express();
+//! Express es un framework que optimiza y facilita el desarrollo de apps web en Node Js
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+//! Al utilizar los objetos estaticos no hace falta completar toda la ruta se pone solo: /stylesheets...
 app.set('view engine', 'ejs');
-
+// Nuestro entorno de trabajo, nuestro motor de plantillas se llama ejs. Permite generar estructuras dinamicas y reutilizar el codigo
+// Los motores de vistasz definen bloques de codigos que se pueden rellenar con datos variables
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -63,6 +70,8 @@ app.use(recordameMiddleware);
 //? Se cruza con toda la aplicacion el recordame
 
 //?Comienza el sistema de Ruteo
+//! El app.use posee dos parametros, el primero es la solicitud del recurso y el segundo establece que sera atendida por el modulo -----Router y su logica detras
+//TODO Un modulo es un bloque de codigo reutilizable, unidad de funcionalidad.
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/info_serie', info_serie_router);

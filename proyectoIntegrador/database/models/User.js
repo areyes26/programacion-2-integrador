@@ -33,8 +33,8 @@ module.exports = (sequelize, dataTypes) => {
 	};
 	const User = sequelize.define('User', cols, config);
 	User.associate = function (modelos) {
-		User.belongsTo(modelos.Resena, {
-			as: 'usuarios',
+		User.hasMany(modelos.Resena, {
+			as: 'resenas',
 			foreignKey: 'user_id'
 		});
 	};

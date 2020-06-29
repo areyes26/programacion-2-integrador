@@ -31,6 +31,7 @@ let moduloLogin = {
 			console.log(email);
 			console.log('---------------');
 			console.log(results);
+			//aca compara los datos que puse en la contra con la contra de la base de datos
 			if (results && bcryptjs.compareSync(password, results.password)) {
 				return results;
 			} else {

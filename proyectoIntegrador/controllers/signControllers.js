@@ -5,6 +5,9 @@ let bycrypt = require('bcryptjs');
 //Nose porque no funciona esto!!!!!
 let modulo = require('../modulo-login');
 
+//! El controller es un bloque de codigo, que permite la vinculacion entre el modelo y la vista dentro del modelo MVC. Se encarga de que el pedido hecho por
+//! el cliente se procese y se conecte con el moodelo. Es donde se guarda toda la logica de la aplicacion
+
 let signControllers = {
 	signup: function (req, res) {
 		res.render('partials/head');
@@ -19,13 +22,15 @@ let signControllers = {
 		}
 
 		let formulario = {
-			passwordlogin: req.body.passwordlogin,
+			passwordlogin: req.body.passwordlogin
 		};
 
 		let errores = validarformulario(formulario);
 
 		modulo
 			.validar(req.body.emaillogin, req.body.passwordlogin) //valida lo que el usuario completa en el form
+			//TODO Aca se puede observar una promesa, un funcion que se puede ejecutar codigo de manera asincronica de manera eficiente
+			//El .then me va a retornar o no un resultado
 			.then((resultado) => {
 				console.log(resultado); //me muestra los datos de la bd del usuario
 				if (resultado != null) {
@@ -41,12 +46,13 @@ let signControllers = {
 							maxAge: 300000
 							//! Esto se guarda por 5 minutos
 						});
-					} 
+					}
 					res.redirect('/login');
 				} else {
 					//? Aca lo que hace es imprimir los errores de arriba y se lo adjudica a erroresLogin que se cruza con toda la aplicacion
 					req.session.erroreslogin = errores;
 					res.redirect('back');
+					//se reenvia al lugar donde estaba
 				}
 			});
 	},
@@ -56,6 +62,7 @@ let signControllers = {
 				console.log(resultado); //me muestra los datos de la bd del usuario
 				if (resultado != null && resultado.user_id != 28) {
 					//! Si existe el usuario, utilizo el sequelize porque me siento mas comodo con el lenguaje
+					//? Esto es un raw query, con sequelize puedo manipular la base de datis mediante consultas sql
 					sequelize.query('SELECT*FROM resenas where user_id =' + resultado.user_id).then(function (resultados) {
 						let todo = resultados[0];
 						console.log(todo);
@@ -64,6 +71,8 @@ let signControllers = {
 					});
 				} else if (resultado.user_id == 28) {
 					sequelize.query('SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id').then(function (resultados) {
+						//Esto se podria hacer mediante db.Resena.findAll({ include: [{asocciation: "usuarios"}]})
+						// La funcion find... permite buscar info en la base de datos
 						let todo = resultados[0];
 						console.log(todo);
 						res.render('reseniasAdmin', { todo: todo });
@@ -81,6 +90,7 @@ let signControllers = {
 		req.session.destroy();
 		res.redirect('/');
 	},
+	//Borrar es la funcion get
 	borrar: function (req, res) {
 		if (req.session.usuarioLogeado) {
 			modulo
@@ -184,3 +194,5 @@ let signControllers = {
 	}
 };
 module.exports = signControllers;
+// Exporta el objeto literal signControllers para que pueda ser utilizado en la ruta index.js
+// Manejan los handlers de las rutas, exporta los modulos de un script.

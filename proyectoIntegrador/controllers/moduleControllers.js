@@ -6,7 +6,7 @@ let bycrypt = require('bcryptjs');
 let moduleControllers = {
 	lista: function (req, res) {
 		//TODO esta funcion permite ponerle las resenas adecuadas para cada serie
-		// El req.query.id captura los parametros del url despues del ? del URL
+		// El req.query.id captura los parametros del url despues del ? del URL, captura el querystring (cadena de texto que viaja en la url)
 		//? Mientras que el req.params contiene parametros que proviene de las rutas (:movie_id)
 		sequelize.query('SELECT*FROM resenas JOIN users ON users.user_id = resenas.user_id where movie_id =' + req.query.id).then(function (resultados) {
 			let todo = resultados[0];
@@ -32,9 +32,7 @@ let moduleControllers = {
 		//? Este formulario aparece en la creacion de la resena
 
 		let formulario = {
-			
-			password: bycrypt.hashSync(req.body.password, 10),
-			
+			password: bycrypt.hashSync(req.body.password, 10)
 		};
 
 		//ESTO ES UNA VARIABLE QUE VA A CORRER LA FUNCION validarformulario Y LE VA A PONER EL FORMULARIO CAPTURADO COMO PARAMETRO
